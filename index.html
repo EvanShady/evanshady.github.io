@@ -286,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/c-lei-md/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/Class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -306,7 +306,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/05/24/c-lei-md/" class="post-title-link" itemprop="url">c++lei.md</a>
+                <a href="/2019/05/31/Class/" class="post-title-link" itemprop="url">Class</a>
               
             
           </h1>
@@ -331,24 +331,12 @@
                 
               
 
-              <time title="Created: 2019-05-24 10:13:19" itemprop="dateCreated datePublished" datetime="2019-05-24T10:13:19+08:00">2019-05-24</time>
+              <time title="Created: 2019-05-31 21:51:02 / Modified: 21:53:37" itemprop="dateCreated datePublished" datetime="2019-05-31T21:51:02+08:00">2019-05-31</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-27 12:07:40" itemprop="dateModified" datetime="2019-05-27T12:07:40+08:00">2019-05-27</time>
               
             
           </span>
@@ -384,72 +372,8 @@
       
         
           
-            <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><h2 id="类的运算符重载"><a href="#类的运算符重载" class="headerlink" title="类的运算符重载"></a>类的运算符重载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int a=10;</span><br><span class="line">    </span><br><span class="line">int b=10;</span><br><span class="line"></span><br><span class="line">cout&lt;&lt;a+b&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>我们都知道这样相加是可以在编译器中运行的，但要是两个类性相加呢？比如用类中的两个对象相加呢？<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Goodgay&#123;</span><br><span class="line">    public</span><br><span class="line">    int a,b;</span><br><span class="line">    Goodgay()&#123;</span><br><span class="line">        this-&gt;a=10;</span><br><span class="line">        this-&gt;b=10;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="/2019/05/24/c-lei-md/c-lei/Loperator1.png" alt></p>
-<ul>
-<li><p>对于这样的情况就要用到运算符重载，你现在是运行不成功的，不信就跑一便，不管什么事都要亲自试一遍，人生更是如此！！！其实这段代码的最后一段就相当于调用了类中的成员函数。</p>
-</li>
-<li><p>运算符重载分两种情况：</p>
-</li>
-</ul>
-<hr>
-<ol>
-<li>在本类中声明成员函数来实现：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Goodgay&#123;</span><br><span class="line">    public:</span><br><span class="line">       Goodgay operator+(Goodgay &amp;good)&#123;//返回一个Goodgay类型的值</span><br><span class="line">       Goodgay temp;//声明一个Goodgay类型的temp变量，比如，int a;int就是类型，a就是变量；</span><br><span class="line">       temp.a=this-&gt;a+good.a;</span><br><span class="line">       temp.b=this-&gt;b+good.b;</span><br><span class="line">       return temp;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li>这样你再运行就完事了。</li>
-</ul>
-<ol start="2">
-<li><p>就是在全局函数实现的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Goodgay operator+(Goodgay &amp;good1,Goodgay &amp;good2)&#123;</span><br><span class="line">    Goodgay temp;</span><br><span class="line">    temp.a=good1.a+good2.a;</span><br><span class="line">    temp.b=good1.b+good2.b;</span><br><span class="line">    return temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>其实我知道我写的不是很好，但谁都是从不会到会的，不管是哪一件小事，总有一个从垃圾到大神的一个漫长过程，或许呢，对吧，其它的那些就靠你自己脑补了，人生没到低谷我们都是靠脑补走出来的，可以在某段时间里怕一件事，但这个怕不是真的怕，只是自己心里还没适应过来，此时心态是很重要的，好的心态是往前看的，我们在生活中。就不要说的那么远了，哪怕是喝水，我们都难免是呛到，何必太在意细节呢，对吧。心态好，事就成一半了。在难受的时候就适当放松，过后有事一头打不死的牛，世上的人都是这么过来，哪有什么一帆风顺，我之认，风雨过后，总会遇见彩虹，那时你就离看见凌晨两点钟的太阳不远了！！！<br>剧情大转变，接着上面的。我要是在main里面单独打印good3那是什么操作？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">    Goodgay good1;</span><br><span class="line">    Goodgay good2;</span><br><span class="line">    Goodgay good3=good1+good2;</span><br><span class="line">    cout&lt;&lt;good3&lt;&lt;endl;//这里就是调用了下面的全局运算符重载函数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>还是用运算符重载。这个跟前面的不一样，就是单独打印所以要使用cout作为参数，而且这里最好是用全局函数来写。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//返回值是cout,所以它的函数返回值类型是ostream&amp;(引用)，而参数也是一样的，类型加引用</span><br><span class="line">ostream &amp; operator&lt;&lt;(ostream &amp;cout,Goodgay &amp;good)&#123;</span><br><span class="line">    cout&lt;&lt;good.a&lt;&lt;good,b;</span><br><span class="line">    return cout;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>结果如下：</li>
-</ul>
-<p><img src="/2019/05/24/c-lei-md/c-lei/Loperator2.png" alt="运算结果"></p>
-<ul>
-<li>这些在本质上是和上面的例子一样的。本故事纯属个人。如有雷同，纯属巧合。</li>
-</ul>
-<hr>
-<h3 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h3><ul>
-<li>分为是三种：公有继承，保护继承，私有继承。这三种继承都不能继承父类的私有成员！！！</li>
-</ul>
-<ol>
-<li>公有继承：在父类中是怎样的关系在子类中也是一样的关系（关系：公共对象，保护对象，私有对象），但值得注意的是，父类的私有成员不管是在哪种子类都不能访问！</li>
-<li>保护继承：不管在父类中是怎样的关系，在保护继承的子类都是保护对象，在类的外部是不能被访问的！一样的，父类的私有对象是不能在本类中访问到的！</li>
-<li>私有继承：不管在父类中是怎样的关系，在私有继承的子类中都成为都是私有对象，在外部一样不可以访问！一样父类的私有成员对象是不能在本类中访问！！！</li>
-</ol>
-<p><img src="/2019/05/24/c-lei-md/c-lei/Ljicheng.png" alt="继承的关系"></p>
-<h2 id="值得注意的是：父类的私有成员在子类虽然是访问不到的，但却被子类继承下来了。也就是说，在父类的私有成员是被编译器隐藏起来了，只是不能在子类中被访问，仅此而已"><a href="#值得注意的是：父类的私有成员在子类虽然是访问不到的，但却被子类继承下来了。也就是说，在父类的私有成员是被编译器隐藏起来了，只是不能在子类中被访问，仅此而已" class="headerlink" title="值得注意的是：父类的私有成员在子类虽然是访问不到的，但却被子类继承下来了。也就是说，在父类的私有成员是被编译器隐藏起来了，只是不能在子类中被访问，仅此而已!"></a><strong><em>值得注意的是：父类的私有成员在子类虽然是访问不到的，但却被子类继承下来了。也就是说，在父类的私有成员是被编译器隐藏起来了，只是不能在子类中被访问，仅此而已!</em></strong></h2><h4 id="父类与子类的构造以及析构的调用："><a href="#父类与子类的构造以及析构的调用：" class="headerlink" title="父类与子类的构造以及析构的调用："></a>父类与子类的构造以及析构的调用：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Base&#123;</span><br><span class="line">    public:</span><br><span class="line">          Base()&#123;</span><br><span class="line">              cout&lt;&lt;&quot;父类的构造函数&quot;&lt;&lt;endl;</span><br><span class="line">          &#125;</span><br><span class="line">          ~Base()&#123;</span><br><span class="line">              cout&lt;&lt;&quot;父类的析构函数&quot;&lt;&lt;endl;</span><br><span class="line">          &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Son:public Bos&#123;</span><br><span class="line">    public:</span><br><span class="line">        Son()&#123;</span><br><span class="line">            cout&lt;&lt;&quot;子类的构造函数&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">        ~Son()&#123;</span><br><span class="line">            cout&lt;&lt;&quot;子类的析构函数&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    Son son;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/05/24/c-lei-md/c-lei/Ljicheng2.png" alt="运行结果"></p>
-<p><strong><em>先是有的父类的构造函数，然后再有的子类的构造和析构函数，最后再释父类的成员</em></strong></p>
-<h5 id="父类与子类同名的成员对象和成员函数的调用："><a href="#父类与子类同名的成员对象和成员函数的调用：" class="headerlink" title="父类与子类同名的成员对象和成员函数的调用："></a>父类与子类同名的成员对象和成员函数的调用：</h5><ul>
-<li>要想访问父类中与子类同名对象，要加父类的作用域，而子类的直接.就行了。</li>
-</ul>
-<p><img src="/2019/05/24/c-lei-md/c-lei/Ljicheng3.png" alt></p>
-<hr>
-<p><img src="/2019/05/24/c-lei-md/c-lei/Ljicheng4.png" alt></p>
-<ol>
-<li>当子类有父类的同名函数，子类会把父类的同名函数隐藏起来，要加父类的作用域才能访问!</li>
-<li>当父类和子类有着同名的对象是，访问对象就只能加上作用域才可以访问。</li>
-</ol>
-<hr>
-<p><strong><em>矩形继承:感觉像是一个基类，有多个子类，然后统一为一个杂交类，但最后的那个杂交类把两个子类的对象继承下来，就是说杂交类多了一份继承的数据，这样的话只能把基类设为静态属性，这样杂交类就不会有两份同样的数据了。因为关键字</em></strong></p>
-<ul>
-<li>接下来随心说:类的继承是有挺多的表达方式的，我觉得吧，要是我们男的有像它一样就不会那么自闭了，最起码对于小姐姐是不会一愣一愣的，多少会有那么一点点的对待方法，但要是放大点说，其实也就那么几个，继承的方式你要明白，感觉继承是很严厉的，它从一开始就要你很明确的想法，感觉那个人的思维很厉害，知道每一步的走几步和走向哪里，但对于我们来说，往往是相反的。这就是人家的厉害之处，这些是不能模仿的，只能是我们在生活中自己体验出来的，但有的人是走不下去的，其实对于我来说，心里没什么想法的时候，那个时候或许就是我执着于一件事的时候。继承方式决定了你以后的子类方式，公有，私有，保护。其中各有各的不同，还有的就是继承的复杂，什么对象的重名，给对象名称的时候不要那么马虎其实这些都不是问题，实在不行就加作用域。</li>
-</ul>
-<h2 id="水花只能开在雨天"><a href="#水花只能开在雨天" class="headerlink" title="水花只能开在雨天"></a><strong><em>水花只能开在雨天</em></strong></h2>
+            <p><img src="/2019/05/31/Class/Lpur2.png" alt="Lpur2"></p>
+
           
         
       
@@ -505,7 +429,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/c-lei/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/test2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -525,7 +449,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/05/24/c-lei/" class="post-title-link" itemprop="url">c++lei.md</a>
+                <a href="/2019/05/31/test2/" class="post-title-link" itemprop="url">test2</a>
               
             
           </h1>
@@ -550,7 +474,150 @@
                 
               
 
-              <time title="Created: 2019-05-24 10:13:19" itemprop="dateCreated datePublished" datetime="2019-05-24T10:13:19+08:00">2019-05-24</time>
+              <time title="Created: 2019-05-31 21:44:22 / Modified: 21:46:55" itemprop="dateCreated datePublished" datetime="2019-05-31T21:44:22+08:00">2019-05-31</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="/2019/05/31/test2/desktop.jpg" alt="test"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/test-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/31/test-1/" class="post-title-link" itemprop="url">test</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-31 21:43:15" itemprop="dateCreated datePublished" datetime="2019-05-31T21:43:15+08:00">2019-05-31</time>
             
 
             
@@ -588,6 +655,183 @@
         
           
             
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/file/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/31/file/" class="post-title-link" itemprop="url">file</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-31 13:57:01" itemprop="dateCreated datePublished" datetime="2019-05-31T13:57:01+08:00">2019-05-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-06-02 15:52:40" itemprop="dateModified" datetime="2019-06-02T15:52:40+08:00">2019-06-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><blockquote>
+<p>文件有两种类型：</p>
+<ul>
+<li>文本文件–以ASCLL码形式存储在计算机中。</li>
+<li>二进制文件–以二进制写进计算机。<blockquote>
+<p>分为三种类型：1.写文件（ofstream）,2.读文件（ifstream）3.（fstream）。</p>
+</blockquote>
+</li>
+<li>写入文件分为5大部分：</li>
+</ul>
+<ol>
+<li>先把写文件的头文件包含进去。</li>
+<li>然后确定你要写的文件的类型</li>
+<li>之后确定文件的名字和打开的方式</li>
+<li>把内容写进去</li>
+<li>关闭文件<br><img src="/2019/05/31/file/file.png" alt="打开方式"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;fstream&gt;//引入写文件的头文件</span><br><span class="line">using namespace std;</span><br><span class="line">void test()&#123;</span><br><span class="line">    ofstream ofs;// 文件的类型 写入文件</span><br><span class="line">    ofs.open(&quot;test.txt&quot;,ios::out);文件名和打开的方式</span><br><span class="line">    ofs&lt;&lt;&quot;你好！&quot;&lt;&lt;endl;把你要写进文件的内容写进去</span><br><span class="line">    ofs.close(); 关闭文件</span><br><span class="line">&#125;</span><br><span class="line">void test1()&#123;</span><br><span class="line">    ifstream ifs;//文件类型，读文件</span><br><span class="line">    ifs.open(&quot;test.txt&quot;,ios::in);//打开的文件名和打开方式</span><br><span class="line">    if(!ifs.is_open())&#123;//判断打开文件</span><br><span class="line">        cout&lt;&lt;&quot;文件打开失败&quot;&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    string buf;</span><br><span class="line">    while(getline(ifs,buf))&#123;//以一行的形式写入编译器并输出</span><br><span class="line">        cout&lt;&lt;buf&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ifs.close();关闭文件</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    test();//调用test函数</span><br><span class="line">    test1();//调用函数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h2 id="对于写的内容追加到文件中的命令是如下："><a href="#对于写的内容追加到文件中的命令是如下：" class="headerlink" title="对于写的内容追加到文件中的命令是如下："></a>对于写的内容追加到文件中的命令是如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">using namestape std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    ofstream ofs;//声明文件的形式</span><br><span class="line">    ofs.open(&quot;test&quot;,ios::app);//打开的方式</span><br><span class="line">    ofs&lt;&lt;&quot;你好&quot;&lt;&lt;endl;//写进的内容</span><br><span class="line">    ofs.close();//关闭文件</span><br><span class="line">    ifstream ifs;//声明文件的形式</span><br><span class="line">    ifs.open(&quot;test&quot;,ios::in);//打开的方式</span><br><span class="line">    if(!ifs.isopen())&#123;//判断文件的打开是否成功</span><br><span class="line">        cout&lt;&lt;&quot;文件打开失败&quot;&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ifs.close();//关闭文件</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在这里运行几次之后的结果会和第一次的不一样，因为在这里是以追加的形式向文件中写入你的内容。<br><img src="/2019/05/31/file/file1.png" alt="运行结果"></li>
+</ul>
+
           
         
       
@@ -1147,144 +1391,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/picture/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/10/picture/" class="post-title-link" itemprop="url">picture</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-05-10 09:40:59" itemprop="dateCreated datePublished" datetime="2019-05-10T09:40:59+08:00">2019-05-10</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/小萝莉/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1500,7 +1606,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1508,6 +1614,19 @@
 
               
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
               
             </nav>
           
