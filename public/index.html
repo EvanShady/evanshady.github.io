@@ -2,23 +2,14 @@
 
 
 
-
-
-
-
-
-
-
-
-
   
 
 
-<html class="theme-next gemini use-motion" lang>
+<html class="theme-next pisces use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -29,6 +20,8 @@
 
 
 
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -44,21 +37,10 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
 
-<link rel="stylesheet" href="/css/main.css?v=7.1.1">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -66,20 +48,61 @@
 
 
 
-<script id="hexo.configurations">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
-    version: '7.1.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -91,34 +114,12 @@
 </script>
 
 
-  
 
-
-
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-
-
-
-
-
-  
-  
   <link rel="canonical" href="http://yoursite.com/">
 
 
 
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
+
 
   <title>Hexo</title>
   
@@ -129,35 +130,6 @@
 
 
 
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
 
 </head>
 
@@ -174,7 +146,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
+  <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
@@ -184,12 +156,13 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
+      
+        <p class="site-subtitle"></p>
+      
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -197,52 +170,35 @@
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home menu-item-active">
-
-    
-    
-    
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
       
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
-
-  </li>
         
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
       
-    
 
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
-
-  </li>
-
-      
       
     </ul>
-  
-
   
 
   
@@ -250,23 +206,12 @@
 
 
 
-  
-
-
-
-</div>
+ </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
-          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -279,6 +224,562 @@
   
   
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/11/JustATest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/11/JustATest/" itemprop="url">JustATest</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-11T15:50:56+08:00">
+                2019-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="JustATest"><a href="#JustATest" class="headerlink" title="JustATest"></a>JustATest</h1><p>前言，xxxxxxxxxxxxxx</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/11/JustATest/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/11/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/11/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-11T15:49:55+08:00">
+                2019-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n + 文件名 1. 在本地建立文件</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s          2. 推送到本地库</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g          3. 在本地生成</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d          4. 推送到远程库</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/Code/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/05/Code/" itemprop="url">Code</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-05T13:17:32+08:00">
+                2019-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Notes-c"><a href="#Notes-c" class="headerlink" title="Notes c++"></a>Notes c++</h1><ol>
+<li>二进制</li>
+</ol>
+<ul>
+<li>这里说的是调用一个c++函数来实现的。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#inciude &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">     bitset&lt;32&gt;a(100)     //值得注意的是这里的32是数据类型转换bit来定义的。</span><br><span class="line">     cout&lt;&lt;a&lt;&lt;endl;  //输出是以二进制的形式来输出的，也就是说，把数字转换成了二进制</span><br><span class="line">     cout&lt;&lt;sizeof(int)&lt;&lt;endl;     //配上这个来使用比较明白</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/06/05/Code/Code1.png" alt="转换二进制"></p>
+<ul>
+<li>其实你也可以在上面的基础下把数据类型给换了，这样你也可以看你想要转换的二进制。</li>
+<li>IDE (集成开发坏境)</li>
+<li>数据类型字节（本人电脑）<br><strong>int:4,float:4,long:4,double:8,char:1,bool:1,string:32,long double:16</strong><br><strong>wchar_c:4,</strong></li>
+</ul>
+<hr>
+<ol start="2">
+<li>操作符:一元操作符，二元操作符，三元操作符。</li>
+</ol>
+<ul>
+<li>一元操作符:操作在一个数的操作符。（++,–,&amp;,*）</li>
+<li>二元操作符:操作在两个数上的操作符。（+,-，*,/,%,）</li>
+<li>三元操作符:操作在三个数上的操作符。(条件操作符，?:)等</li>
+</ul>
+<hr>
+<ol start="3">
+<li>逻辑操作符(&amp;&amp;,||,!)</li>
+</ol>
+<ul>
+<li>&amp;&amp;(逻辑与):只要一个为0就为0，相反的两个为1才为1。</li>
+<li>||(逻辑或):只要一个为1就为1，相反的两个为0才为0。</li>
+<li>!(逻辑非):自己脑补。</li>
+<li><strong>位操作符(&amp;,|,^,~,&lt;&lt;,&gt;&gt;)</strong></li>
+<li><strong>&amp;:位与。|:位或。 ^:异或。 ~:取补。 &lt;&lt;:左移。 &gt;&gt;:右移。</strong></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/Noteslinux1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/04/Noteslinux1/" itemprop="url">Noteslinux1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-04T13:57:38+08:00">
+                2019-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="linux操作系统"><a href="#linux操作系统" class="headerlink" title="linux操作系统"></a>linux操作系统</h1><blockquote>
+<p>操作系统:是一种软件，用来帮助其它的程序控制计算机硬件并和用户进行交互。</p>
+<ol>
+<li>应用程序也是一种软件，用来向计算机的用户提供某种服务，而不仅仅是控制计算机的硬件。</li>
+<li>操作系统的共同之处:</li>
+</ol>
+<ul>
+<li>引导计算机硬件，以便操作系统和其它软件程序可以正常工作。</li>
+<li>为使用操作系统的程序分配系统资源，如内存处理时间。</li>
+<li>跟踪同时运行的多个程序。</li>
+<li>为所有使用系统设备的程序提供规范的访问借口。</li>
+</ul>
+<ol start="3">
+<li>操作系统中主要的部分:</li>
+</ol>
+<ul>
+<li>内核:操作系统的核心，用来在多个应用程序之间分配计算机资源。</li>
+<li>设备的驱动程序:是一个允许内核访问硬件设备(如键盘，鼠标，硬盘，扫描器或显卡)的软件</li>
+<li>shell:是一个可以通过用户输入的命令计算机进行处理的软件。</li>
+<li>工具软件:管理软件和操作系统特性的软件。</li>
+<li>图形用户界面:是一种软件，它是基于在鼠标这个接口之上的，用户可以通过这个接口在图形化应用程序可以使用菜单，* 按钮以及层叠窗口来进行操作。 </li>
+<li>完整的linux的系统:</li>
+</ul>
+<ol>
+<li>允许linux和外设一起工作的硬件驱动程序。</li>
+<li>图形化桌面坏境和管理操作系统的图形界面工具</li>
+<li>应用程序</li>
+<li>方便用户在计算机上安装所有linux文件的程序</li>
+<li>用于监视和配置系统功能的网络和系统管理工具。</li>
+</ol>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -305,20 +806,11 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/06/03/tar/" class="post-title-link" itemprop="url">tar</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/06/03/tar/" itemprop="url">tar</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -326,25 +818,19 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Created: 2019-06-03 17:55:22 / Modified: 21:44:06" itemprop="dateCreated datePublished" datetime="2019-06-03T17:55:22+08:00">2019-06-03</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-03T17:55:22+08:00">
+                2019-06-03
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -411,18 +897,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -453,175 +933,6 @@
 
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/03/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-03 17:27:24" itemprop="dateCreated datePublished" datetime="2019-06-03T17:27:24+08:00">2019-06-03</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-21 18:06:44" itemprop="dateModified" datetime="2019-05-21T18:06:44+08:00">2019-05-21</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n + 文件名 1. 在本地建立文件</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s          2. 推送到本地库</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g          3. 在本地生成</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d          4. 推送到远程库</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -648,20 +959,11 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/31/Class/" class="post-title-link" itemprop="url">Class</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/31/Class/" itemprop="url">Class</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -669,25 +971,19 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Created: 2019-05-31 21:51:02 / Modified: 21:53:37" itemprop="dateCreated datePublished" datetime="2019-05-31T21:51:02+08:00">2019-05-31</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-31T21:51:02+08:00">
+                2019-05-31
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -721,18 +1017,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -765,8 +1055,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -791,20 +1079,11 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/31/test2/" class="post-title-link" itemprop="url">test2</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/31/test2/" itemprop="url">test2</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -812,25 +1091,19 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Created: 2019-05-31 21:44:22 / Modified: 21:46:55" itemprop="dateCreated datePublished" datetime="2019-05-31T21:44:22+08:00">2019-05-31</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-31T21:44:22+08:00">
+                2019-05-31
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -864,18 +1137,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -908,8 +1175,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -934,20 +1199,11 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/31/test-1/" class="post-title-link" itemprop="url">test</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/31/test-1/" itemprop="url">test</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -955,12 +1211,11 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-31T21:43:15+08:00">
+                2019-05-31
+              </time>
+            
 
-              
-                
-              
-
-              <time title="Created: 2019-05-31 21:43:15" itemprop="dateCreated datePublished" datetime="2019-05-31T21:43:15+08:00">2019-05-31</time>
             
 
             
@@ -969,7 +1224,6 @@
           
 
           
-            
             
           
 
@@ -1002,18 +1256,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -1046,8 +1294,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1072,20 +1318,11 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/31/file/" class="post-title-link" itemprop="url">file</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/31/file/" itemprop="url">file</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1093,37 +1330,19 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Created: 2019-05-31 13:57:01" itemprop="dateCreated datePublished" datetime="2019-05-31T13:57:01+08:00">2019-05-31</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-31T13:57:01+08:00">
+                2019-05-31
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-02 15:52:40" itemprop="dateModified" datetime="2019-06-02T15:52:40+08:00">2019-06-02</time>
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1179,18 +1398,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
     
 
     
@@ -1223,8 +1436,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1249,20 +1460,11 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/05/21/c-Notes/" class="post-title-link" itemprop="url">c++Notes</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/05/21/c-Notes/" itemprop="url">c++Notes</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1270,25 +1472,19 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-
-              
-                
-              
-
-              <time title="Created: 2019-05-21 15:13:50 / Modified: 17:59:29" itemprop="dateCreated datePublished" datetime="2019-05-21T15:13:50+08:00">2019-05-21</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-21T15:13:50+08:00">
+                2019-05-21
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1356,382 +1552,12 @@
         
       
     </div>
-
-    
-
     
     
     
 
     
 
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/19/test/" class="post-title-link" itemprop="url">test</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-05-19 22:37:18" itemprop="dateCreated datePublished" datetime="2019-05-19T22:37:18+08:00">2019-05-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-20 12:59:05" itemprop="dateModified" datetime="2019-05-20T12:59:05+08:00">2019-05-20</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="小新"><a href="#小新" class="headerlink" title="小新"></a>小新</h1><p><img src="/2019/05/19/test/a.jpg" alt="小新"></p>
-<h1 id="one"><a href="#one" class="headerlink" title="one"></a>one</h1><p><strong>我现在有点想睡觉，但也是说给自己看看的，随便也就说说心里话。我刚开始是有点词穷的。但我也不慌，因为我刚刚听到了一首歌的歌词很不错，我刚刚也是想写下来的，但一下子想不起来，这可能是瞬时的记忆，导致我记不起来更细致的记忆，没有梦想何必远方。这是刚刚有出来的歌词，我感觉自己运气还是不错的。因为我最后还是记起来了，有点小开心。</strong></p>
-<hr>
-<h1 id="two"><a href="#two" class="headerlink" title="two"></a>two</h1><p>我手会出汗，这让我平时有点很不开心，也不能说很吧，但就是自闭，我也不，知道怎么才能不出汗，据说要做个小手术，要割弃汗腺。我怕啊。我的身体还是刚从我妈身体刚出来的时候，<del>只是某些地方随着时间的流逝而变大</del>这个我也不想的，因为太大了，这在我日常生活中有点不好。很真实，幸好我是靠着墙的，对于我说了那么多，也就只有我一个人看得见，不然我也不会写这些让小姐姐脸红的文字。这个我说的有点肯定了，小姐姐看到了也不一定会脸红，因为现在的小姐姐都是见过大世面的人物，我在她们眼里也就只是小垃圾。</p>
-<hr>
-<h1 id="three"><a href="#three" class="headerlink" title="three"></a>three</h1><blockquote>
-<p>此时此刻我只想吟诗一首</p>
-<blockquote>
-<p>我随口一说就是古诗</p>
-<blockquote>
-<p>当时的李白心里想的肯定是这样的</p>
-<blockquote>
-<p>我是最厉害的，喝酒第一，造人第二，造诗第三。</p>
-<blockquote>
-<p>但他万万没想到最后自己最不想做的事情的反而实现了。并让后人传颂至今。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<hr>
-<h1 id="four"><a href="#four" class="headerlink" title="four"></a>four</h1><h2 id="总而言之，言而总之。我现在的精神也没刚刚开始那么懒散，脑子一动，精神就会慢慢起来，就好比此时，我心里是受伤的，但我相信未来的不久我又是自信满满的少年。"><a href="#总而言之，言而总之。我现在的精神也没刚刚开始那么懒散，脑子一动，精神就会慢慢起来，就好比此时，我心里是受伤的，但我相信未来的不久我又是自信满满的少年。" class="headerlink" title="总而言之，言而总之。我现在的精神也没刚刚开始那么懒散，脑子一动，精神就会慢慢起来，就好比此时，我心里是受伤的，但我相信未来的不久我又是自信满满的少年。"></a><strong>总而言之，言而总之。我现在的精神也没刚刚开始那么懒散，脑子一动，精神就会慢慢起来，就好比此时，我心里是受伤的，但我相信未来的不久我又是自信满满的少年。</strong></h2><hr>
-<h2 id="本故事纯属虚构，要想逼逼，随时见证，"><a href="#本故事纯属虚构，要想逼逼，随时见证，" class="headerlink" title="本故事纯属虚构，要想逼逼，随时见证，"></a><strong>本故事纯属虚构，要想逼逼，随时见证，</strong></h2>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/小萝莉/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/06/小萝莉/" class="post-title-link" itemprop="url">小萝莉</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-05-06 22:22:11" itemprop="dateCreated datePublished" datetime="2019-05-06T22:22:11+08:00">2019-05-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-21 10:55:51" itemprop="dateModified" datetime="2019-05-21T10:55:51+08:00">2019-05-21</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="小萝莉"><a href="#小萝莉" class="headerlink" title="小萝莉"></a>小萝莉</h1><h2 id="这是一个没有剧本的故事，所以接下来会发生什么，本人也不敢保证，最好小孩要在大人的陪同下阅读的，看什么看，说的就是你，整个一傻逼，有事没事进来看什么东西，说到底，我写的这些就是来满足你们这些小傻逼的，整天无所事事，也不知道给老子找个小萝莉。"><a href="#这是一个没有剧本的故事，所以接下来会发生什么，本人也不敢保证，最好小孩要在大人的陪同下阅读的，看什么看，说的就是你，整个一傻逼，有事没事进来看什么东西，说到底，我写的这些就是来满足你们这些小傻逼的，整天无所事事，也不知道给老子找个小萝莉。" class="headerlink" title="这是一个没有剧本的故事，所以接下来会发生什么，本人也不敢保证，最好小孩要在大人的陪同下阅读的，看什么看，说的就是你，整个一傻逼，有事没事进来看什么东西，说到底，我写的这些就是来满足你们这些小傻逼的，整天无所事事，也不知道给老子找个小萝莉。"></a><strong>这是一个没有剧本的故事，所以接下来会发生什么，本人也不敢保证，最好小孩要在大人的陪同下阅读的，看什么看，说的就是你，整个一傻逼，有事没事进来看什么东西，说到底，我写的这些就是来满足你们这些小傻逼的，整天无所事事，也不知道给老子找个小萝莉。</strong></h2><blockquote>
-<p>虚构一：</p>
-<blockquote>
-<p>我要是现在说我爱你，你觉得会不会快了一点，还是要慢慢来培养感情？</p>
-<blockquote>
-<p>你只能说好，因为这是我的世界，你们是没有写的权利，只有读的权利，感觉有点熟悉，你们的脑子是怎么运作的我不知道，但老子感觉有点熟悉，因为老子在给你们上课，或许你们可能觉得我在胡乱逼逼，这样的想法是不可有的，在这个世界上想你们这么帅的人已经很少了，或许你现在心里美美的，但对不起，我说的是你旁边的小姐姐，我想她，她是我日思夜想的，没错了，你现在心里想的就是了，你真聪明，就是你以前看过的最可怕的那女鬼。</p>
-<blockquote>
-<p>你现在很怕？想打我？想骂我？这就是你来我这里的原因？我不懂你们的心里，放着这么好的时间不好好珍惜，来我这里看一个小骚年写的无序头文章，你真的有病，难怪小萝莉会找上你，你现在应该拿起你的手机call me （请允许我装个逼）。<br>预知后事如何，请看明天谁第一个发现你的尸体。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<hr>
-<blockquote>
-<p>虚构二：</p>
-<blockquote>
-<p>我想你了。说真的，我前几天都是做梦的，我还梦见她被欺负老子还想着保护她，但我心里其实慌得一批，总感觉怪怪的，原来那是我想着她，并非如此，具体是什么我也不知道怎么析形容给你们这些傻逼听。</p>
-<blockquote>
-<p>男人要想混得好，头发必须往后倒！这句话就想是。。。等等我音乐有点自闭，感觉是催眠，</p>
-<blockquote>
-<p>老子刚刚出去换歌，怎么了，就是这么任性，年轻，有钱，任性。有点小高调，你想要的，我却不能给你我全部，我能给的却又不是你想要的。我讨厌这么不知好歹的小姐姐，大家都是人，我给你的你要好好拿着，或许就是不要，就这两个选择，不要跟我虚的，磨磨唧唧的，难怪最后受伤的都是你们这些女的，我不一样，因为我是男的，我是属于那种小骚小骚的，具体我是怎么样的我也不清楚，所以，你还是听马克思的话，不要想着去了解一个人，往往这个人心里也是搞不懂自己到底是一个怎么样的人，我之所以会这样，就是不听前人的劝告，你们还是不要去的好，把自己每天搞得充充实实的就好了，那样的你真的很好，虽然平时练习代码的时候很狼狈，但是你运行没bug时，你那一副天下都是你的样子真的很欠打。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<hr>
-<blockquote>
-<p>虚构三：<img src="/2019/05/06/小萝莉/test.png" alt="大哥"></p>
-<blockquote>
-<p>老子出去一下。</p>
-</blockquote>
-</blockquote>
-<hr>
-<p><img src="/2019/05/06/小萝莉/sda.jpg" alt="test"></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
     
 
     
@@ -1759,9 +1585,16 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
+          
+
+
           
 
         </div>
@@ -1777,70 +1610,63 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">John Doe</p>
-              <div class="site-description motion-element" itemprop="description"></div>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">9</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
+          <nav class="site-state motion-element">
 
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                    <span class="site-state-item-count">1</span>
-                    <span class="site-state-item-name">tags</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
             
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
           
+
+          
+
+          
+          
+
+          
+          
+
           
 
         </div>
-      </div>
+      </section>
 
       
 
@@ -1848,7 +1674,6 @@
 
     </div>
   </aside>
-  
 
 
         
@@ -1858,18 +1683,16 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+  <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">John Doe</span>
 
   
-
-  
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -1877,13 +1700,12 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
 
         
-
 
 
 
@@ -1904,14 +1726,11 @@
 
     
 
-    
-
-    
   </div>
 
   
 
-<script>
+<script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1925,11 +1744,7 @@
 
 
 
-
-
-
-
-
+  
 
 
 
@@ -1943,55 +1758,52 @@
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.1"></script>
-
-  <script src="/js/motion.js?v=7.1.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.1"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
-
-
-
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
 
-  <script src="/js/next-boot.js?v=7.1.1"></script>
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
   
 
-  
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
 
   
-
   
 
 
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
 
-  
-
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
 
 
 
@@ -1999,7 +1811,49 @@
 
   
 
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
   
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
 
   
 
@@ -2008,13 +1862,6 @@
   
 
   
-
-  
-
-  
-
-  
-
   
 
   
