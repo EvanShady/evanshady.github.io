@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="C++Book结构函数 关键字struct+结构名1234567891011121314#include &amp;lt;iostream&amp;gt;using namespace std;struct point&amp;#123;    int a=5;    int b=10;&amp;#125;int main()&amp;#123;    point *p=new point;    //在堆内存里new了内存    p-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++Book">
+<meta property="og:url" content="http://yoursite.com/2019/06/12/C-Book/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="C++Book结构函数 关键字struct+结构名1234567891011121314#include &amp;lt;iostream&amp;gt;using namespace std;struct point&amp;#123;    int a=5;    int b=10;&amp;#125;int main()&amp;#123;    point *p=new point;    //在堆内存里new了内存    p-">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book2.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book1.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book3.png">
+<meta property="og:updated_time" content="2019-06-18T05:13:20.763Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++Book">
+<meta name="twitter:description" content="C++Book结构函数 关键字struct+结构名1234567891011121314#include &amp;lt;iostream&amp;gt;using namespace std;struct point&amp;#123;    int a=5;    int b=10;&amp;#125;int main()&amp;#123;    point *p=new point;    //在堆内存里new了内存    p-">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/12/C-Book/">
+
+
+
+
+
+  <title>C++Book | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/12/C-Book/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++Book</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-12T14:31:03+08:00">
+                2019-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="C-Book"><a href="#C-Book" class="headerlink" title="C++Book"></a>C++Book</h1><h1 id="结构函数"><a href="#结构函数" class="headerlink" title="结构函数"></a>结构函数</h1><ul>
+<li>关键字struct+结构名<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">struct point&#123;</span><br><span class="line">    int a=5;</span><br><span class="line">    int b=10;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    point *p=new point;    //在堆内存里new了内存</span><br><span class="line">    p-&gt;a=10;</span><br><span class="line">    p-&gt;b=5;</span><br><span class="line">    cout&lt;&lt;p1-&gt;a&lt;&lt;&quot;\t&quot;&lt;&lt;p1-&gt;&lt;&lt;endl;</span><br><span class="line">    point p1;              //在栈内存里实现</span><br><span class="line">    cout&lt;&lt;p1.a&lt;&lt;&quot;\t&quot;&lt;&lt;p1.b&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5    10</span><br><span class="line">5    10</span><br></pre></td></tr></table></figure></p>
+<p><strong>其实结构和类是相似的</strong></p>
+<hr>
+<h1 id="联合函数"><a href="#联合函数" class="headerlink" title="联合函数"></a>联合函数</h1><ul>
+<li>关键字union+名字<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">union test&#123;</span><br><span class="line">    int a;</span><br><span class="line">    char b;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    test *p=new test;         //在堆内存new了内存</span><br><span class="line">    p-&gt;a=97;</span><br><span class="line">    cout&lt;&lt;p-&gt;a&lt;&lt;&quot;的字符表示是：&quot;&lt;&lt;p-&gt;b&lt;&lt;endl;</span><br><span class="line">    test t1;                  //在栈内存里实现</span><br><span class="line">    t1.a=65;</span><br><span class="line">    cout&lt;&lt;t1.a&lt;&lt;&quot;的字符表示是：&quot;&lt;&lt;t.b&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>一样的和类相似，在栈和堆内存一样使用,不相同的是：联合函数你可以给变量的其中一个赋值，而另外一个变量会自己把已经赋值的那个变量的值赋给自己。</strong></p>
+<hr>
+<h1 id="枚举函数"><a href="#枚举函数" class="headerlink" title="枚举函数"></a>枚举函数</h1><ul>
+<li>关键字enum+名字<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">enum Arrow&#123;</span><br><span class="line">    eroos,ok,warning,</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    Arrow a1=eroos;</span><br><span class="line">    Arrow a2=ok;</span><br><span class="line">    Arrow a3=warning;</span><br><span class="line">    cout&lt;&lt;a1&lt;&lt;a2&lt;&lt;a3&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+<p><strong>枚举的特点：它是以字符的形式声明的，但输出的确实整数型的数字</strong></p>
+<hr>
+<h1 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h1><ul>
+<li>通俗一点的意思就是在本函数里调用自身函数。</li>
+<li>最让我们看不懂的就是函数在返回的时候它是一层一层往上返回的。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int add(int i)&#123;</span><br><span class="line">    cout&lt;&lt;&quot;函数开始:i=&quot;&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">    if(i=5)&#123;</span><br><span class="line">        return i;</span><br><span class="line">    &#125;else</span><br><span class="line">    &#123;</span><br><span class="line">        add(++i);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;&quot;函数结束,返回值为：&quot;&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">    return i;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cout&lt;&lt;add(1)&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>函数的结果：`<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">函数开始：i=1</span><br><span class="line">函数开始：i=2</span><br><span class="line">函数开始：i=3</span><br><span class="line">函数开始：i=4</span><br><span class="line">函数开始：i=5</span><br><span class="line">函数结束，返回值为：5</span><br><span class="line">函数结束，返回值为：4</span><br><span class="line">函数结束，返回值为：3</span><br><span class="line">函数结束，返回值为：2</span><br><span class="line">函数结束，返回值为：1</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>这里的先是返回的自身函数调用的结果，这里编译器里是有五个变量来暂时存储自身函数的值，每当执行到函数返回的时候编译器都会从暂时存储那里把值返回给我们，还有一种理解，就是这个函数里的变量在每次自身函数调用的时候都被隐藏起来了，也就是说每次的自身函数的调用它都有不同的存储位置来让变量重新赋值。其实，递归函数是在返回的时候才是这种函数真真的意义，因为自身函数的最后一次刚好是函数返回值的第一次。</li>
+</ul>
+<hr>
+<h1 id="函数与指针"><a href="#函数与指针" class="headerlink" title="函数与指针"></a>函数与指针</h1><ul>
+<li>指向函数的指针<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int add(int a)&#123;</span><br><span class="line">    return a;</span><br><span class="line">&#125;</span><br><span class="line">int test(int a)&#123;</span><br><span class="line">    return a;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int (*p)(int a)=&amp;add;//指向函数的指针</span><br><span class="line">    cout&lt;&lt;P(5)&lt;&lt;endl;</span><br><span class="line">    int (*ip[])(int a)=&#123;&amp;add,&amp;test&#125;;//指向多个函数的指针数组</span><br><span class="line">    cout&lt;&lt;ip[0](1)&lt;&lt;ip[1](2)&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>函数的结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>这里的指针都是储存在栈内存里的。</li>
+</ul>
+<hr>
+<h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><ul>
+<li>格式化代码，去除多余的空格和注释</li>
+<li>进行一些宏替换</li>
+<li>包含另外一段代码</li>
+<li>通过一些条件的判断，动态决定是否编译某段代码</li>
+</ul>
+<ol>
+<li>宏定义</li>
+</ol>
+<h2 id="在定义宏的时候记得不要在定义的后面加分号！！！"><a href="#在定义宏的时候记得不要在定义的后面加分号！！！" class="headerlink" title="在定义宏的时候记得不要在定义的后面加分号！！！"></a><strong>在定义宏的时候记得不要在定义的后面加分号！！！</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define MAX 9               //宏定义</span><br><span class="line">#define MAN2 MAX*MAX        //宏定义</span><br><span class="line">int main()&#123;</span><br><span class="line">    cout&lt;&lt;MAX&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;MAX2&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">81</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>带参数的宏定义<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define MAX 3                        //无参宏定义</span><br><span class="line">#define space(x) ((x)*(x))           //声明一个带参数的宏定义</span><br><span class="line">int main()&#123;</span><br><span class="line">    for(int i=1;i&lt;=MAX;i++)&#123;</span><br><span class="line">        cout&lt;&lt;i&lt;&lt;&quot;的平方是：&quot;&lt;&lt;space(i)&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>运行结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1的平方是：1</span><br><span class="line">2的平方是：4</span><br><span class="line">3的平方是：9</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define add(a,b)(a+b)           //带参的宏定义</span><br><span class="line">int main()&#123;</span><br><span class="line">    string s1(&quot;hello,&quot;);        //字符串</span><br><span class="line">    string s2(&quot;world!&quot;);</span><br><span class="line">    cout&lt;&lt;add(100,100)&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;add(s1,s2)&lt;&lt;endl;     //使用宏来实现字符串的相加</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">200</span><br><span class="line">hello,world</span><br></pre></td></tr></table></figure></p>
+<h2 id="说明了宏的优点有-避免了强类型的检测"><a href="#说明了宏的优点有-避免了强类型的检测" class="headerlink" title="说明了宏的优点有:避免了强类型的检测"></a><strong>说明了宏的优点有:避免了强类型的检测</strong></h2><ol start="3">
+<li>宏与常量，函数<br>宏与常量有点相似，但当他们遇上指针和引用之后又会变成什么呢？<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define x 10</span><br><span class="line">const int y=5;</span><br><span class="line">int main()&#123;</span><br><span class="line">    const int &amp;a=x;          //ok</span><br><span class="line">    const int *p=&amp;y;         //ok</span><br><span class="line">    cout&lt;&lt;a&lt;&lt;&quot;\t&quot;&lt;&lt;*p&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10    5</span><br></pre></td></tr></table></figure></p>
+<p><strong>这里给宏使用了引用，给常量使用了指针。还在定义的前面都加了const类型。</strong><br><strong>但是在这里还是不希望使用引用和指针的方式来操作宏和常量,把宏看作是简单的文本替换，这也是宏的原本意义。</strong></p>
+<p><strong>宏不允许重新定义，也就是说一个相同的宏只能被定义一次，要想修改宏的值，你只能先消除它，使用#undef关键来消除，然后你就可以重新定义了。</strong></p>
+<ol start="4">
+<li><p>在c++中有还有内置的宏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cout&lt;&lt;__TIME__&lt;&lt;endl; //输出当前代码运行的时间</span><br><span class="line">    cout&lt;&lt;__DATE&lt;&lt;endl;   //输出当前代码运行的日期</span><br><span class="line">    cout&lt;&lt;__LINE&lt;&lt;endl;   //输出当前代码的所在行号</span><br><span class="line">    cout&lt;&lt;__FIME__&lt;&lt;endl; //输出当前代码的文件路径</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>#if #elif #else  #ifdef #ifndef</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define a 10</span><br><span class="line">int main()&#123;</span><br><span class="line">    #if a&lt;20</span><br><span class="line">    cout&lt;&lt;&quot;欢迎使用测试版&quot;&lt;&lt;endl;</span><br><span class="line">    #else</span><br><span class="line">    cout&lt;&lt;&quot;欢迎使用正版&quot;&lt;&lt;endl;</span><br><span class="line">    #endif</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>运行的结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">欢迎使用测试版</span><br></pre></td></tr></table></figure></p>
+<p><strong>#if类似与我们在以前代码里的if，#else类似与else,#elif类似elseif</strong><br><strong>#endif,很重要。如果没有它你的程序是跑不起来的。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define a 10</span><br><span class="line">int main()&#123;</span><br><span class="line">    #ifdef a</span><br><span class="line">    cout&lt;&lt;&quot;欢迎使用正版&quot;&lt;&lt;endl;</span><br><span class="line">    #endif</span><br><span class="line">    return 0;</span><br><span class="line">    #ifndef</span><br><span class="line">    cout&lt;&lt;&quot;欢迎使用测试版&quot;&lt;&lt;endl;</span><br><span class="line">    #endif</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>值得注意的是，#ifdef和#ifndef都要有#endif使用，#endif的意思应该是结束if</strong></p>
+<hr>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><ul>
+<li>以前的数据和操作的过程都不是独立的，而c++允许我们将一些数据和操作数据的过程放在同一个地方，并封装成一个独立的个体。</li>
+<li>万物皆对象，这句话对c++程序员来说并不陌生。这并不代表我们缺少对象，对于我们这种高质男来说从来没担心过搞不到对象，因为我们随时随地都可以new一个对象出来，这不是一般人可以做到的，只有真的走进来了才可以的，虽然这个操作在c++中也不算是什么高难度的操作，但我们又不是学到这里就完事的。类和结构是完全可以交换的，唯一不一样的是结构的默认特性是public,而类的默认特性是private。</li>
+<li>封装，是用简单明了的公有函数的方式为外部程序提供对象操作接口。<h1 id="成员对象"><a href="#成员对象" class="headerlink" title="成员对象"></a>成员对象</h1></li>
+<li>分为三种：public,private，protected</li>
+</ul>
+<ol>
+<li>公有对象：不管是在类里还是在外部都能被访问到。</li>
+<li>私有对象：只能在本类中访问到。</li>
+<li>保护对象：只能在本类中访问到，在外部是访问不到的。<h1 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1></li>
+</ol>
+<ul>
+<li>这里就不在乎那么多的细节了。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Son;//先声明Son类</span><br><span class="line">class Bos&#123;</span><br><span class="line">friend int operator+(Bos bos,Son son);//友元函数，用来访问类的私有成员</span><br><span class="line">friend ostream &amp;operator&lt;&lt;(ostream &amp;os,Bos bos);//友元函数，用来访问类的私有成员</span><br><span class="line">private:</span><br><span class="line">    int a=10;</span><br><span class="line">    int b=5;</span><br><span class="line">&#125;</span><br><span class="line">class Son&#123;</span><br><span class="line">friend int operator+(Bos bos,Son son);//友元函数，用来访问类的私有成员</span><br><span class="line">ofriend stream &amp;operator&lt;&lt;(ostream &amp;os,Bos bos);//友元函数，用来访问类的私有成员</span><br><span class="line">private:</span><br><span class="line">    int a=5;</span><br><span class="line">    int b=10;</span><br><span class="line">&#125;</span><br><span class="line">int operator+(Bos bos,Son son)&#123;//运算符重载加号</span><br><span class="line">    int a=bos.a+bos.b;</span><br><span class="line">    int b=son.a+son.b;</span><br><span class="line">    return a,b;</span><br><span class="line">&#125;</span><br><span class="line">ostream &amp;operator&lt;&lt;(ostream &amp;os,Bos bos)&#123;//运算符重载&lt;&lt;号</span><br><span class="line">    os&lt;&lt;&quot;a=&quot;&lt;&lt;bos.a&lt;&lt;&quot;b=&quot;&lt;&lt;bos.b&lt;&lt;endl;</span><br><span class="line">    return os;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    Bos bos;</span><br><span class="line">    Son son;</span><br><span class="line">    cout&lt;&lt;bos+son&lt;&lt;endl;//这要是没有重载加号，是运行不过的</span><br><span class="line">    cout&lt;&lt;bos&lt;&lt;endl;//没有重载&lt;&lt;也是运行不过来的</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>谨慎参考，纯属本人理解。ostream,是因为要用到cout流，因为输出流是属于ostream里面的，&amp;,是因为返回的是一个输出流，所以要加个引用来指引。</strong></p>
+<h1 id="const-mutable"><a href="#const-mutable" class="headerlink" title="const mutable"></a>const mutable</h1><ul>
+<li>众所周知，const是常量类型。而mutable是可变的，就像是普通变量。<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Teacher&#123;</span><br><span class="line">    string _name;</span><br><span class="line">    int _year;</span><br><span class="line">    Teacher(string name,int year)&#123;</span><br><span class="line">        this-&gt;_name=name;</span><br><span class="line">        this-&gt;_year=year;</span><br><span class="line">    &#125;</span><br><span class="line">    void show()&#123;</span><br><span class="line">        cout&lt;&lt;this-&gt;_name&lt;&lt;&quot;老师的年龄是：&quot;&lt;&lt;this-&gt;_year&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Student::puble Teacher&#123;</span><br><span class="line">public:</span><br><span class="line">       Student(string name,int year):Teacher(name,year)&#123;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>上面的基类用的是构造函数来给自己赋初始化的，所以在派生类也要写上自己的构造函数才算继承基类。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">    Student s1(&quot;小明&quot;,18);</span><br><span class="line">    s1.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">小明的年龄是：18</span><br></pre></td></tr></table></figure></p>
+<h2 id="这里比较特殊的就是成员对象一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。"><a href="#这里比较特殊的就是成员对象一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。" class="headerlink" title="这里比较特殊的就是成员对象一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。"></a><strong>这里比较特殊的就是成员对象一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。</strong></h2><ul>
+<li>继承的方式有三种：public private protected<br>公有继承, 私有继承, 保护继承</li>
+</ul>
+<ol>
+<li>公有继承：是以公有的形式来继承的基类，这也就意味着在基类是什么类型的在派生类也是一样的关系。</li>
+<li>私有继承：是以私有的形式来继承的基类,就是说继承下来的基类都是以私有的形式来继承的</li>
+<li>保护继承：是以保护的形式来继承的基类，它是基于公有继承和私有继承的中间，如果你不想在外界被访问到，又想在派生类中被访问，这就可以用保护的形式来继承下来了，但基类的私有成员对象在保护的派生类中依然是私有成员对象。<br><img src="/2019/06/12/C-Book/c-Book.png" alt="继承的方式"><br><strong>派生类不会自动的继承基类的构造函数</strong><h1 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h1></li>
+</ol>
+<ul>
+<li>我们以后难免会在派生类里定义属于它自己的成员变量和成员函数，但当我们在声明和定义的时候有时也会不小心的把成员变量和成员函数与基类的成员变量和成员函数名字相同，这是我们的程序就会出现名字隐藏的现象，对于隐藏就是说当我们的派生类与基类中有名字相同的，就可能会出现隐藏。如果不知道什么时候被隐藏了什么，我们可以加上作用域去看看，在这里，我的建议是，尽量不要在继承类里面用同样的名字，不然你会很自闭的。</li>
+<li>基类的析构函数最好加上关键字（virtual）写成虚函数，这样在派生类的时候的就能自动调用，而对于，纯虚函数，在派生类中是要重写的性质，因为在基类的纯虚函数是空函数一个，它的本质就是一定要在派生类里面实现它的意义。一个良好的习惯：最好把基类的析构函数写成虚的，这样在派生类中是会自动调用的。<h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1></li>
+<li>其实就是在类里面把函数写成是纯虚函数，这样在派生类里就剩下重写这些虚函数。一般把抽象类用来设计一套统一的接口。<br><img src="/2019/06/12/C-Book/c-Book2.png" alt="例子"><br><img src="/2019/06/12/C-Book/c-Book1.png" alt="例子"><br><img src="/2019/06/12/C-Book/c-Book3.png" alt="运行结果"><br><strong>重新认识了类的继承，这里我没有用到构造函数来给成员变量赋值，因为用了构造函数会变的很自闭，发正我是完全不能理解的那种，所以我用来另外一种方法，虽然算不上什么，但我觉得自己理解写出来的东西是可以的。孙悟空吃唐僧，这是多么厉害的，我想这个结果连孙悟空自己也不敢想的，我帮他实现了，嘻嘻。</strong></li>
+<li>这里的基类是不能被实例化的，因为基类里面的show方法，我用的是纯虚函数来写的，不能被实例化，但在派生类要实现，你不实现的话，你写这个虚函数就没意义了，基类的纯虚函数在派生类你一定要写进去，不要编译器会报错的，<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1></li>
+<li>关键字 template <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">template &lt;typename T&gt;</span><br><span class="line">T add (T a, T b)&#123;</span><br><span class="line">    return a+b;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cout&lt;&lt;add(1,2)&lt;&lt;endl;;</span><br><span class="line">    cout&lt;&lt;add(10.1,10.2)&lt;&lt;endl;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>运行结果:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">20.3</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    double numb(55.55);</span><br><span class="line">    coutw&lt;&lt;numb&lt;&lt;endl;</span><br><span class="line">    cout.setf(ios::fixed);</span><br><span class="line">    cout.setf(ios::showpoint)</span><br><span class="line">    cout.precision(1);</span><br><span class="line">    cout&lt;&lt;numb&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">55.55</span><br><span class="line">55.5</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/11/JustATest/" rel="next" title="JustATest">
+                <i class="fa fa-chevron-left"></i> JustATest
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-Book"><span class="nav-number">1.</span> <span class="nav-text">C++Book</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结构函数"><span class="nav-number">2.</span> <span class="nav-text">结构函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#联合函数"><span class="nav-number">3.</span> <span class="nav-text">联合函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#枚举函数"><span class="nav-number">4.</span> <span class="nav-text">枚举函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归函数"><span class="nav-number">5.</span> <span class="nav-text">递归函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数与指针"><span class="nav-number">6.</span> <span class="nav-text">函数与指针</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预处理"><span class="nav-number">7.</span> <span class="nav-text">预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在定义宏的时候记得不要在定义的后面加分号！！！"><span class="nav-number">7.1.</span> <span class="nav-text">在定义宏的时候记得不要在定义的后面加分号！！！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明了宏的优点有-避免了强类型的检测"><span class="nav-number">7.2.</span> <span class="nav-text">说明了宏的优点有:避免了强类型的检测</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类"><span class="nav-number">8.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成员对象"><span class="nav-number">9.</span> <span class="nav-text">成员对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符重载"><span class="nav-number">10.</span> <span class="nav-text">运算符重载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#const-mutable"><span class="nav-number">11.</span> <span class="nav-text">const mutable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">12.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这里比较特殊的就是成员对象一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。"><span class="nav-number">12.1.</span> <span class="nav-text">这里比较特殊的就是成员对象一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#隐藏"><span class="nav-number">13.</span> <span class="nav-text">隐藏</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#抽象类"><span class="nav-number">14.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模板"><span class="nav-number">15.</span> <span class="nav-text">模板</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

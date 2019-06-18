@@ -229,6 +229,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/c-Notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/21/c-Notes/" itemprop="url">c++Notes</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-21T15:13:50+08:00">
+                2019-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="关于类的一些理解"><a href="#关于类的一些理解" class="headerlink" title="关于类的一些理解"></a>关于类的一些理解</h1><hr>
+<h2 id="1-类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。"><a href="#1-类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。" class="headerlink" title="1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。"></a>1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。</h2><h3 id="2-类有三种特性：封装-继承-多态。"><a href="#2-类有三种特性：封装-继承-多态。" class="headerlink" title="2:类有三种特性：封装,继承,多态。"></a>2:类有三种特性：封装,继承,多态。</h3><blockquote>
+<p>类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。</p>
+</blockquote>
+<hr>
+<h4 id="3-类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"><a href="#3-类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！" class="headerlink" title="3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"></a>3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！</h4><p><strong>这里是用指针来new了一个空间，使用访问的时候也要用访问指针的方法来访问它，“-&gt;”</strong><br><img src="/2019/05/21/c-Notes/YC4.png" alt="main"><br><img src="/2019/05/21/c-Notes/YC5.png" alt="程序结果"></p>
+<hr>
+<h5 id="4-this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）"><a href="#4-this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）" class="headerlink" title="4:this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）"></a>4:this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）</h5><blockquote>
+<p>构造函数也可以叫做重载函数，它的作用是初始化类的成员变量。</p>
+<blockquote>
+<p>构造函数分为无参构造和有参构造；其实还有一个拷贝构造。</p>
+<ol>
+<li>无参构造函数，也叫默认构造函数，随你喜欢。还有就是，无参构造函数是计算机自动调用的，就算你没调用它，计算机也会自动帮你调用。</li>
+</ol>
+</blockquote>
+</blockquote>
+<p><img src="/2019/05/21/c-Notes/WC.png" alt="无参构造函数"></p>
+<hr>
+<ol start="2">
+<li>有参构造函数，其实就是带参数的函数。</li>
+</ol>
+<p><img src="/2019/05/21/c-Notes/YC.png" alt="有参构造"></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>类里面的构造函数都是可以和show方法一起连用的，这样就可以看到构造函数无，有参之间的变化。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><img src="/2019/05/21/c-Notes/YC3.png" alt="show"></p>
+<hr>
+<p><img src="/2019/05/21/c-Notes/YC1.png" alt="main函数"></p>
+<hr>
+<p><img src="/2019/05/21/c-Notes/YC2.png" alt="程序结果"></p>
+<hr>
+<h6 id="5-析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"><a href="#5-析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。" class="headerlink" title="5:析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"></a>5:析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。</h6>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -560,7 +714,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
