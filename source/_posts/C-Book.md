@@ -12,7 +12,7 @@ using namespace std;
 struct point{
     int a=5;
     int b=10;
-}
+};
 int main(){
     point *p=new point;    //在堆内存里new了内存
     p->a=10;
@@ -38,7 +38,7 @@ using namespace std;
 union test{
     int a;
     char b;
-}
+};
 int main(){
     test *p=new test;         //在堆内存new了内存
     p->a=97;
