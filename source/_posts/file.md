@@ -62,3 +62,26 @@ int main(){
 ```
 * 在这里运行几次之后的结果会和第一次的不一样，因为在这里是以追加的形式向文件中写入你的内容。
 ![运行结果](file/file1.png)
+# 控制小数点
+* 这里是用输出流来控制小数点的个数
+```
+#include <iostream>
+#include <iomanip>//下面的函数会用到这个头文件
+using namespace std;
+int main(){
+    double a(10.1234)
+    cout<<a<<endl;
+    cout.setf(ios::fixed);//小数点后的位数,默认为6个数位
+    cout<<a<<endl;
+    cout<<setw(2)<<setprecision(2)<<a<<endl;//给出小数点后的几位数
+    cout.setf(ios::showpoint);//打印小数点和小数点的个数，默认为6个数位
+    cout<<setw(6)<<endl;
+}
+```
+运行结果：
+```
+10.1234
+10.123400
+10.12
+  10.12
+```

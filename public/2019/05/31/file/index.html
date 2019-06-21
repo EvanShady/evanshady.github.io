@@ -88,7 +88,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/05/31/file/file.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/31/file/file1.png">
-<meta property="og:updated_time" content="2019-06-11T07:49:55.974Z">
+<meta property="og:updated_time" content="2019-06-21T07:51:03.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="file">
 <meta name="twitter:description" content="文件 文件有两种类型：  文本文件–以ASCLL码形式存储在计算机中。 二进制文件–以二进制写进计算机。 分为三种类型：1.写文件（ofstream）,2.读文件（ifstream）3.（fstream）。   写入文件分为5大部分：   先把写文件的头文件包含进去。 然后确定你要写的文件的类型 之后确定文件的名字和打开的方式 把内容写进去 关闭文件123456789101112131415161">
@@ -323,8 +323,11 @@
 </blockquote>
 <h2 id="对于写的内容追加到文件中的命令是如下："><a href="#对于写的内容追加到文件中的命令是如下：" class="headerlink" title="对于写的内容追加到文件中的命令是如下："></a>对于写的内容追加到文件中的命令是如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">using namestape std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    ofstream ofs;//声明文件的形式</span><br><span class="line">    ofs.open(&quot;test&quot;,ios::app);//打开的方式</span><br><span class="line">    ofs&lt;&lt;&quot;你好&quot;&lt;&lt;endl;//写进的内容</span><br><span class="line">    ofs.close();//关闭文件</span><br><span class="line">    ifstream ifs;//声明文件的形式</span><br><span class="line">    ifs.open(&quot;test&quot;,ios::in);//打开的方式</span><br><span class="line">    if(!ifs.isopen())&#123;//判断文件的打开是否成功</span><br><span class="line">        cout&lt;&lt;&quot;文件打开失败&quot;&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ifs.close();//关闭文件</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>在这里运行几次之后的结果会和第一次的不一样，因为在这里是以追加的形式向文件中写入你的内容。<br><img src="/2019/05/31/file/file1.png" alt="运行结果"></li>
+<li>在这里运行几次之后的结果会和第一次的不一样，因为在这里是以追加的形式向文件中写入你的内容。<br><img src="/2019/05/31/file/file1.png" alt="运行结果"><h1 id="控制小数点"><a href="#控制小数点" class="headerlink" title="控制小数点"></a>控制小数点</h1></li>
+<li>这里是用输出流来控制小数点的个数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;iomanip&gt;//下面的函数会用到这个头文件</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    double a(10.1234)</span><br><span class="line">    cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">    cout.setf(ios::fixed);//小数点后的位数,默认为6个数位</span><br><span class="line">    cout&lt;&lt;a&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;setw(2)&lt;&lt;setprecision(2)&lt;&lt;a&lt;&lt;endl;//给出小数点后的几位数</span><br><span class="line">    cout.setf(ios::showpoint);//打印小数点和小数点的个数，默认为6个数位</span><br><span class="line">    cout&lt;&lt;setw(6)&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10.1234</span><br><span class="line">10.123400</span><br><span class="line">10.12</span><br><span class="line">  10.12</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -484,7 +487,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件"><span class="nav-number">1.</span> <span class="nav-text">文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对于写的内容追加到文件中的命令是如下："><span class="nav-number">1.1.</span> <span class="nav-text">对于写的内容追加到文件中的命令是如下：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件"><span class="nav-number">1.</span> <span class="nav-text">文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对于写的内容追加到文件中的命令是如下："><span class="nav-number">1.1.</span> <span class="nav-text">对于写的内容追加到文件中的命令是如下：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制小数点"><span class="nav-number">2.</span> <span class="nav-text">控制小数点</span></a></li></ol></div>
             
 
           </div>
