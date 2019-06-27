@@ -34,3 +34,18 @@ int main(){
 }
 ```
 **这只是简单的打印星座，思路是，先把十二星座按照月份写进一个二位数组里面，然后再把每个星座的转换日期写进另外一个数组里，用输入的生日的几号来处以星座转换日期，得到的0为当前月份的前者，得到1为当前月份的后者。**
+# 四舍五入
+* 简单的把数字四舍五入
+```
+#include <iostream>
+#include <cmath>//floor(是(cmath)里面的预函数)
+using namespace std;
+int main(){
+    double numb(0);
+    int test(0);
+    cout<<"请输入要四舍五入的数字："<<endl;
+    cin>>numb;
+    test=static_cast<int >(floor(numb+0.5));//把四舍五入后的数字强制转换成int类型
+    cout<<test<<endl;
+}
+```
