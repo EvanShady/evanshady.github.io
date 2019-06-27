@@ -1103,6 +1103,42 @@
 <li>用于监视和配置系统功能的网络和系统管理工具。</li>
 </ol>
 </blockquote>
+<h1 id="常用的linux命令"><a href="#常用的linux命令" class="headerlink" title="常用的linux命令"></a>常用的linux命令</h1><p><strong>因为我用的是manjaro-linux，不同的发行版所用到的命令是不一样的。这些在这里也没什么好说的，因为我也是一个小白。</strong><br><strong>我觉得每个人的私密工作一定要做好，不然谁都可以顺起你的电脑造起来，这就不太好了。</strong> </p>
+<ul>
+<li>passwd (更换用户的密码)</li>
+<li>su + 用户名 (切换用户)</li>
+<li>passwd -l + 用户名  (锁定用户)</li>
+<li>passwd -S + 用户名  (解锁)</li>
+<li>sl–小骚(小火车)</li>
+<li>cmatrix(代码)</li>
+<li>ls–是查看当前目录的所有文件</li>
+<li>df–查看硬盘的空间 参数(-k -m -g)</li>
+<li>du -sh +目录 (查看目录的大小)</li>
+<li>swapon (查看分区的大小)<br><strong>在Linux里一却都是文件，我想这句话对我们来说都不陌生了。</strong></li>
+<li>touch + 文件名 (创建文件)</li>
+<li>rm + 文件名 (删除文件)</li>
+<li>grep (在文件中查找你想查找的内容)-n +(文件名)</li>
+<li>grep -vn + 文件名 (显示在文件里没要查找的内容) <h1 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h1><blockquote>
+<p>echo</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>echo “你好帅啊“ &gt; a   //把输出的文字写进a文件里</li>
+<li>man ls &gt;&gt;a          //把ls的手册以追加的形式写进a文件里</li>
+<li>假如在主目录里没有b文件</li>
+<li>ls -l b 2&gt; a         //把错误信息写进a文件里</li>
+<li>ls -l b 2&gt;&gt; a        //和上面的意思一样<h1 id="比较文件"><a href="#比较文件" class="headerlink" title="比较文件"></a>比较文件</h1><blockquote>
+<p>diff</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>diff -u (可以把两个文件的比较内容)</li>
+<li>test(123)        test1(123456)<br>//只是把test和test1文件的内容显示出来</li>
+<li>diff -u test test1 &gt; file<br>//把前面两个文件比较的内容写进file文件里</li>
+<li>patch -b test file<br>//把以补丁的形式把原先缺少内容的test文件补回到我们想看的样子</li>
+</ul>
 
           
         
