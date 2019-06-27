@@ -305,9 +305,6 @@
 </li>
 </ul>
 <p><strong>这只是简单的打印星座，思路是，先把十二星座按照月份写进一个二位数组里面，然后再把每个星座的转换日期写进另外一个数组里，用输入的生日的几号来处以星座转换日期，得到的0为当前月份的前者，得到1为当前月份的后者。</strong></p>
-<h1 id="四舍五入"><a href="#四舍五入" class="headerlink" title="四舍五入"></a>四舍五入</h1><ul>
-<li>简单的把数字四舍五入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cmath&gt;//floor(是(cmath)里面的预函数)</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    double numb(0);</span><br><span class="line">    int test(0);</span><br><span class="line">    cout&lt;&lt;&quot;请输入要四舍五入的数字：&quot;&lt;&lt;endl;</span><br><span class="line">    cin&gt;&gt;numb;</span><br><span class="line">    test=static_cast&lt;int &gt;(floor(numb+0.5));//把四舍五入后的数字强制转换成int类型</span><br><span class="line">    cout&lt;&lt;test&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
 
           
         

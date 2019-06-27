@@ -88,7 +88,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/05/31/file/file.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/31/file/file1.png">
-<meta property="og:updated_time" content="2019-06-21T07:51:03.680Z">
+<meta property="og:updated_time" content="2019-06-27T14:50:09.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="file">
 <meta name="twitter:description" content="文件 文件有两种类型：  文本文件–以ASCLL码形式存储在计算机中。 二进制文件–以二进制写进计算机。 分为三种类型：1.写文件（ofstream）,2.读文件（ifstream）3.（fstream）。   写入文件分为5大部分：   先把写文件的头文件包含进去。 然后确定你要写的文件的类型 之后确定文件的名字和打开的方式 把内容写进去 关闭文件123456789101112131415161">
@@ -328,6 +328,9 @@
 </li>
 </ul>
 <p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10.1234</span><br><span class="line">10.123400</span><br><span class="line">10.12</span><br><span class="line">  10.12</span><br></pre></td></tr></table></figure></p>
+<h1 id="四舍五入"><a href="#四舍五入" class="headerlink" title="四舍五入"></a>四舍五入</h1><ul>
+<li>简单的把数字四舍五入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cmath&gt;//floor(是(cmath)里面的预函数)</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    double numb(0);</span><br><span class="line">    int test(0);</span><br><span class="line">    cout&lt;&lt;&quot;请输入要四舍五入的数字：&quot;&lt;&lt;endl;</span><br><span class="line">    cin&gt;&gt;numb;</span><br><span class="line">    test=static_cast&lt;int &gt;(floor(numb+0.5));//把四舍五入后的数字强制转换成int类型</span><br><span class="line">    cout&lt;&lt;test&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -487,7 +490,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件"><span class="nav-number">1.</span> <span class="nav-text">文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对于写的内容追加到文件中的命令是如下："><span class="nav-number">1.1.</span> <span class="nav-text">对于写的内容追加到文件中的命令是如下：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制小数点"><span class="nav-number">2.</span> <span class="nav-text">控制小数点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件"><span class="nav-number">1.</span> <span class="nav-text">文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对于写的内容追加到文件中的命令是如下："><span class="nav-number">1.1.</span> <span class="nav-text">对于写的内容追加到文件中的命令是如下：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制小数点"><span class="nav-number">2.</span> <span class="nav-text">控制小数点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四舍五入"><span class="nav-number">3.</span> <span class="nav-text">四舍五入</span></a></li></ol></div>
             
 
           </div>

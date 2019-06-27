@@ -85,3 +85,18 @@ int main(){
 10.12
   10.12
 ```
+# 四舍五入
+* 简单的把数字四舍五入
+```
+#include <iostream>
+#include <cmath>//floor(是(cmath)里面的预函数)
+using namespace std;
+int main(){
+    double numb(0);
+    int test(0);
+    cout<<"请输入要四舍五入的数字："<<endl;
+    cin>>numb;
+    test=static_cast<int >(floor(numb+0.5));//把四舍五入后的数字强制转换成int类型
+    cout<<test<<endl;
+}
+```
