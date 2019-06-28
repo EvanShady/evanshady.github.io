@@ -4,6 +4,20 @@ date: 2019-06-12 14:31:03
 tags:
 ---
 # C++Book
+# 库
+```
+#include <iostream>
+using namespace std;
+int main(){
+    cout<<hello would<<endl;
+    return 0;
+}
+```
+**在上面的代码我们应该都知道我什么都没有实现，这只是在简单的阐述一下c++库的重要性，也可以说是让我们更深刻的认识到有些代码的意思是什么。**
+
+* #include,using (预编译指令) 
+* iostream (是c++标准库，方便使用cout,cin,) 
+* using namespace std (是命名空间,std,因为在库里大多数都有std命名空间的部分，所以规定这些名称为std)
 # 结构函数
 * 关键字struct+结构名
 ```

@@ -89,7 +89,7 @@ int main(){
 * 简单的把数字四舍五入
 ```
 #include <iostream>
-#include <cmath>//floor(是(cmath)里面的预函数)
+#include <cmath>//在c++中有很多预定义的算术函数，都需要用到这个头文件
 using namespace std;
 int main(){
     double numb(0);
@@ -100,3 +100,39 @@ int main(){
     cout<<test<<endl;
 }
 ```
+//简单的输出算术平方跟
+```
+#include <iostream>
+#include <cmath>//c++与定义的函数调用
+using namespace std;
+int main(){
+    double test(9.0),test1(0);
+    test1=sqrt(test);//预定义平方跟函数
+    cout<<test1<<endl;
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout<<setw(6)<<setprecision(2)<<test1<<endl;
+    cout<<pow(3,2)<<endl;
+    //pow函数，实现的是数字的几次方，前面的参数是数字，后面的参数是几次方,但函数返回的是double类性的数，因为我们上面把输出流设置成小数点后2位，本来的结果应该是9。
+}
+```
+运行结果：
+```
+3
+  3.00
+9.00
+```
+**在c++中还有很多类似于写好的函数放在不一样的c++库中,这样的做法无非就是方便了我们这些短命子以后不用自己在写一遍实现的代码。比如我们经常用到的cin cout 这些都是放在一个库里面的我们需要的时候都是从iostrean库中的调用的。其实在这些里面还有很多很好玩的，比如上面用到的利用输出流来控制我们的变量输出格式，这些虽然看起来简单，但要我们代码来一一实现的话就有点小自闭了，也没什么必要这么做，因为现在都有现成的了，为什么不要？要是还想知道c++里还有哪些好玩的库，你自己以后慢慢寻找。** 
+# 随机数字
+**生成的随机数字的范围是1～6**
+```
+#include <iostream>
+#include <cstdlib>//随机种子的头文件
+using namespace std;
+int main (){
+    srand(time(0));//声明时间种子
+    cout<<(rand()%6)+1<<endl;模6(得到的是0～5)+1(是把数字都加上1)
+}
+```
+# 黑盒
+* 也叫做函数的抽象化。
