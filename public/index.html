@@ -1130,16 +1130,15 @@
 <li>man ls &gt;&gt;a          //把ls的手册以追加的形式写进a文件里</li>
 <li>假如在主目录里没有b文件</li>
 <li>ls -l b 2&gt; a         //把错误信息写进a文件里</li>
-<li>ls -l b 2&gt;&gt; a        //和上面的意思一样<h1 id="比较文件"><a href="#比较文件" class="headerlink" title="比较文件"></a>比较文件</h1><blockquote>
-<p>diff</p>
-</blockquote>
-</li>
+<li>ls -l b 2&gt;&gt; a        //和上面的意思一样<h1 id="比较文件-gt-diff"><a href="#比较文件-gt-diff" class="headerlink" title="比较文件 &gt; diff"></a>比较文件 &gt; diff</h1></li>
 </ol>
 <ul>
 <li>diff -u (可以把两个文件的比较内容)</li>
 <li>test(123)        test1(123456)<br>//只是把test和test1文件的内容显示出来</li>
 <li>diff -u test test1 &gt; file<br>//把前面两个文件比较的内容写进file文件里</li>
-<li>patch -b test file<br>//把以补丁的形式把原先缺少内容的test文件补回到我们想看的样子</li>
+<li>patch -b test file<br>//把以补丁的形式把原先缺少内容的test文件补回到我们想看的样子<h1 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h1><strong>脚本是用户成功登录系统后启动，并始终作为用户与系统内核的交互接口。</strong></li>
+<li>系统都有一个默认的脚本，我们也可以在终端用find /bin/sh*命令查看我们有那几种脚本。</li>
+<li>我们也可以自定义文件的权限，以便实现文件的内容，简单点说就是脚本编程，通过改变文件的权限来把文件的实现。</li>
 </ul>
 
           
