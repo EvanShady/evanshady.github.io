@@ -1130,15 +1130,68 @@
 <li>man ls &gt;&gt;a          //把ls的手册以追加的形式写进a文件里</li>
 <li>假如在主目录里没有b文件</li>
 <li>ls -l b 2&gt; a         //把错误信息写进a文件里</li>
-<li>ls -l b 2&gt;&gt; a        //和上面的意思一样<h1 id="比较文件-gt-diff"><a href="#比较文件-gt-diff" class="headerlink" title="比较文件 &gt; diff"></a>比较文件 &gt; diff</h1></li>
+<li>ls -l b 2&gt;&gt; a        //和上面的意思一样<h1 id="比较文件"><a href="#比较文件" class="headerlink" title="比较文件"></a>比较文件</h1><blockquote>
+<p>diff</p>
+</blockquote>
+</li>
 </ol>
 <ul>
 <li>diff -u (可以把两个文件的比较内容)</li>
 <li>test(123)        test1(123456)<br>//只是把test和test1文件的内容显示出来</li>
 <li>diff -u test test1 &gt; file<br>//把前面两个文件比较的内容写进file文件里</li>
-<li>patch -b test file<br>//把以补丁的形式把原先缺少内容的test文件补回到我们想看的样子<h1 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h1><strong>脚本是用户成功登录系统后启动，并始终作为用户与系统内核的交互接口。</strong></li>
+<li>patch -b test file<br>//把以补丁的形式把原先缺少内容的test文件补回到我们想看的样子<blockquote>
+<blockquote>
+<p>cmp<br><strong>比较文件的命令，但一般用来比较文本文件，判断两个文件的不同之处，以及查看不同之处的位置</strong></p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li>-l(显示两个比较文件每个不同点的字节号和字节数，前者十进制显示，后者八进制显示)</li>
+<li>-s(不显示错误信息退出)</li>
+<li>-v(显示版本信息)<blockquote>
+<blockquote>
+<blockquote>
+<p>comm</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>-1(显示文件1没有的内容)</li>
+<li>-2(显示文件2没有的内容)</li>
+<li>-3(文件1和文件2同时出现的内容不显示)</li>
+<li>-12(显示两个文件有的内容)</li>
+<li>-23(显示文件1有而文件2没有的内容)</li>
+<li>-123(什么内容都不显示)<h1 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h1><strong>脚本是用户成功登录系统后启动，并始终作为用户与系统内核的交互接口。</strong></li>
 <li>系统都有一个默认的脚本，我们也可以在终端用find /bin/sh*命令查看我们有那几种脚本。</li>
-<li>我们也可以自定义文件的权限，以便实现文件的内容，简单点说就是脚本编程，通过改变文件的权限来把文件的实现。</li>
+<li>我们也可以自定义文件的权限，以便实现文件的内容，简单点说就是脚本编程，通过改变文件的权限来把文件的实现。<h1 id="基本目录的解析"><a href="#基本目录的解析" class="headerlink" title="基本目录的解析"></a>基本目录的解析</h1><strong>基本上每台linux电脑都会有一个名为家的目录，在linux下的一切都是以文件的形式存放在目录下的，我们还可以通过更改文件的权限来把文件里的内容效果实现出来，这说的就有点远了，让我们回到刚刚的目录，我们都知道文件是存放在目录下面的，所以想想都知道目录的重要性了。</strong></li>
+<li>/ —         根目录</li>
+<li>bin/ —   存放必要的命令</li>
+<li>dev/ —   存放设备文件</li>
+<li>etc/ —   存放配置文件</li>
+<li>home/ —   主目录(存放用户的数据)</li>
+<li>lib/ —    存放必要的库</li>
+<li>mnt/ —    存放挂载的目录(一般为空)</li>
+<li>root/ —   超级用户的主目录</li>
+<li>proc/ —   虚拟目录(内存的映射)</li>
+<li>sbin/ —   存放用户经常使用的命令</li>
+<li>usr/ —    存放应用程序和文件(内存最大的目录) <h1 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h1><strong>权限分为数字权限和隐藏权限</strong></li>
+</ul>
+<ol>
+<li>数字权限 —- 关键字— chmod</li>
+</ol>
+<ul>
+<li>权限分为可读，可写，可执行。数字表示分为4,2,1</li>
+<li>chmod 777  +文件名   更改文件的权限</li>
+</ul>
+<ol start="2">
+<li>隐藏文件</li>
+</ol>
+<ul>
+<li>关键字 — chattr<br><img src="/2019/06/04/Noteslinux1/chattr.png" alt="参数解析"></li>
+<li>chattr +i 文件名</li>
+<li>查看的命令 —-   lsattr +文件名</li>
 </ul>
 
           
