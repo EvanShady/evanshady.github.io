@@ -449,15 +449,27 @@
 <p>运行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
 <p><strong>枚举的特点：它是以字符的形式声明的，但输出的确实整数型的数字</strong></p>
 <hr>
-<h1 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h1><ul>
-<li>通俗一点的意思就是在本函数里调用自身函数。</li>
-<li>最让我们看不懂的就是函数在返回的时候它是一层一层往上返回的。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int add(int i)&#123;</span><br><span class="line">    cout&lt;&lt;&quot;函数开始:i=&quot;&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">    if(i=5)&#123;</span><br><span class="line">        return i;</span><br><span class="line">    &#125;else</span><br><span class="line">    &#123;</span><br><span class="line">        add(++i);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;&quot;函数结束,返回值为：&quot;&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">    return i;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cout&lt;&lt;add(1)&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h1><p><strong>递归函数:调用的时候是使用栈内存来实现的，函数一层一层的往下递归，递归的同时会把函数停住，而计算机会重复的把信息保存到栈内存里，遇到递归停止的条件时又会一层一层的往上走在信息停止的那一步，从而实现递归的真正意义。值得注意的是，递归是栈内存的实现，它把信息放在最底层上。每当计算机往上走的时候都是从最低下中读取信息的。栈是先出后入的内存结构。</strong></p>
+<ul>
+<li>通俗一点的意思就是在本函数里调用自身函数。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int add(int i)&#123;</span><br><span class="line">    cout&lt;&lt;&quot;函数开始:i=&quot;&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">    if(i=5)&#123;</span><br><span class="line">        return i;</span><br><span class="line">    &#125;else</span><br><span class="line">    &#123;</span><br><span class="line">        add(++i);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;&quot;函数结束,返回值为：&quot;&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">    return i;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cout&lt;&lt;add(1)&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>函数的结果：`<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">函数开始：i=1</span><br><span class="line">函数开始：i=2</span><br><span class="line">函数开始：i=3</span><br><span class="line">函数开始：i=4</span><br><span class="line">函数开始：i=5</span><br><span class="line">函数结束，返回值为：5</span><br><span class="line">函数结束，返回值为：4</span><br><span class="line">函数结束，返回值为：3</span><br><span class="line">函数结束，返回值为：2</span><br><span class="line">函数结束，返回值为：1</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>这里的先是返回的自身函数调用的结果，这里编译器里是有五个变量来暂时存储自身函数的值，每当执行到函数返回的时候编译器都会从暂时存储那里把值返回给我们，还有一种理解，就是这个函数里的变量在每次自身函数调用的时候都被隐藏起来了，也就是说每次的自身函数的调用它都有不同的存储位置来让变量重新赋值。其实，递归函数是在返回的时候才是这种函数真真的意义，因为自身函数的最后一次刚好是函数返回值的第一次。</li>
+<li>这里的先是返回的自身函数调用的结果，这里编译器里是有五个变量来暂时存储自身函数的值，每当执行到函数返回的时候编译器都会从暂时存储那里把值返回给我们，还有一种理解，就是这个函数里的变量在每次自身函数调用的时候都被隐藏起来了，也就是说每次的自身函数的调用它都有不同的存储位置来让变量重新赋值。其实，递归函数是在返回的时候才是这种函数真真的意义，因为自身函数的最后一次刚好是函数返回值的第一次。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//阶乘的实现</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int test(int test1)&#123;</span><br><span class="line">    int val;</span><br><span class="line">    if(test1==1)&#123;//递归的停止条件</span><br><span class="line">        val=1;</span><br><span class="line">        return val;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        val=test1*test(test1-1);</span><br><span class="line">        return val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cout&lt;&lt;&quot;实现阶乘,请输入一个数字:&quot;&lt;&lt;endl;</span><br><span class="line">    int t1;</span><br><span class="line">    cin&gt;&gt;t1;</span><br><span class="line">    cout&lt;&lt;test(t1)&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<p><strong>强调一下，递归的停止条件的重要性，一旦递归没遇到停止的条件就会无穷的死循环，直到计算机的内存都跑完!!!</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int test(int t1,int t2)&#123;</span><br><span class="line">    if(t2==0)&#123;</span><br><span class="line">        return 1;//递归的停止条件,t2==0,就返回1</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return test(t1,t2-1)*t1;//上面返回的值来当作第一次的值，然后一直往上计算</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cout&lt;&lt;test(3,2)&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9</span><br></pre></td></tr></table></figure></p>
+<p><strong>递归的三大条件</strong></p>
+<ul>
+<li>(有返回值类型，无返回值类型)</li>
+</ul>
+<ol>
+<li>没有无穷的递归</li>
+<li>每一种停止的情况都执行(返回)那种情况下的正确操作</li>
+<li>所有递归函数的调用都能正确的执行操作，那么最后的结果一定是正确的</li>
+</ol>
 <hr>
 <h1 id="函数与指针"><a href="#函数与指针" class="headerlink" title="函数与指针"></a>函数与指针</h1><ul>
 <li>指向函数的指针<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int add(int a)&#123;</span><br><span class="line">    return a;</span><br><span class="line">&#125;</span><br><span class="line">int test(int a)&#123;</span><br><span class="line">    return a;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int (*p)(int a)=&amp;add;//指向函数的指针</span><br><span class="line">    cout&lt;&lt;P(5)&lt;&lt;endl;</span><br><span class="line">    int (*ip[])(int a)=&#123;&amp;add,&amp;test&#125;;//指向多个函数的指针数组</span><br><span class="line">    cout&lt;&lt;ip[0](1)&lt;&lt;ip[1](2)&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -516,9 +528,34 @@
 </ol>
 <p>运行结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">请输入字符</span><br><span class="line">a</span><br><span class="line">转换成功   A</span><br><span class="line">请输入字符</span><br><span class="line">add test</span><br><span class="line">add--test--</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><ul>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><h2 id="类的特征"><a href="#类的特征" class="headerlink" title="   类的特征"></a>   <strong>类的特征</strong></h2><ol>
+<li>类同时具有成员变量和成员函数。</li>
+<li>成员可变成私有和共有</li>
+<li>正常下类的成员变量是私有的</li>
+<li>类的私有成员只能在本类的函数里面定义和调用</li>
+<li>类的成员函数可以像普通的函数一样重载</li>
+<li>一个类可将另外一个类作为自己的成员变量的类性使用</li>
+<li>函数的i形参可以是类的类型</li>
+<li>类可以是函数的返回值类型</li>
+</ol>
+<hr>
+<p><strong>类的基本</strong></p>
+<ul>
+<li>所有的成员变量设为私有的</li>
+<li>用户程序员通过函数作为成员变量的接口来访问变量和完善的规定如何使用每一个公共成员函数</li>
+<li>任何辅助函数都设为私有的</li>
+</ul>
+<hr>
+<ul>
 <li>以前的数据和操作的过程都不是独立的，而c++允许我们将一些数据和操作数据的过程放在同一个地方，并封装成一个独立的个体。</li>
 <li>万物皆对象，这句话对c++程序员来说并不陌生。这并不代表我们缺少对象，对于我们这种高质男来说从来没担心过搞不到对象，因为我们随时随地都可以new一个对象出来，这不是一般人可以做到的，只有真的走进来了才可以的，虽然这个操作在c++中也不算是什么高难度的操作，但我们又不是学到这里就完事的。类和结构是完全可以交换的，唯一不一样的是结构的默认特性是public,而类的默认特性是private。</li>
+</ul>
+<hr>
+<ol>
+<li>数据类型:由值的集合以及为那些值定义的一组基本运算构成 </li>
+<li>抽像数据类型(ADT):使用数据类型的程序员访问不了值和运算的细节 </li>
+</ol>
+<ul>
 <li>封装，是用简单明了的公有函数的方式为外部程序提供对象操作接口。<h1 id="成员对象"><a href="#成员对象" class="headerlink" title="成员对象"></a>成员对象</h1></li>
 <li>分为三种：public,private，protected</li>
 </ul>
@@ -539,7 +576,7 @@
 <p><strong>上面的基类用的是构造函数来给自己赋初始化的，所以在派生类也要写上自己的构造函数才算继承基类。</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">    Student s1(&quot;小明&quot;,18);</span><br><span class="line">    s1.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">小明的年龄是：18</span><br></pre></td></tr></table></figure></p>
-<h2 id="这里比较特殊的就是成员对象一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。"><a href="#这里比较特殊的就是成员对象一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。" class="headerlink" title="这里比较特殊的就是成员对象一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。"></a><strong>这里比较特殊的就是成员对象一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。</strong></h2><ul>
+<h2 id="这里比较特殊的就是成员变量一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。"><a href="#这里比较特殊的就是成员变量一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。" class="headerlink" title="这里比较特殊的就是成员变量一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。"></a><strong>这里比较特殊的就是成员变量一般是构造函数给的初始化值，但我们在继承的时候往往会遇到问题，就是在声明派生类的时候会报错，这就是我们在基类的时候给的构造函数来赋初始化，我们只能再重写派生类的构造函数，这样才能算是真正的继承下来。</strong></h2><ul>
 <li>继承的方式有三种：public private protected<br>公有继承, 私有继承, 保护继承</li>
 </ul>
 <ol>
@@ -551,7 +588,7 @@
 <li>我们以后难免会在派生类里定义属于它自己的成员变量和成员函数，但当我们在声明和定义的时候有时也会不小心的把成员变量和成员函数与基类的成员变量和成员函数名字相同，这是我们的程序就会出现名字隐藏的现象，对于隐藏就是说当我们的派生类与基类中有名字相同的，就可能会出现隐藏。如果不知道什么时候被隐藏了什么，我们可以加上作用域去看看，在这里，我的建议是，尽量不要在继承类里面用同样的名字，不然你会很自闭的。</li>
 <li>基类的析构函数最好加上关键字（virtual）写成虚函数，这样在派生类的时候的就能自动调用，而对于，纯虚函数，在派生类中是要重写的性质，因为在基类的纯虚函数是空函数一个，它的本质就是一定要在派生类里面实现它的意义。一个良好的习惯：最好把基类的析构函数写成虚的，这样在派生类中是会自动调用的。<h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1></li>
 <li>其实就是在类里面把函数写成是纯虚函数，这样在派生类里就剩下重写这些虚函数。一般把抽象类用来设计一套统一的接口。<br><img src="/2019/06/12/C-Book/c-Book2.png" alt="例子"><br><img src="/2019/06/12/C-Book/c-Book1.png" alt="例子"><br><img src="/2019/06/12/C-Book/c-Book3.png" alt="运行结果"><br><strong>重新认识了类的继承，这里我没有用到构造函数来给成员变量赋值，因为用了构造函数会变的很自闭，发正我是完全不能理解的那种，所以我用来另外一种方法，虽然算不上什么，但我觉得自己理解写出来的东西是可以的。孙悟空吃唐僧，这是多么厉害的，我想这个结果连孙悟空自己也不敢想的，我帮他实现了，嘻嘻。</strong></li>
-<li>这里的基类是不能被实例化的，因为基类里面的show方法，我用的是纯虚函数来写的，不能被实例化，但在派生类要实现，你不实现的话，你写这个虚函数就没意义了，基类的纯虚函数在派生类你一定要写进去，不要编译器会报错的，<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1></li>
+<li>这里的基类是不能被实例化的，因为基类里面的show方法，我用的是纯虚函数来写的，不能被实例化，但在派生类要实现，你不实现的话，你写这个虚函数就没意义了，基类的纯虚函数在派生类你一定要写进去，不要编译器会报错的，<h1 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h1><strong>在类中有指针又要多个类的对象的时候最好写一下类的拷贝构造函数</strong><h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1></li>
 <li>关键字 template <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">template &lt;typename T&gt;</span><br><span class="line">T add (T a, T b)&#123;</span><br><span class="line">    return a+b;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cout&lt;&lt;add(1,2)&lt;&lt;endl;;</span><br><span class="line">    cout&lt;&lt;add(10.1,10.2)&lt;&lt;endl;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
