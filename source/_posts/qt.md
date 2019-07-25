@@ -140,7 +140,7 @@ int main(int argc,char *argv[] ){
 #include <QToolBar>//快捷键
 #include <QDebug>//打印
 #include <QStatusBar>//状态栏
-#include <QLabel>//
+#include <QLabel>//标签
 #include <QTextEdit>//核心控件
 #include <QDockWidget>//浮动窗口
 * 创建菜单栏和一些控件
@@ -162,8 +162,8 @@ int main(int argc,char *argv[] ){
         {
                 qDebug()<<"编辑被按下";
         });
-        QStatusBar *sbar=statusBar();//状态栏，主要在最左下方显示文件的状态
-        QLabel *label= new QLabel (this);
+        QStatusBar *sbar=statusBar();//状态栏，声明状态栏
+        QLabel *label= new QLabel (this);//声明标签
         sbar ->addAction(new QLabel("2",this));//以从左往右的方式显示2
         sbar-> addPermanentWidget(new QLabel("3",this));
         //以从右忘左的方式显示3
@@ -177,3 +177,125 @@ int main(int argc,char *argv[] ){
 ```
 ----
 ![运行结果](Qt/Qt3_caidan.png)
+# 关于对话框
+----
+* 是在继承于MainWindow(主窗口)的类构造函数里
+```
+#include "QMainWindow"//继承与主窗口
+#include <QMenuBar>
+#include <Menu>
+#include <QAction>
+#include <QDebug>
+#include <QMessageBox>
+#include <QFileDialog>
+MainWindow::MainWindow(QWinget *parent)
+        :MainWindow(parent){
+                QMenuBar *menub=menubar();
+                QMenu *p1=menub->addmenu("文件");
+                QAction *A1=p1->addaction("关于对话框");
+                connect(A1,&QAction::triggered,
+                [=]()
+                {
+                        QMessageBox ::about(this,"about","关于Qt"); 
+                        //简单的一个显示对话框
+                }
+                );
+                QAction *A2=p1->addaction("问题对话框");
+                connect(A2,&QAction::triggered,
+                [=]()
+                {
+                        int val=QMessageBox::question(this,"test","is ok ?",
+                        QMessageBox::ok|
+                        QMessageBox::Cancel);
+                        //显示一个对话框，调用枚举函数来实现，显示的对话内容可以自己选择，也可以随机匹配，返回值是一个整数类型的，可以定义一个整数来接住函数的返回值，这样载利用switch来做到自己想要的效果
+                }
+                switch (val){
+                        case QMessageBox::ok:
+                        qDebug()<<"i am ok";
+                        break;
+                        case QMessageBox::Cancel:
+                        qDebug()<<"i am bad";
+                        break;
+                        default:
+                        break;
+                }
+                );
+        }
+        QAction *A3=p1->addaction("文件对话框");
+        connect(A3,&QAction::triggered,
+        [=]()
+        {
+                QFileDialog ::getOpenFileName(this,"open","/home",
+                "test(*.cpp *.md);;file(*.)");
+                //利用Qt函数来实现查找文件的对话框，加上筛选的效果,来显示查找文件的强大性
+        }
+        );
+```
+![运行结果](Qt/Qt4_duihua.png)
+![运行结果](Qt/Qt5_duihua.png)
+# ui
+![这些是在ui模式下操作的](Qt/Qt6_ui.png)
+> **布局**
+----
+**局部布局和全局布局,**
+**一样是在ui的模式下进行的，因为这样比较简单而且实际。**
+----
+![运行结果](Qt/Qt7_ui.png)
+![运行结果](Qt/Qt8_ui.png)
+
+**布局最好在ui模式，因为简单！！！**
+----
+![简单的登录方式](Qt/Qt9_ui.png)
+# 设置
+**接下的操作是在ui的模式下完成的，并继承于Mainwindow**
+```
+#inlcude "MainWindow.h"
+#include <ui_mainwindow.h>
+#include <QDebug>//打印的头文件
+#include <QStringList>
+#include <QCompleter>
+
+MainWindow::MainWindow(QWidget *parent):QMainwindow(parent){
+        ui->setupUi(this);
+        //在ui的模式下添加LineEdit(行编辑)
+        QString str=ui->LineEdit->text();//获取一行里的内容
+        qDebug<<str;//打印
+        ui->LineEdit->setText("123456");//设置内容
+        ui->LineEdit->setTextMargins(10,0,0,0);//更改方度(左,右,上,下)
+        ui->LineEdit->setEchomode(QLineEdit::psaaword);//把内容设置为密码的模式
+        QStringLest cin;//声明字符串
+        cin<<"hello"<<"how are you"<<"Hehe";//定义字符串
+        QCompleter *com=new QCompleter (cin,this);//把字符串放进模型里
+        com->setCaseSensitivity(Qt::CaseInsensitive);//把模型设置成不区分大小写
+        ui->LineEdit->setCompleter(com);//把模型加进行编辑
+}
+```
+# 样式
+1 方箱模型
+2 前景和背景
+3 控制大小
+4 创建缩放式
+5 处理伪状态
+**关键字(setStyleSheet)**
+* 创建的是Widget，是在ui的模式下添加了一个label和PushButton。
+```
+// .cpp
+  ui->pushButton->setStyleSheet("QPushNutton{"
+  "color:rgb(0,255,255);" //设置颜色，自动调制颜色
+  "backgroud-color:red;" //设置背景颜色
+  "border: 2px outset grenn;"//创建缩放式(设置边框像素，输出设置，输出的颜色)
+  "border-image:url(:/new/prefix1/头像.jpg);"//设置相片，
+ "}"
+        "QPushButton:hover{"//当鼠标放在上面就更换照片
+        "border-image:url(:/new/prefix1/test.jpg)"
+        "}"
+        "QPushButton:pressed{"//当鼠标按下就更换照片
+        "border-image:url(:/new/prefix1/test1.jpg)"
+        "}"
+ );
+```
+* border (平铺的方式) 
+
+![运行结果](Qt/Qt10_ui.png)
+![方箱模型](Qt/Qt11_ui.png)
+![伪状态](Qt/Qt12_ui.png)
