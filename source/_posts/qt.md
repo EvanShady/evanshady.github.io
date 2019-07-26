@@ -280,13 +280,13 @@ MainWindow::MainWindow(QWidget *parent):QMainwindow(parent){
 * 创建的是Widget，是在ui的模式下添加了一个label和PushButton。
 ```
 // .cpp
-  ui->pushButton->setStyleSheet("QPushNutton{"
+  ui->pushButton->setStyleSheet("QPushButton{"
   "color:rgb(0,255,255);" //设置颜色，自动调制颜色
   "backgroud-color:red;" //设置背景颜色
   "border: 2px outset grenn;"//创建缩放式(设置边框像素，输出设置，输出的颜色)
-  "border-image:url(:/new/prefix1/头像.jpg);"//设置相片，
+  "border-image:url(:/new/prefix1/头像.jpg);"//设置成相片，
  "}"
-        "QPushButton:hover{"//当鼠标放在上面就更换照片
+        "QPushButton:hover{"//当鼠标抬起就更换照片
         "border-image:url(:/new/prefix1/test.jpg)"
         "}"
         "QPushButton:pressed{"//当鼠标按下就更换照片
@@ -299,3 +299,94 @@ MainWindow::MainWindow(QWidget *parent):QMainwindow(parent){
 ![运行结果](Qt/Qt10_ui.png)
 ![方箱模型](Qt/Qt11_ui.png)
 ![伪状态](Qt/Qt12_ui.png)
+# Event(事件)
+**事件，也可以说是中断。就好比你在说话的时候，有一个人在你旁边也在跟你说事情，你得停下来先听他说完，这也可以说是那个人说话的时候中断了你说话，在Qt里有专门处理中断的函数，但它还得先判断你的中断是那种类型的，它再来处理中断的事件。**
+----
+```
+// 这里是在ui的模式下添加了label，然后又添加了新文件，最后在ui里把label提升为槽函数而实现的。
+// .h
+#include <QLabel>
+class Mylabel : public Qlabel{
+        protected://保护的(重写事件里的虚函数)
+        //鼠标按下
+        void mousePressEvent(QMouseEvent *ev);
+        //鼠标抬起
+        void mouseReleaseEvent(QMouseEvent *ev);
+        //鼠标移动
+        void mouseMoveEvent(QMouseEvent *ev);
+        //鼠标在里面
+        void enterEvent(QEvent *);
+        //鼠标在外面
+        void leaveEvent(QEvent *);
+}
+// .cpp
+#include "Mylabel.h"
+#include <MouseEvent>//事件的头文件
+#include <QDebug> //打印
+Mylabel::Mylabel(QWidget *parent):QLabel(parent){
+        //设置追踪鼠标(设置了鼠标追踪就会在程序里自动追踪鼠标，没有设置的话，你还得在窗口里点一下才能出来数据)
+        this->setMouseTracking(true);
+}
+void Mylabel::mousePressEvent(QMouseEvent *ev){
+        int i=ev->x();//x的坐标
+        int j=ev->y();//y的坐标
+QSting str=QString ("<center><h1>mouse press:(%1,%2)</h1></center>")
+.arg(i).arg(j);
+// 语法(参数是字符) (center(字体加粗))
+this->setText(str);//设置
+if(ev->Button()==Qt::LefeButton){//判断鼠标按钮在左边，右边，中间
+        qDebug()<<"left";
+}else if(ev->Button()==Qt::RightNutton){
+        qDebug()<<"right";
+}else if(ev->Button()==Qt::MidButton){
+        qDebug()<<"wid";
+}
+void Mylabel::mouseReleaseEvent(QMouseEvent *ev){
+QSting str=QString ("<center><h1>mouse press:(%1,%2)</h1></center>")
+.arg(ev->x()).arg(ev->y());
+this->setText(str);
+}
+void Mylabel::mouseMoveEvent(QMouseEvent *ev){
+
+QSting str=QString ("<center><h1>mouse move:(%1,%2)</h1></center>")
+.arg(ev->x()).arg(ev->y());
+this->setText(str);
+}
+void Mylabel::enterEvent(QEvent *e){
+        QString str=QString("<center><h1>Event:enter</h1></center>");
+        this->setText(str);
+}
+void Mtlabel::lavceEvent(QEvent *e){
+        QString str=QString("<center><h1>Event:leave</h1><.center>");
+        this->setText(str);
+}
+}
+```
+![运行结果](Qt/QtEvent.png)
+
+![运行结果](Qt/QtEvent1.png)
+
+![运行结果](Qt/QtEvent2.png)
+
+![运行结果](Qt/QtEvent3.png)
+> 时间的处理与忽略
+* 继承于widget的前提下，简写。
+```
+// .h
+void closeEvent (QEvent *event);//关闭事件
+// .cpp
+#include "Widget.h"
+#include <QMessageBox>//对话框头文件
+void Widget::closeEvent(QEvent *event){
+        int test=QMessageBox::question(this , "question","sure?",
+        QMessageBox::Yes |
+        QMessageBox::No);
+        if(test==QMessageBox::Yes){
+                event->accept();//处理
+        }else{
+                event->ignore();//忽略
+        }
+
+}
+```
+![运行结果](Qt/QtEvent4.png)
