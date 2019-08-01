@@ -186,8 +186,8 @@ int main(int argc,char *argv[] ){
 #include <Menu>
 #include <QAction>
 #include <QDebug>
-#include <QMessageBox>
-#include <QFileDialog>
+#include <QMessageBox>//对话框的头文件
+#include <QFileDialog>//查找文件的对话框的头文件
 MainWindow::MainWindow(QWinget *parent)
         :MainWindow(parent){
                 QMenuBar *menub=menubar();
@@ -390,3 +390,48 @@ void Widget::closeEvent(QEvent *event){
 }
 ```
 ![运行结果](Qt/QtEvent4.png)
+# 绘画
+![运行的程序](Qt/QtEventpainter1.png)
+![运行的结果](Qt/QtEventpainter2.png)
+
+# 绘图设备
+* Pixmap(在平台上不能对图片进行修改)
+* Image(和平台无关平台上，可以对图片进行修改)
+* picture(保存绘图的状态，以二进制的文件进行保存)
+
+![pixmap](Qt/Qt_pixmap.png)
+![image](Qt/Qt_image.png)
+![picture](Qt/Qt_picture1.png)
+![picture](Qt/Qt_picture.png)
+![[icture]](Qt/Qt_picture2.png)
+**其实在写这些代码的时候遇到的问题挺多的，明明讲的和我写的是一样的，但我文件管理器就是没有图片，弄得我挺自闭的，换一种方式定义画家就解决了。**
+----
+> QPixmap&&QImage
+
+![](Qt/Qtzhuan.png)
+
+![](Qt/Qt_zhuan1.png)
+----
+# 不规则的窗口
+![程序](Qt/Qt_paint.png)
+![结果](Qt/Qt_paint1.png)
+# File
+**不管在那个语言上，文件的操作都有一定的重要性，所以就把它学好。**
+* 普通的形式写读文件()
+
+```
+// 用到的头文件
+#include <QFile>
+#include <QFileDialg>
+#include <QFileInfo>
+```
+![](Qt/QtFILE.png)
+![](Qt/Qtreadfile.png)
+![](Qt/Qtwritefile.png)
+* 是以二进制的形式保存文件
+```
+// 用到的头文件
+#include <QFile>
+#include <QDatestram>
+```
+![](Qt/Qt_Stream.png)
