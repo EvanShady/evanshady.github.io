@@ -404,6 +404,7 @@ void Widget::closeEvent(QEvent *event){
 ![picture](Qt/Qt_picture1.png)
 ![picture](Qt/Qt_picture.png)
 ![[icture]](Qt/Qt_picture2.png)
+
 **其实在写这些代码的时候遇到的问题挺多的，明明讲的和我写的是一样的，但我文件管理器就是没有图片，弄得我挺自闭的，换一种方式定义画家就解决了。**
 ----
 > QPixmap&&QImage
@@ -415,6 +416,9 @@ void Widget::closeEvent(QEvent *event){
 # 不规则的窗口
 ![程序](Qt/Qt_paint.png)
 ![结果](Qt/Qt_paint1.png)
+
+**绘画。我们一般都是在窗口上。而关于怎么样进行绘画，我们是选择重写绘画事件来完成绘画的，一般来说都是先定义画家，然后再选择绘画的设备(this)。我们也不一定就在窗口上绘画，在软件里还有三种设备可以让我们在上面绘画(QPixmap(保存的是图片),QImage(保存的是图片),Qpicture(保存的是二进制文件))，save(保存),load(加载)，Rect(矩形)。**
+ ----
 # File
 **不管在那个语言上，文件的操作都有一定的重要性，所以就把它学好。**
 * 普通的形式写读文件()
@@ -435,3 +439,32 @@ void Widget::closeEvent(QEvent *event){
 #include <QDatestram>
 ```
 ![](Qt/Qt_Stream.png)
+# Server
+**记得在项目文件里加(network),这是针对于在类对象里没有提示。还有就是连则表达式(CONFIG+=c++11)**
+----
+![](Qt/Qt_server.png)
+**写代码最重要的是逻辑要清晰，时刻的知道自己在写什么，所以，软件怎样运行我们是一定要搞清楚的。**
+----
+```
+//用到的头文件
+#include <QTcpServer>
+#include <QTcpsocket>
+```
+![serven](Qt/Qt_tcpserven.png)
+![server](Qt/Qt_tcpserven1.png)
+![客户端](Qt/Qt_tcpserven2.png)
+**其实在上面的刚开始的第一张图就很清晰的讲到了tcp的连接过程，只要我们真的理解了就能看的明白。在这里也没什么好解释的，有很多的函数都是在函数里订好了的，只要我们搞清楚什么时候调用什么函数就行了。**
+> UDP
+* 它是面向无连接的通信，所以在这里就只需要通信的套接字(socket)。
+```
+// 用到的头文件
+#include <QUdpSocket> //.h(不要忘记在.h文件里声明socket套接字)
+#include <QHostAddress>// .cpp
+```
+![程序](Qt/Qt_udp1.png)
+![程序](Qt/Qt_udp2.png)
+![运行结果](Qt/Qt_udp.png)
+# tcpfile
+![流程图](Qt/Qt_tcpfile.png)
+**值得注意的是，tcp在发组的时候，头文件的信息和数据是一起跟着发过去的，所以我们在这里要用定时器来缓一下时间，让它先发头文件，后发数据。这样一来我们的头文件信息和数据就不会搞混，还有就是tcp发包是不会丢失的。**
+-----
