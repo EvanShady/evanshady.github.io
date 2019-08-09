@@ -26,7 +26,8 @@ int main(int argc,char *argv[]){
         return app.exec();
 }
 ```
-![运行结果](Qt/Qt1.png)
+![运行结果](Qt/qt1.png)
+
 **值得注意下的就是，如果不给按钮对象指向父对象，两个窗口是独立的。还有上面是用了两种方式来指向父对象，一个是用函数setParent(),另外一个是用构造函数来指向。**
 ```
 #include <QApplication>
@@ -39,6 +40,7 @@ int main(int argc,char *argv[]){
 }
 ```
 ![运行结果](Qt/Qt2_hello.png)
+
 **上面的代码有点不好，但要是一定要这样的话，那在main函数里面的代码是很多的。这样让别人看起来就有点不好的感觉。**
 **QPushButton--是按钮，QWidget--是窗口**
 * signals--信号(类似与广播，发出信号，如果有对它有意思的，就有connect连接，来把它连接在一起)
