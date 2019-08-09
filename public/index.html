@@ -229,6 +229,234 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/qt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/05/qt/" itemprop="url">qt</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T22:24:37+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Qt"><a href="#Qt" class="headerlink" title="Qt"></a>Qt</h1><h2 id="图形化界面–GUI。这个工具对于程序员的开发是便利的，特别是开发用户的图形化界面，在Linux里也是用到了qt的。"><a href="#图形化界面–GUI。这个工具对于程序员的开发是便利的，特别是开发用户的图形化界面，在Linux里也是用到了qt的。" class="headerlink" title="图形化界面–GUI。这个工具对于程序员的开发是便利的，特别是开发用户的图形化界面，在Linux里也是用到了qt的。"></a><em>图形化界面–GUI。这个工具对于程序员的开发是便利的，特别是开发用户的图形化界面，在Linux里也是用到了qt的。</em></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QApplication&gt;//使用qt的头文件</span><br><span class="line">#include &lt;QWidget&gt;//窗口控制基类</span><br><span class="line">#include &lt;QPushButton&gt;//指定父对象的头文件</span><br><span class="line">int main(int argc,char *argv[])&#123;</span><br><span class="line">        QApplication  a(argc,argv);</span><br><span class="line">        My_widget w;</span><br><span class="line">        w.setwindowTitle(&quot;主要看气质&quot;);//文件头名</span><br><span class="line">        QPushButton b;//声明按钮的类     </span><br><span class="line">        b.setParent(&amp;w);//让按钮放在父对象的函数</span><br><span class="line">        b.setText(&quot;删除&quot;);//声明按钮,并赋值</span><br><span class="line">        b.move(100,100);//移动按钮</span><br><span class="line">        QPushButton b1(&amp;w);//使用按钮构造函数并指向父对象</span><br><span class="line">        b1.setText(&quot;确认&quot;);//声明按钮,并赋值</span><br><span class="line">        b1.move(200,200);//移动按钮</span><br><span class="line">        w.show();//输出函数</span><br><span class="line">        return app.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/05/qt/Qt/Qt1.png" alt="运行结果"><br><strong>值得注意下的就是，如果不给按钮对象指向父对象，两个窗口是独立的。还有上面是用了两种方式来指向父对象，一个是用函数setParent(),另外一个是用构造函数来指向。</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QApplication&gt;</span><br><span class="line">#include &lt;QWidget&gt;</span><br><span class="line">#include &lt;QLabel&gt;</span><br><span class="line">int main(int argc,char *argv[])&#123;</span><br><span class="line">            QApplication a(argc,argv);</span><br><span class="line">            QLabel label(&quot;Hello&quot;);</span><br><span class="line">            return a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/08/05/qt/Qt/Qt2_hello.png" alt="运行结果"><br><strong>上面的代码有点不好，但要是一定要这样的话，那在main函数里面的代码是很多的。这样让别人看起来就有点不好的感觉。</strong><br><strong>QPushButton–是按钮，QWidget–是窗口</strong></p>
+<ul>
+<li>signals–信号(类似与广播，发出信号，如果有对它有意思的，就有connect连接，来把它连接在一起)</li>
+<li>connect–连接(意思是，用自己的函数(成为槽(solt))来处理这个信号)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">//练练手，长长记性</span><br><span class="line">//main函数里面的头文件</span><br><span class="line">#include &lt;QApplication&gt;</span><br><span class="line">#include &lt;QPushButton&gt;</span><br><span class="line">#include &quot;My_Widget.h&quot;</span><br><span class="line"></span><br><span class="line">//是以公有的方式继承了窗口化的类,.h文件</span><br><span class="line">#include &quot;sud.h&quot;</span><br><span class="line">class My_Widget:public Widget&#123;</span><br><span class="line">public:</span><br><span class="line">        My_Widget(QWidget *parent =nullptr);</span><br><span class="line">        ~My_Widget();</span><br><span class="line">        void showb2();</span><br><span class="line">        void showwid();</span><br><span class="line">        void showxin();</span><br><span class="line">private:</span><br><span class="line">        QPushButton b1;</span><br><span class="line">        QPushButton *b2;</span><br><span class="line">        QPushButton b3;</span><br><span class="line">        sud s;</span><br><span class="line">&#125;</span><br><span class="line">//.cpp文件</span><br><span class="line">#include &quot;My_Widget.h&quot;</span><br><span class="line">My_Widget::MyWidget(QWidget *parent =nullptr):QWidget(parent)&#123;</span><br><span class="line">        b1.setParent(this);</span><br><span class="line">        b1.setText(&quot;^_^&quot;);</span><br><span class="line">        b1.move(100,100);</span><br><span class="line">        b2=new QPushButton (this);</span><br><span class="line">        b2-&gt;setText(&quot;abc&quot;);</span><br><span class="line">        connect(&amp;b1,&amp;QPushButton::released,this,&amp;QPushButton::close);</span><br><span class="line">        connect(b2,&amp;QPushButton::released,this,&amp;My_Widget::show);</span><br><span class="line">        s.show();</span><br><span class="line">        this-&gt;setWindowTitle(&quot;老大&quot;);</span><br><span class="line">        b3.setParent(this);</span><br><span class="line">        b3.setText(&quot;切换子窗口&quot;);</span><br><span class="line">        connect(&amp;b3,&amp;QPushButton::released,this,My_Widget::showwid);</span><br><span class="line">        connect(&amp;s,&amp;sud::xin,this,&amp;My_Widget::showxin);//接收信号并处理信号</span><br><span class="line">        resize(400,300);</span><br><span class="line">        //当信号发出时，被连接的槽函数会被回调用来处理信号发出的操作</span><br><span class="line">&#125;</span><br><span class="line">void My_Widget::showb2()&#123;</span><br><span class="line">        b2-&gt;setText(&quot;123&quot;);</span><br><span class="line">&#125;</span><br><span class="line">void My_Widget::showwid()&#123;</span><br><span class="line">        s.show();</span><br><span class="line">        this-&gt;hide();</span><br><span class="line">&#125;</span><br><span class="line">void My_Widget::showxin&#123;</span><br><span class="line">        this-&gt;show();</span><br><span class="line">        s.hide();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//是以公有的方式继承My_Widget类的派生类</span><br><span class="line">#include &lt;QWidget&gt;</span><br><span class="line">#include &lt;QPushButton&gt;</span><br><span class="line">class sud : public My_Widget&#123;</span><br><span class="line">public:</span><br><span class="line">        explicit*** sud(QWidget *parent =nullptr)</span><br><span class="line">        void showwid();//用来发射信号的函数</span><br><span class="line">signals:</span><br><span class="line">        void xin();//信号</span><br><span class="line">private:</span><br><span class="line">        QPushButton b;</span><br><span class="line">&#125;</span><br><span class="line">void sud::sud(QWidget *parent):QWidget(parent)&#123;</span><br><span class="line">        this-&gt;setWindowTitle(&quot;小弟&quot;);</span><br><span class="line">        b.setParent(this);</span><br><span class="line">        b.setText(&quot;切换父窗口&quot;);</span><br><span class="line">        connect(&amp;b,QPushButton::clicked,this,&amp;sud::showwid);//发送信号的</span><br><span class="line">        resize(400,300);</span><br><span class="line">&#125;</span><br><span class="line">void sud::showwid()&#123;</span><br><span class="line">        emit xin();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc,char *argv[] )&#123;</span><br><span class="line">        QApplication a(argc,argv);</span><br><span class="line">        My_Widget w;</span><br><span class="line">        w.show();</span><br><span class="line">        return a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h1><ul>
+<li>槽</li>
+</ul>
+<ol>
+<li>任意的成员函数，普通全局函数，静态函数</li>
+<li>槽函数需要与信号一样(返回值和参数)由于信号没有返回值，所以槽函数也没有返回值</li>
+</ol>
+<ul>
+<li>信号</li>
+</ul>
+<ol>
+<li>信号必须有关键字signals</li>
+<li>信号没有返回值，是个函数,可以有参数</li>
+<li>信号只有声明，无需为信号定义</li>
+<li>使用的方法:使用关键字emit来调用</li>
+</ol>
+<ul>
+<li><p>按钮只是回调了槽函数，而窗口的所有改动都是该窗口改变的，和按钮是没什么关联的。</p>
+</li>
+<li><p>内存</p>
+</li>
+</ul>
+<ol>
+<li>指定父对象后,直接或间接的继承于Q0bject</li>
+<li>子对象如果动态分配空间(new)，不需要手动释放(delete)，系统会自动调用析构函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QMenuBar&gt;//菜单栏</span><br><span class="line">#include &lt;QMenu&gt;//菜单</span><br><span class="line">#include &lt;QAction&gt;//控件</span><br><span class="line">#include &lt;QToolBar&gt;//快捷键</span><br><span class="line">#include &lt;QDebug&gt;//打印</span><br><span class="line">#include &lt;QStatusBar&gt;//状态栏</span><br><span class="line">#include &lt;QLabel&gt;//标签</span><br><span class="line">#include &lt;QTextEdit&gt;//核心控件</span><br><span class="line">#include &lt;QDockWidget&gt;//浮动窗口</span><br><span class="line">* 创建菜单栏和一些控件</span><br><span class="line">* 以下的代码是在构造函数的里面的，主要是懒得写了。</span><br><span class="line">        QMenuBar *mbar=menuBar();//声明一个菜单栏</span><br><span class="line">        Qmenu *f1=mbar-&gt;addAction(文件);//在菜单栏里写一个以文件为名的控件</span><br><span class="line">        QAction *p1=f1-&gt;addAction(&quot;新建&quot;);//在文件里写一个以新建为名的控件</span><br><span class="line">        connect(p1,&amp;QAction::triggered,//槽函数</span><br><span class="line">        []()</span><br><span class="line">        &#123;</span><br><span class="line">                qDebug()&lt;&lt;&quot;新建被按下&quot;;</span><br><span class="line">        &#125;);</span><br><span class="line">        f1-&gt;addSeparator();//分割线</span><br><span class="line">        QAction *p1_2=f1-&gt;addAction(&quot;打开&quot;);//同上</span><br><span class="line">        Qmenu *f2=mbar-&gt;addAction(&quot;编辑&quot;);</span><br><span class="line">        QAction *p2=f2-&gt;addAction(&quot;编辑&quot;);</span><br><span class="line">        connect(p2,&amp;QAction::triggered,</span><br><span class="line">        []()</span><br><span class="line">        &#123;</span><br><span class="line">                qDebug()&lt;&lt;&quot;编辑被按下&quot;;</span><br><span class="line">        &#125;);</span><br><span class="line">        QStatusBar *sbar=statusBar();//状态栏，声明状态栏</span><br><span class="line">        QLabel *label= new QLabel (this);//声明标签</span><br><span class="line">        sbar -&gt;addAction(new QLabel(&quot;2&quot;,this));//以从左往右的方式显示2</span><br><span class="line">        sbar-&gt; addPermanentWidget(new QLabel(&quot;3&quot;,this));</span><br><span class="line">        //以从右忘左的方式显示3</span><br><span class="line">        QTextEdit *text=new QTextEdit(this);//核心控件，也就是文件编辑的地方</span><br><span class="line">        setCentralWidget(text);</span><br><span class="line">        QDockWidget *dock=new QDockWidget(this);//浮动窗口</span><br><span class="line">        addDockWidget(Qt::LeftDockWidget,dock);//在左边显示</span><br><span class="line">        QTextWidget *text1=new QTextWidget(this);//声明编辑</span><br><span class="line">        dock-&gt;setWidget(text1);//在浮动窗口里显示文件编辑的地方</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<p><img src="/2019/08/05/qt/Qt/Qt3_caidan.png" alt="运行结果"></p>
+<h1 id="关于对话框"><a href="#关于对话框" class="headerlink" title="关于对话框"></a>关于对话框</h1><hr>
+<ul>
+<li>是在继承于MainWindow(主窗口)的类构造函数里<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;QMainWindow&quot;//继承与主窗口</span><br><span class="line">#include &lt;QMenuBar&gt;</span><br><span class="line">#include &lt;Menu&gt;</span><br><span class="line">#include &lt;QAction&gt;</span><br><span class="line">#include &lt;QDebug&gt;</span><br><span class="line">#include &lt;QMessageBox&gt;//对话框的头文件</span><br><span class="line">#include &lt;QFileDialog&gt;//查找文件的对话框的头文件</span><br><span class="line">MainWindow::MainWindow(QWinget *parent)</span><br><span class="line">        :MainWindow(parent)&#123;</span><br><span class="line">                QMenuBar *menub=menubar();</span><br><span class="line">                QMenu *p1=menub-&gt;addmenu(&quot;文件&quot;);</span><br><span class="line">                QAction *A1=p1-&gt;addaction(&quot;关于对话框&quot;);</span><br><span class="line">                connect(A1,&amp;QAction::triggered,</span><br><span class="line">                [=]()</span><br><span class="line">                &#123;</span><br><span class="line">                        QMessageBox ::about(this,&quot;about&quot;,&quot;关于Qt&quot;); </span><br><span class="line">                        //简单的一个显示对话框</span><br><span class="line">                &#125;</span><br><span class="line">                );</span><br><span class="line">                QAction *A2=p1-&gt;addaction(&quot;问题对话框&quot;);</span><br><span class="line">                connect(A2,&amp;QAction::triggered,</span><br><span class="line">                [=]()</span><br><span class="line">                &#123;</span><br><span class="line">                        int val=QMessageBox::question(this,&quot;test&quot;,&quot;is ok ?&quot;,</span><br><span class="line">                        QMessageBox::ok|</span><br><span class="line">                        QMessageBox::Cancel);</span><br><span class="line">                        //显示一个对话框，调用枚举函数来实现，显示的对话内容可以自己选择，也可以随机匹配，返回值是一个整数类型的，可以定义一个整数来接住函数的返回值，这样载利用switch来做到自己想要的效果</span><br><span class="line">                &#125;</span><br><span class="line">                switch (val)&#123;</span><br><span class="line">                        case QMessageBox::ok:</span><br><span class="line">                        qDebug()&lt;&lt;&quot;i am ok&quot;;</span><br><span class="line">                        break;</span><br><span class="line">                        case QMessageBox::Cancel:</span><br><span class="line">                        qDebug()&lt;&lt;&quot;i am bad&quot;;</span><br><span class="line">                        break;</span><br><span class="line">                        default:</span><br><span class="line">                        break;</span><br><span class="line">                &#125;</span><br><span class="line">                );</span><br><span class="line">        &#125;</span><br><span class="line">        QAction *A3=p1-&gt;addaction(&quot;文件对话框&quot;);</span><br><span class="line">        connect(A3,&amp;QAction::triggered,</span><br><span class="line">        [=]()</span><br><span class="line">        &#123;</span><br><span class="line">                QFileDialog ::getOpenFileName(this,&quot;open&quot;,&quot;/home&quot;,</span><br><span class="line">                &quot;test(*.cpp *.md);;file(*.)&quot;);</span><br><span class="line">                //利用Qt函数来实现查找文件的对话框，加上筛选的效果,来显示查找文件的强大性</span><br><span class="line">        &#125;</span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/08/05/qt/Qt/Qt4_duihua.png" alt="运行结果"><br><img src="/2019/08/05/qt/Qt/Qt5_duihua.png" alt="运行结果"></p>
+<h1 id="ui"><a href="#ui" class="headerlink" title="ui"></a>ui</h1><p><img src="/2019/08/05/qt/Qt/Qt6_ui.png" alt="这些是在ui模式下操作的"></p>
+<blockquote>
+<p><strong>布局</strong></p>
+</blockquote>
+<hr>
+<p><strong>局部布局和全局布局,</strong></p>
+<h2 id="一样是在ui的模式下进行的，因为这样比较简单而且实际。"><a href="#一样是在ui的模式下进行的，因为这样比较简单而且实际。" class="headerlink" title="一样是在ui的模式下进行的，因为这样比较简单而且实际。"></a><strong>一样是在ui的模式下进行的，因为这样比较简单而且实际。</strong></h2><p><img src="/2019/08/05/qt/Qt/Qt7_ui.png" alt="运行结果"><br><img src="/2019/08/05/qt/Qt/Qt8_ui.png" alt="运行结果"></p>
+<h2 id="布局最好在ui模式，因为简单！！！"><a href="#布局最好在ui模式，因为简单！！！" class="headerlink" title="布局最好在ui模式，因为简单！！！"></a><strong>布局最好在ui模式，因为简单！！！</strong></h2><p><img src="/2019/08/05/qt/Qt/Qt9_ui.png" alt="简单的登录方式"></p>
+<h1 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h1><p><strong>接下的操作是在ui的模式下完成的，并继承于Mainwindow</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#inlcude &quot;MainWindow.h&quot;</span><br><span class="line">#include &lt;ui_mainwindow.h&gt;</span><br><span class="line">#include &lt;QDebug&gt;//打印的头文件</span><br><span class="line">#include &lt;QStringList&gt;</span><br><span class="line">#include &lt;QCompleter&gt;</span><br><span class="line"></span><br><span class="line">MainWindow::MainWindow(QWidget *parent):QMainwindow(parent)&#123;</span><br><span class="line">        ui-&gt;setupUi(this);</span><br><span class="line">        //在ui的模式下添加LineEdit(行编辑)</span><br><span class="line">        QString str=ui-&gt;LineEdit-&gt;text();//获取一行里的内容</span><br><span class="line">        qDebug&lt;&lt;str;//打印</span><br><span class="line">        ui-&gt;LineEdit-&gt;setText(&quot;123456&quot;);//设置内容</span><br><span class="line">        ui-&gt;LineEdit-&gt;setTextMargins(10,0,0,0);//更改方度(左,右,上,下)</span><br><span class="line">        ui-&gt;LineEdit-&gt;setEchomode(QLineEdit::psaaword);//把内容设置为密码的模式</span><br><span class="line">        QStringLest cin;//声明字符串</span><br><span class="line">        cin&lt;&lt;&quot;hello&quot;&lt;&lt;&quot;how are you&quot;&lt;&lt;&quot;Hehe&quot;;//定义字符串</span><br><span class="line">        QCompleter *com=new QCompleter (cin,this);//把字符串放进模型里</span><br><span class="line">        com-&gt;setCaseSensitivity(Qt::CaseInsensitive);//把模型设置成不区分大小写</span><br><span class="line">        ui-&gt;LineEdit-&gt;setCompleter(com);//把模型加进行编辑</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h1><p>1 方箱模型<br>2 前景和背景<br>3 控制大小<br>4 创建缩放式<br>5 处理伪状态<br><strong>关键字(setStyleSheet)</strong></p>
+<ul>
+<li><p>创建的是Widget，是在ui的模式下添加了一个label和PushButton。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// .cpp</span><br><span class="line">  ui-&gt;pushButton-&gt;setStyleSheet(&quot;QPushButton&#123;&quot;</span><br><span class="line">  &quot;color:rgb(0,255,255);&quot; //设置颜色，自动调制颜色</span><br><span class="line">  &quot;backgroud-color:red;&quot; //设置背景颜色</span><br><span class="line">  &quot;border: 2px outset grenn;&quot;//创建缩放式(设置边框像素，输出设置，输出的颜色)</span><br><span class="line">  &quot;border-image:url(:/new/prefix1/头像.jpg);&quot;//设置成相片，</span><br><span class="line"> &quot;&#125;&quot;</span><br><span class="line">        &quot;QPushButton:hover&#123;&quot;//当鼠标抬起就更换照片</span><br><span class="line">        &quot;border-image:url(:/new/prefix1/test.jpg)&quot;</span><br><span class="line">        &quot;&#125;&quot;</span><br><span class="line">        &quot;QPushButton:pressed&#123;&quot;//当鼠标按下就更换照片</span><br><span class="line">        &quot;border-image:url(:/new/prefix1/test1.jpg)&quot;</span><br><span class="line">        &quot;&#125;&quot;</span><br><span class="line"> );</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>border (平铺的方式) </p>
+</li>
+</ul>
+<p><img src="/2019/08/05/qt/Qt/Qt10_ui.png" alt="运行结果"><br><img src="/2019/08/05/qt/Qt/Qt11_ui.png" alt="方箱模型"><br><img src="/2019/08/05/qt/Qt/Qt12_ui.png" alt="伪状态"></p>
+<h1 id="Event-事件"><a href="#Event-事件" class="headerlink" title="Event(事件)"></a>Event(事件)</h1><h2 id="事件，也可以说是中断。就好比你在说话的时候，有一个人在你旁边也在跟你说事情，你得停下来先听他说完，这也可以说是那个人说话的时候中断了你说话，在Qt里有专门处理中断的函数，但它还得先判断你的中断是那种类型的，它再来处理中断的事件。"><a href="#事件，也可以说是中断。就好比你在说话的时候，有一个人在你旁边也在跟你说事情，你得停下来先听他说完，这也可以说是那个人说话的时候中断了你说话，在Qt里有专门处理中断的函数，但它还得先判断你的中断是那种类型的，它再来处理中断的事件。" class="headerlink" title="事件，也可以说是中断。就好比你在说话的时候，有一个人在你旁边也在跟你说事情，你得停下来先听他说完，这也可以说是那个人说话的时候中断了你说话，在Qt里有专门处理中断的函数，但它还得先判断你的中断是那种类型的，它再来处理中断的事件。"></a><strong>事件，也可以说是中断。就好比你在说话的时候，有一个人在你旁边也在跟你说事情，你得停下来先听他说完，这也可以说是那个人说话的时候中断了你说话，在Qt里有专门处理中断的函数，但它还得先判断你的中断是那种类型的，它再来处理中断的事件。</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">// 这里是在ui的模式下添加了label，然后又添加了新文件，最后在ui里把label提升为槽函数而实现的。</span><br><span class="line">// .h</span><br><span class="line">#include &lt;QLabel&gt;</span><br><span class="line">class Mylabel : public Qlabel&#123;</span><br><span class="line">        protected://保护的(重写事件里的虚函数)</span><br><span class="line">        //鼠标按下</span><br><span class="line">        void mousePressEvent(QMouseEvent *ev);</span><br><span class="line">        //鼠标抬起</span><br><span class="line">        void mouseReleaseEvent(QMouseEvent *ev);</span><br><span class="line">        //鼠标移动</span><br><span class="line">        void mouseMoveEvent(QMouseEvent *ev);</span><br><span class="line">        //鼠标在里面</span><br><span class="line">        void enterEvent(QEvent *);</span><br><span class="line">        //鼠标在外面</span><br><span class="line">        void leaveEvent(QEvent *);</span><br><span class="line">&#125;</span><br><span class="line">// .cpp</span><br><span class="line">#include &quot;Mylabel.h&quot;</span><br><span class="line">#include &lt;MouseEvent&gt;//事件的头文件</span><br><span class="line">#include &lt;QDebug&gt; //打印</span><br><span class="line">Mylabel::Mylabel(QWidget *parent):QLabel(parent)&#123;</span><br><span class="line">        //设置追踪鼠标(设置了鼠标追踪就会在程序里自动追踪鼠标，没有设置的话，你还得在窗口里点一下才能出来数据)</span><br><span class="line">        this-&gt;setMouseTracking(true);</span><br><span class="line">&#125;</span><br><span class="line">void Mylabel::mousePressEvent(QMouseEvent *ev)&#123;</span><br><span class="line">        int i=ev-&gt;x();//x的坐标</span><br><span class="line">        int j=ev-&gt;y();//y的坐标</span><br><span class="line">QSting str=QString (&quot;&lt;center&gt;&lt;h1&gt;mouse press:(%1,%2)&lt;/h1&gt;&lt;/center&gt;&quot;)</span><br><span class="line">.arg(i).arg(j);</span><br><span class="line">// 语法(参数是字符) (center(字体加粗))</span><br><span class="line">this-&gt;setText(str);//设置</span><br><span class="line">if(ev-&gt;Button()==Qt::LefeButton)&#123;//判断鼠标按钮在左边，右边，中间</span><br><span class="line">        qDebug()&lt;&lt;&quot;left&quot;;</span><br><span class="line">&#125;else if(ev-&gt;Button()==Qt::RightNutton)&#123;</span><br><span class="line">        qDebug()&lt;&lt;&quot;right&quot;;</span><br><span class="line">&#125;else if(ev-&gt;Button()==Qt::MidButton)&#123;</span><br><span class="line">        qDebug()&lt;&lt;&quot;wid&quot;;</span><br><span class="line">&#125;</span><br><span class="line">void Mylabel::mouseReleaseEvent(QMouseEvent *ev)&#123;</span><br><span class="line">QSting str=QString (&quot;&lt;center&gt;&lt;h1&gt;mouse press:(%1,%2)&lt;/h1&gt;&lt;/center&gt;&quot;)</span><br><span class="line">.arg(ev-&gt;x()).arg(ev-&gt;y());</span><br><span class="line">this-&gt;setText(str);</span><br><span class="line">&#125;</span><br><span class="line">void Mylabel::mouseMoveEvent(QMouseEvent *ev)&#123;</span><br><span class="line"></span><br><span class="line">QSting str=QString (&quot;&lt;center&gt;&lt;h1&gt;mouse move:(%1,%2)&lt;/h1&gt;&lt;/center&gt;&quot;)</span><br><span class="line">.arg(ev-&gt;x()).arg(ev-&gt;y());</span><br><span class="line">this-&gt;setText(str);</span><br><span class="line">&#125;</span><br><span class="line">void Mylabel::enterEvent(QEvent *e)&#123;</span><br><span class="line">        QString str=QString(&quot;&lt;center&gt;&lt;h1&gt;Event:enter&lt;/h1&gt;&lt;/center&gt;&quot;);</span><br><span class="line">        this-&gt;setText(str);</span><br><span class="line">&#125;</span><br><span class="line">void Mtlabel::lavceEvent(QEvent *e)&#123;</span><br><span class="line">        QString str=QString(&quot;&lt;center&gt;&lt;h1&gt;Event:leave&lt;/h1&gt;&lt;.center&gt;&quot;);</span><br><span class="line">        this-&gt;setText(str);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/05/qt/Qt/QtEvent.png" alt="运行结果"></p>
+<p><img src="/2019/08/05/qt/Qt/QtEvent1.png" alt="运行结果"></p>
+<p><img src="/2019/08/05/qt/Qt/QtEvent2.png" alt="运行结果"></p>
+<p><img src="/2019/08/05/qt/Qt/QtEvent3.png" alt="运行结果"></p>
+<blockquote>
+<p>时间的处理与忽略</p>
+<ul>
+<li>继承于widget的前提下，简写。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// .h</span><br><span class="line">void closeEvent (QEvent *event);//关闭事件</span><br><span class="line">// .cpp</span><br><span class="line">#include &quot;Widget.h&quot;</span><br><span class="line">#include &lt;QMessageBox&gt;//对话框头文件</span><br><span class="line">void Widget::closeEvent(QEvent *event)&#123;</span><br><span class="line">        int test=QMessageBox::question(this , &quot;question&quot;,&quot;sure?&quot;,</span><br><span class="line">        QMessageBox::Yes |</span><br><span class="line">        QMessageBox::No);</span><br><span class="line">        if(test==QMessageBox::Yes)&#123;</span><br><span class="line">                event-&gt;accept();//处理</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">                event-&gt;ignore();//忽略</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p><img src="/2019/08/05/qt/Qt/QtEvent4.png" alt="运行结果"></p>
+<h1 id="绘画"><a href="#绘画" class="headerlink" title="绘画"></a>绘画</h1><p><img src="/2019/08/05/qt/Qt/QtEventpainter1.png" alt="运行的程序"><br><img src="/2019/08/05/qt/Qt/QtEventpainter2.png" alt="运行的结果"></p>
+<h1 id="绘图设备"><a href="#绘图设备" class="headerlink" title="绘图设备"></a>绘图设备</h1><ul>
+<li>Pixmap(在平台上不能对图片进行修改)</li>
+<li>Image(和平台无关平台上，可以对图片进行修改)</li>
+<li>picture(保存绘图的状态，以二进制的文件进行保存)</li>
+</ul>
+<p><img src="/2019/08/05/qt/Qt/Qt_pixmap.png" alt="pixmap"><br><img src="/2019/08/05/qt/Qt/Qt_image.png" alt="image"><br><img src="/2019/08/05/qt/Qt/Qt_picture1.png" alt="picture"><br><img src="/2019/08/05/qt/Qt/Qt_picture.png" alt="picture"><br><img src="/2019/08/05/qt/Qt/Qt_picture2.png" alt="[icture]"></p>
+<h2 id="其实在写这些代码的时候遇到的问题挺多的，明明讲的和我写的是一样的，但我文件管理器就是没有图片，弄得我挺自闭的，换一种方式定义画家就解决了。"><a href="#其实在写这些代码的时候遇到的问题挺多的，明明讲的和我写的是一样的，但我文件管理器就是没有图片，弄得我挺自闭的，换一种方式定义画家就解决了。" class="headerlink" title="其实在写这些代码的时候遇到的问题挺多的，明明讲的和我写的是一样的，但我文件管理器就是没有图片，弄得我挺自闭的，换一种方式定义画家就解决了。"></a><strong>其实在写这些代码的时候遇到的问题挺多的，明明讲的和我写的是一样的，但我文件管理器就是没有图片，弄得我挺自闭的，换一种方式定义画家就解决了。</strong></h2><blockquote>
+<p>QPixmap&amp;&amp;QImage</p>
+</blockquote>
+<p><img src="/2019/08/05/qt/Qt/Qtzhuan.png" alt></p>
+<h2 id><a href="#" class="headerlink" title></a><img src="/2019/08/05/qt/Qt/Qt_zhuan1.png" alt></h2><h1 id="不规则的窗口"><a href="#不规则的窗口" class="headerlink" title="不规则的窗口"></a>不规则的窗口</h1><p><img src="/2019/08/05/qt/Qt/Qt_paint.png" alt="程序"><br><img src="/2019/08/05/qt/Qt/Qt_paint1.png" alt="结果"></p>
+<h2 id="绘画。我们一般都是在窗口上。而关于怎么样进行绘画，我们是选择重写绘画事件来完成绘画的，一般来说都是先定义画家，然后再选择绘画的设备-this-。我们也不一定就在窗口上绘画，在软件里还有三种设备可以让我们在上面绘画-QPixmap-保存的是图片-QImage-保存的是图片-Qpicture-保存的是二进制文件-，save-保存-load-加载-，Rect-矩形-。"><a href="#绘画。我们一般都是在窗口上。而关于怎么样进行绘画，我们是选择重写绘画事件来完成绘画的，一般来说都是先定义画家，然后再选择绘画的设备-this-。我们也不一定就在窗口上绘画，在软件里还有三种设备可以让我们在上面绘画-QPixmap-保存的是图片-QImage-保存的是图片-Qpicture-保存的是二进制文件-，save-保存-load-加载-，Rect-矩形-。" class="headerlink" title="绘画。我们一般都是在窗口上。而关于怎么样进行绘画，我们是选择重写绘画事件来完成绘画的，一般来说都是先定义画家，然后再选择绘画的设备(this)。我们也不一定就在窗口上绘画，在软件里还有三种设备可以让我们在上面绘画(QPixmap(保存的是图片),QImage(保存的是图片),Qpicture(保存的是二进制文件))，save(保存),load(加载)，Rect(矩形)。"></a><strong>绘画。我们一般都是在窗口上。而关于怎么样进行绘画，我们是选择重写绘画事件来完成绘画的，一般来说都是先定义画家，然后再选择绘画的设备(this)。我们也不一定就在窗口上绘画，在软件里还有三种设备可以让我们在上面绘画(QPixmap(保存的是图片),QImage(保存的是图片),Qpicture(保存的是二进制文件))，save(保存),load(加载)，Rect(矩形)。</strong></h2><h1 id="File"><a href="#File" class="headerlink" title="File"></a>File</h1><p><strong>不管在那个语言上，文件的操作都有一定的重要性，所以就把它学好。</strong></p>
+<ul>
+<li>普通的形式写读文件()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 用到的头文件</span><br><span class="line">#include &lt;QFile&gt;</span><br><span class="line">#include &lt;QFileDialg&gt;</span><br><span class="line">#include &lt;QFileInfo&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/05/qt/Qt/QtFILE.png" alt><br><img src="/2019/08/05/qt/Qt/Qtreadfile.png" alt><br><img src="/2019/08/05/qt/Qt/Qtwritefile.png" alt></p>
+<ul>
+<li>是以二进制的形式保存文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 用到的头文件</span><br><span class="line">#include &lt;QFile&gt;</span><br><span class="line">#include &lt;QDatestram&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/08/05/qt/Qt/Qt_Stream.png" alt></p>
+<h1 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h1><h2 id="记得在项目文件里加-network-这是针对于在类对象里没有提示。还有就是连则表达式-CONFIG-c-11"><a href="#记得在项目文件里加-network-这是针对于在类对象里没有提示。还有就是连则表达式-CONFIG-c-11" class="headerlink" title="记得在项目文件里加(network),这是针对于在类对象里没有提示。还有就是连则表达式(CONFIG+=c++11)"></a><strong>记得在项目文件里加(network),这是针对于在类对象里没有提示。还有就是连则表达式(CONFIG+=c++11)</strong></h2><p><img src="/2019/08/05/qt/Qt/Qt_server.png" alt></p>
+<h2 id="写代码最重要的是逻辑要清晰，时刻的知道自己在写什么，所以，软件怎样运行我们是一定要搞清楚的。"><a href="#写代码最重要的是逻辑要清晰，时刻的知道自己在写什么，所以，软件怎样运行我们是一定要搞清楚的。" class="headerlink" title="写代码最重要的是逻辑要清晰，时刻的知道自己在写什么，所以，软件怎样运行我们是一定要搞清楚的。"></a><strong>写代码最重要的是逻辑要清晰，时刻的知道自己在写什么，所以，软件怎样运行我们是一定要搞清楚的。</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//用到的头文件</span><br><span class="line">#include &lt;QTcpServer&gt;</span><br><span class="line">#include &lt;QTcpsocket&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/05/qt/Qt/Qt_tcpserven.png" alt="serven"><br><img src="/2019/08/05/qt/Qt/Qt_tcpserven1.png" alt="server"><br><img src="/2019/08/05/qt/Qt/Qt_tcpserven2.png" alt="客户端"><br><strong>其实在上面的刚开始的第一张图就很清晰的讲到了tcp的连接过程，只要我们真的理解了就能看的明白。在这里也没什么好解释的，有很多的函数都是在函数里订好了的，只要我们搞清楚什么时候调用什么函数就行了。</strong></p>
+<blockquote>
+<p>UDP</p>
+<ul>
+<li>它是面向无连接的通信，所以在这里就只需要通信的套接字(socket)。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 用到的头文件</span><br><span class="line">#include &lt;QUdpSocket&gt; //.h(不要忘记在.h文件里声明socket套接字)</span><br><span class="line">#include &lt;QHostAddress&gt;// .cpp</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p><img src="/2019/08/05/qt/Qt/Qt_udp1.png" alt="程序"><br><img src="/2019/08/05/qt/Qt/Qt_udp2.png" alt="程序"><br><img src="/2019/08/05/qt/Qt/Qt_udp.png" alt="运行结果"></p>
+<h1 id="tcpfile"><a href="#tcpfile" class="headerlink" title="tcpfile"></a>tcpfile</h1><p><img src="/2019/08/05/qt/Qt/Qt_tcpfile.png" alt="流程图"></p>
+<h2 id="值得注意的是，tcp在发组的时候，头文件的信息和数据是一起跟着发过去的，所以我们在这里要用定时器来缓一下时间，让它先发头文件，后发数据。这样一来我们的头文件信息和数据就不会搞混，还有就是tcp发包是不会丢失的。"><a href="#值得注意的是，tcp在发组的时候，头文件的信息和数据是一起跟着发过去的，所以我们在这里要用定时器来缓一下时间，让它先发头文件，后发数据。这样一来我们的头文件信息和数据就不会搞混，还有就是tcp发包是不会丢失的。" class="headerlink" title="值得注意的是，tcp在发组的时候，头文件的信息和数据是一起跟着发过去的，所以我们在这里要用定时器来缓一下时间，让它先发头文件，后发数据。这样一来我们的头文件信息和数据就不会搞混，还有就是tcp发包是不会丢失的。"></a><strong>值得注意的是，tcp在发组的时候，头文件的信息和数据是一起跟着发过去的，所以我们在这里要用定时器来缓一下时间，让它先发头文件，后发数据。这样一来我们的头文件信息和数据就不会搞混，还有就是tcp发包是不会丢失的。</strong></h2><h1 id="QThread"><a href="#QThread" class="headerlink" title="QThread"></a>QThread</h1><h2 id="connect的第五个参数的意义-默认，队列，直接-默认的时候：分为多线程-默认使用队列-和单线程-默认使用直接-。队列：槽函数所在的线程和接收者一样。直接：槽函数所在的线程和发送者一样。"><a href="#connect的第五个参数的意义-默认，队列，直接-默认的时候：分为多线程-默认使用队列-和单线程-默认使用直接-。队列：槽函数所在的线程和接收者一样。直接：槽函数所在的线程和发送者一样。" class="headerlink" title="connect的第五个参数的意义(默认，队列，直接)默认的时候：分为多线程(默认使用队列)和单线程(默认使用直接)。队列：槽函数所在的线程和接收者一样。直接：槽函数所在的线程和发送者一样。 "></a><strong>connect的第五个参数的意义(默认，队列，直接)默认的时候：分为多线程(默认使用队列)和单线程(默认使用直接)。队列：槽函数所在的线程和接收者一样。直接：槽函数所在的线程和发送者一样。</strong> </h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/constellation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1744,125 +1972,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/test-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/31/test-1/" itemprop="url">test</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-31T21:43:15+08:00">
-                2019-05-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1913,7 +2022,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
