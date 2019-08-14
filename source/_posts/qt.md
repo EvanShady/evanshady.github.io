@@ -26,7 +26,7 @@ int main(int argc,char *argv[]){
         return app.exec();
 }
 ```
-![运行结果](Qt/qt1.png)
+![运行结果](qt/qt1.png)
 
 **值得注意下的就是，如果不给按钮对象指向父对象，两个窗口是独立的。还有上面是用了两种方式来指向父对象，一个是用函数setParent(),另外一个是用构造函数来指向。**
 ```
@@ -39,7 +39,7 @@ int main(int argc,char *argv[]){
             return a.exec();
 }
 ```
-![运行结果](Qt/Qt2_hello.png)
+![运行结果](qt/Qt2_hello.png)
 
 **上面的代码有点不好，但要是一定要这样的话，那在main函数里面的代码是很多的。这样让别人看起来就有点不好的感觉。**
 **QPushButton--是按钮，QWidget--是窗口**
@@ -187,7 +187,7 @@ int main(int argc,char *argv[] ){
 
 ```
 ----
-![运行结果](Qt/Qt3_caidan.png)
+![运行结果](qt/Qt3_caidan.png)
 # 关于对话框
 ----
 * 是在继承于MainWindow(主窗口)的类构造函数里
@@ -242,17 +242,18 @@ MainWindow::MainWindow(QWinget *parent)
         }
         );
 ```
-![运行结果](Qt/Qt4_duihua.png)
-![运行结果](Qt/Qt5_duihua.png)
+![运行结果](qt/qt4_duihua.png)
+
+![运行结果](qt/qt5_duihua.png)
 # ui
-![这些是在ui模式下操作的](Qt/Qt6_ui.png)
+![这些是在ui模式下操作的](qt/qt6_ui.png)
 > **布局**
 ----
 **局部布局和全局布局,**
 **一样是在ui的模式下进行的，因为这样比较简单而且实际。**
 ----
-![运行结果](Qt/Qt7_ui.png)
-![运行结果](Qt/Qt8_ui.png)
+![运行结果](qt/Qt7_ui.png)
+![运行结果](qt/Qt8_ui.png)
 
 **布局最好在ui模式，因为简单！！！**
 ----
