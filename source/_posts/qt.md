@@ -39,7 +39,7 @@ int main(int argc,char *argv[]){
             return a.exec();
 }
 ```
-![运行结果](qt/Qt2_hello.png)
+![运行结果](qt/qt2_hello.png)
 
 **上面的代码有点不好，但要是一定要这样的话，那在main函数里面的代码是很多的。这样让别人看起来就有点不好的感觉。**
 **QPushButton--是按钮，QWidget--是窗口**
@@ -187,7 +187,7 @@ int main(int argc,char *argv[] ){
 
 ```
 ----
-![运行结果](qt/Qt3_caidan.png)
+![运行结果](qt/qt3_caidan.png)
 # 关于对话框
 ----
 * 是在继承于MainWindow(主窗口)的类构造函数里
@@ -252,12 +252,12 @@ MainWindow::MainWindow(QWinget *parent)
 **局部布局和全局布局,**
 **一样是在ui的模式下进行的，因为这样比较简单而且实际。**
 ----
-![运行结果](qt/Qt7_ui.png)
-![运行结果](qt/Qt8_ui.png)
+![运行结果](qt/qt7_ui.png)
+![运行结果](qt/qt8_ui.png)
 
 **布局最好在ui模式，因为简单！！！**
 ----
-![简单的登录方式](Qt/Qt9_ui.png)
+![简单的登录方式](qt/qt9_ui.png)
 # 设置
 **接下的操作是在ui的模式下完成的，并继承于Mainwindow**
 ```
@@ -308,9 +308,9 @@ MainWindow::MainWindow(QWidget *parent):QMainwindow(parent){
 ```
 * border (平铺的方式) 
 
-![运行结果](Qt/Qt10_ui.png)
-![方箱模型](Qt/Qt11_ui.png)
-![伪状态](Qt/Qt12_ui.png)
+![运行结果](qt/qt10_ui.png)
+![方箱模型](qt/qt11_ui.png)
+![伪状态](qt/qt12_ui.png)
 # Event(事件)
 **事件，也可以说是中断。就好比你在说话的时候，有一个人在你旁边也在跟你说事情，你得停下来先听他说完，这也可以说是那个人说话的时候中断了你说话，在Qt里有专门处理中断的函数，但它还得先判断你的中断是那种类型的，它再来处理中断的事件。**
 ----
@@ -374,13 +374,13 @@ void Mtlabel::lavceEvent(QEvent *e){
 }
 }
 ```
-![运行结果](Qt/QtEvent.png)
+![运行结果](qt/qtEvent.png)
 
-![运行结果](Qt/QtEvent1.png)
+![运行结果](qt/qtEvent1.png)
 
-![运行结果](Qt/QtEvent2.png)
+![运行结果](qt/qtEvent2.png)
 
-![运行结果](Qt/QtEvent3.png)
+![运行结果](qt/qtEvent3.png)
 > 时间的处理与忽略
 * 继承于widget的前提下，简写。
 ```
@@ -401,33 +401,33 @@ void Widget::closeEvent(QEvent *event){
 
 }
 ```
-![运行结果](Qt/QtEvent4.png)
+![运行结果](qt/qtEvent4.png)
 # 绘画
-![运行的程序](Qt/QtEventpainter1.png)
-![运行的结果](Qt/QtEventpainter2.png)
+![运行的程序](qt/qtEventpainter1.png)
+![运行的结果](qt/qtEventpainter2.png)
 
 # 绘图设备
 * Pixmap(在平台上不能对图片进行修改)
 * Image(和平台无关平台上，可以对图片进行修改)
 * picture(保存绘图的状态，以二进制的文件进行保存)
 
-![pixmap](Qt/Qt_pixmap.png)
-![image](Qt/Qt_image.png)
-![picture](Qt/Qt_picture1.png)
-![picture](Qt/Qt_picture.png)
-![[icture]](Qt/Qt_picture2.png)
+![pixmap](qt/qt_pixmap.png)
+![image](qt/qt_image.png)
+![picture](qt/qt_picture1.png)
+![picture](qt/qt_picture.png)
+![[icture]](qt/qt_picture2.png)
 
 **其实在写这些代码的时候遇到的问题挺多的，明明讲的和我写的是一样的，但我文件管理器就是没有图片，弄得我挺自闭的，换一种方式定义画家就解决了。**
 ----
 > QPixmap&&QImage
 
-![](Qt/Qtzhuan.png)
+![](qt/qtzhuan.png)
 
-![](Qt/Qt_zhuan1.png)
+![](qt/qt_zhuan1.png)
 ----
 # 不规则的窗口
-![程序](Qt/Qt_paint.png)
-![结果](Qt/Qt_paint1.png)
+![程序](qt/qt_paint.png)
+![结果](qt/qt_paint1.png)
 
 **绘画。我们一般都是在窗口上。而关于怎么样进行绘画，我们是选择重写绘画事件来完成绘画的，一般来说都是先定义画家，然后再选择绘画的设备(this)。我们也不一定就在窗口上绘画，在软件里还有三种设备可以让我们在上面绘画(QPixmap(保存的是图片),QImage(保存的是图片),Qpicture(保存的是二进制文件))，save(保存),load(加载)，Rect(矩形)。**
  ----
@@ -441,20 +441,20 @@ void Widget::closeEvent(QEvent *event){
 #include <QFileDialg>
 #include <QFileInfo>
 ```
-![](Qt/QtFILE.png)
-![](Qt/Qtreadfile.png)
-![](Qt/Qtwritefile.png)
+![](qt/qtFILE.png)
+![](qt/qtreadfile.png)
+![](qt/qtwritefile.png)
 * 是以二进制的形式保存文件
 ```
 // 用到的头文件
 #include <QFile>
 #include <QDatestram>
 ```
-![](Qt/Qt_Stream.png)
+![](qt/qt_Stream.png)
 # Server
 **记得在项目文件里加(network),这是针对于在类对象里没有提示。还有就是连则表达式(CONFIG+=c++11)**
 ----
-![](Qt/Qt_server.png)
+![](qt/qt_server.png)
 **写代码最重要的是逻辑要清晰，时刻的知道自己在写什么，所以，软件怎样运行我们是一定要搞清楚的。**
 ----
 ```
@@ -462,9 +462,9 @@ void Widget::closeEvent(QEvent *event){
 #include <QTcpServer>
 #include <QTcpsocket>
 ```
-![serven](Qt/Qt_tcpserven.png)
-![server](Qt/Qt_tcpserven1.png)
-![客户端](Qt/Qt_tcpserven2.png)
+![serven](qt/qt_tcpserven.png)
+![server](qt/qt_tcpserven1.png)
+![客户端](qt/qt_tcpserven2.png)
 **其实在上面的刚开始的第一张图就很清晰的讲到了tcp的连接过程，只要我们真的理解了就能看的明白。在这里也没什么好解释的，有很多的函数都是在函数里订好了的，只要我们搞清楚什么时候调用什么函数就行了。**
 > UDP
 * 它是面向无连接的通信，所以在这里就只需要通信的套接字(socket)。
@@ -473,11 +473,11 @@ void Widget::closeEvent(QEvent *event){
 #include <QUdpSocket> //.h(不要忘记在.h文件里声明socket套接字)
 #include <QHostAddress>// .cpp
 ```
-![程序](Qt/Qt_udp1.png)
-![程序](Qt/Qt_udp2.png)
-![运行结果](Qt/Qt_udp.png)
+![程序](qt/qt_udp1.png)
+![程序](qt/qt_udp2.png)
+![运行结果](qt/qt_udp.png)
 # tcpfile
-![流程图](Qt/Qt_tcpfile.png)
+![流程图](qt/qt_tcpfile.png)
 **值得注意的是，tcp在发组的时候，头文件的信息和数据是一起跟着发过去的，所以我们在这里要用定时器来缓一下时间，让它先发头文件，后发数据。这样一来我们的头文件信息和数据就不会搞混，还有就是tcp发包是不会丢失的。**
 ----
 # QThread
