@@ -156,6 +156,20 @@ int main(){
 #include <iostream>
 #include <cstdlib>//随机种子的头文件
 using namespace std;
+//自己选择数字的大小来实现随机数字的变化
+void test(){
+    srand(time(0));
+    int a,b;
+    cout<<"请输入最大的数字"<<endl;
+    cin>>a;
+    cout<<"请输入最小的数字"<<endl;
+    cin>>b;
+    if(b==0){
+        cout<<(rand()%a)+1<<endl;
+    }else{
+        cout<<(rand()%a)+b<<endl;
+    }
+}
 int main (){
     srand(time(0));//声明时间种子
     cout<<(rand()%6)+1<<endl;模6(得到的是0～5)+1(是把数字都加上1)
