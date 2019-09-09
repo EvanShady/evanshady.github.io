@@ -32,12 +32,14 @@ int main(){
     p->a=10;
     p->b=5;
     cout<<p1->a<<"\t"<<p1-><<endl;
-    point p1;              //在栈内存里实现
+    point p1,p2;              //在栈内存里实现,还把poit里的参数全部给p2使用
     cout<<p1.a<<"\t"<<p1.b<<endl;
+    cout<<p2.a<<"\t"<<p2.b<<endl;
 }
 ```
 运行结果：
 ```
+5    10
 5    10
 5    10
 ```
@@ -363,7 +365,7 @@ int main(){
 # 预定义字符函数
 **预定义字符函数就是把字符转换成大，小写的字符，在计算机中，我们虽然是以字符的形式输入到计算机中，但计算机本身的运作却是以数字的形式来使用的。值得注意的是，书上写的需要头文件但我这里是不需要头文件的，可能是版本的问题吧，如果有报错的话就加个头文件(cctype)**
 1. toupper()(把字符转换成大写的)
-2. tolower()(同上) 
+2. tolower()(小写) 
 3. isupper()(如果字符是大写的就为true，否则false)
 4. islower()(同上)
 5. isspace()(如果字符是空白字符就为true,否则false)
@@ -376,7 +378,7 @@ void test(){
     cin>>b;
     a=toupper(b)
     cout<<c<<endl;
-    if(isupper(b)){
+    if(!isupper(b)){//条件一开始为false
         cout<<"转换成功\t"<<a<<endl;
     }else{
         cout<<"转换失败"<<endl;
@@ -387,13 +389,15 @@ int main(){
     char c;
     cout<<"请输入字符"<<endl;
     do{
-        cin.get(c);
-        if(isspace(c)){
+        cin.get(c);//逐步输入字符
+        if(isspace(c)){//判断是否符合条件     空格
             cout<<'--';
         }else{
             cout<<c<<endl;
         }
     }while(c!='.');
+    cin.get();//识别空格，是空格就打印下面的那句话
+    cout<<"空格"<<endl;
 }
 ```
 运行结果
@@ -452,7 +456,7 @@ private:
 }
 class Son{
 friend int operator+(Bos bos,Son son);//友元函数，用来访问类的私有成员
-ofriend stream &operator<<(ostream &os,Bos bos);//友元函数，用来访问类的私有成员
+friend ostream &operator<<(ostream &os,Bos bos);//友元函数，用来访问类的私有成员
 private:
     int a=5;
     int b=10;
@@ -463,8 +467,8 @@ int operator+(Bos bos,Son son){//运算符重载加号
     return a,b;
 }
 ostream &operator<<(ostream &os,Bos bos){//运算符重载<<号
-    os<<"a="<<bos.a<<"b="<<bos.b<<endl;
-    return os;
+    os<<"a="<<bos.a<<"b="<<bos.b<<endl;//把成员变量连接在cout流中
+    return os;//返回cout，这样就能在main函数中直接打印
 }
 int main(){
     Bos bos;
@@ -473,7 +477,8 @@ int main(){
     cout<<bos<<endl;//没有重载<<也是运行不过来的
 }
 ```
-**谨慎参考，纯属本人理解。ostream,是因为要用到cout流，因为输出流是属于ostream里面的，&,是因为返回的是一个输出流，所以要加个引用来指引。**
+**谨慎参考，纯属本人理解。ostream,是因为要用到cout流，因为输出流是属于ostream里面的，&,是因为返回的是一个输出流，所以要加个引用来指引。还有就是，重载函数的参数只能是两个，反正在我电脑是两个，超过了就给老子报错，我太难了。**
+----
 # const mutable
 * 众所周知，const是常量类型。而mutable是可变的，就像是普通变量。
 # 继承
@@ -567,3 +572,53 @@ int main(){
 55.55
 55.5
 ```
+# 拷贝构造函数
+* test.h
+```
+class Test{
+    string _name;
+    int _*age;
+    Test(string name,int age){
+        _name=name;
+        _age=new int (age);
+        cout<<"有参构造函数"<<endl;
+    }
+    void(){
+        cout<<_name<<"的年龄"<<_age<<endl;
+    }
+    //深拷贝构造函数
+    Test(const Test &t){
+        _name=t._name;
+        _age=new int (*t._age);
+        cout<<"拷贝构造函数"<<endl;
+    }
+    ~Test(){
+        delete age;
+        cout<<"析构函数"<<endl;
+    }
+}
+```
+* main
+```
+#include <iostream>
+using space std;
+int main(){
+    Test t1("小明",10);
+    t1.show();
+    //类的使用在这以上是没有问题的，这就是浅拷贝额构造函数
+    //当我们要在有指针(*)或者引用(&)的类中使用二次构造函数，那么我们就要写一个深的拷贝构造函数
+    Test t2(t1);//这个类的复制是要有深的拷贝构造函数来配合的。因为它符合条件
+    t2.show();
+}
+```
+* 程序运行结果
+```
+有参构造函数
+小明的年龄10
+拷贝构造函数
+小明的年龄10
+析构函数
+析构函数
+```
+**其实，拷不拷贝我们要认得类的成员变量有没有指针和引用，一般来说计算机会帮我们直接赋值的，深的拷贝构造函数的问题就是当我们第一次使用构造函数的时候，计算机会跟着自动调用析构函数，把我们之前定义的指针变量给销了，这也得不到我们程序想要的结果啊，不但没有走到我们想要的答案，反倒会给我们的程序报错，这就是个致命的问题,这是我们就只能去解救这个问题，所以我们要用到深的拷贝构造函数。其实在上面的的程序只是简单的想把t1的值赋给t2来间接的让t2有值。**
+----

@@ -104,6 +104,7 @@ int main(){
     cout<<setw(2)<<setprecision(2)<<a<<endl;//给出小数点后的几位数
     cout<<setw(6)<<a<<endl;
 }
+
 ```
 运行结果：
 ```
@@ -156,7 +157,6 @@ int main(){
 #include <iostream>
 #include <cstdlib>//随机种子的头文件
 using namespace std;
-//自己选择数字的大小来实现随机数字的变化
 void test(){
     srand(time(0));
     int a,b;
