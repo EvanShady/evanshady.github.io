@@ -3,6 +3,8 @@ title: C++Book
 date: 2019-06-12 14:31:03
 tags:
 ---
+注释
+ <!--more-->
 # C++Book
 # 库
 ```

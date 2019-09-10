@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="关于类的一些理解 1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。2:类有三种特性：封装,继承,多态。 类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。   3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来">
+<meta name="description" content="关于类的一些理解 1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。2:类有三种特性：封装,继承,多态。 类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。   3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++Notes">
 <meta property="og:url" content="http://yoursite.com/2019/05/21/c-Notes/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="关于类的一些理解 1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。2:类有三种特性：封装,继承,多态。 类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。   3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来">
+<meta property="og:description" content="关于类的一些理解 1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。2:类有三种特性：封装,继承,多态。 类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。   3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/05/21/c-Notes/YC4.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/21/c-Notes/YC5.png">
@@ -93,10 +93,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/05/21/c-Notes/YC3.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/21/c-Notes/YC1.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/21/c-Notes/YC2.png">
-<meta property="og:updated_time" content="2019-06-11T07:49:55.974Z">
+<meta property="og:updated_time" content="2019-09-10T07:56:39.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++Notes">
-<meta name="twitter:description" content="关于类的一些理解 1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。2:类有三种特性：封装,继承,多态。 类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。   3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来">
+<meta name="twitter:description" content="关于类的一些理解 1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。2:类有三种特性：封装,继承,多态。 类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。   3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/21/c-Notes/YC4.png">
 
 
@@ -307,7 +307,8 @@
       
 
       
-        <h1 id="关于类的一些理解"><a href="#关于类的一些理解" class="headerlink" title="关于类的一些理解"></a>关于类的一些理解</h1><hr>
+        <a id="more"></a>
+<h1 id="关于类的一些理解"><a href="#关于类的一些理解" class="headerlink" title="关于类的一些理解"></a>关于类的一些理解</h1><hr>
 <h2 id="1-类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。"><a href="#1-类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。" class="headerlink" title="1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。"></a>1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。</h2><h3 id="2-类有三种特性：封装-继承-多态。"><a href="#2-类有三种特性：封装-继承-多态。" class="headerlink" title="2:类有三种特性：封装,继承,多态。"></a>2:类有三种特性：封装,继承,多态。</h3><blockquote>
 <p>类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。</p>
 </blockquote>

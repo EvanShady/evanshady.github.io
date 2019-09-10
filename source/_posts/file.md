@@ -3,6 +3,8 @@ title: file
 date: 2019-05-31 13:57:01
 tags:
 ---
+注释
+<!--more-->
 # 流
 **c++中的流，可以让我们做很多我们想不到的操作，文件流，输入和输出流。**
 1. 文件流的头文件(fstream)
@@ -59,7 +61,7 @@ void test1(){
         cout<<"文件打开失败"<<endl;
     }
     string buf;
-    while(getline(ifs,buf)){//以一行的形式写入编译器并输出
+    while(getline(ifs,buf)){//以一行的形式读入编译器并输出
         cout<<buf<<endl;
     }
     ifs.close();关闭文件
