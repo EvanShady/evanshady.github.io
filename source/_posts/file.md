@@ -48,13 +48,13 @@ abc
 using namespace std;
 void test(){
     ofstream ofs;// 文件的类型 写入文件
-    ofs.open("test.txt",ios::out);文件名和打开的方式
+    ofs.open("test.txt",ios::out);文件名和打开的方式(写的方式)
     ofs<<"你好！"<<endl;把你要写进文件的内容写进去
     ofs.close(); 关闭文件
 }
 void test1(){
     ifstream ifs;//文件类型，读文件
-    ifs.open("test.txt",ios::in);//打开的文件名和打开方式
+    ifs.open("test.txt",ios::in);//打开的文件名和打开方式(读的方式)
     if(!ifs.is_open()){//判断打开文件
         cout<<"文件打开失败"<<endl;
     }

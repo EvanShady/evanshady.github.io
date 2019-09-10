@@ -88,7 +88,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/05/31/file/file.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/31/file/file1.png">
-<meta property="og:updated_time" content="2019-09-09T06:29:22.941Z">
+<meta property="og:updated_time" content="2019-09-09T08:53:19.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="file">
 <meta name="twitter:description" content="流c++中的流，可以让我们做很多我们想不到的操作，文件流，输入和输出流。  文件流的头文件(fstream) 输入和输出流的头文件(istream)   把输入流当做函数的参数12345678910111213#include &amp;lt;iostream&amp;gt;using namespace std;void test(istream &amp;amp;a)&amp;#123;    do&amp;#123;    cha">
@@ -328,7 +328,7 @@
 <li>然后确定你要写的文件的类型</li>
 <li>之后确定文件的名字和打开的方式</li>
 <li>把内容写进去</li>
-<li>关闭文件<br><img src="/2019/05/31/file/file.png" alt="打开方式"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;fstream&gt;//引入写文件的头文件</span><br><span class="line">using namespace std;</span><br><span class="line">void test()&#123;</span><br><span class="line">    ofstream ofs;// 文件的类型 写入文件</span><br><span class="line">    ofs.open(&quot;test.txt&quot;,ios::out);文件名和打开的方式</span><br><span class="line">    ofs&lt;&lt;&quot;你好！&quot;&lt;&lt;endl;把你要写进文件的内容写进去</span><br><span class="line">    ofs.close(); 关闭文件</span><br><span class="line">&#125;</span><br><span class="line">void test1()&#123;</span><br><span class="line">    ifstream ifs;//文件类型，读文件</span><br><span class="line">    ifs.open(&quot;test.txt&quot;,ios::in);//打开的文件名和打开方式</span><br><span class="line">    if(!ifs.is_open())&#123;//判断打开文件</span><br><span class="line">        cout&lt;&lt;&quot;文件打开失败&quot;&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    string buf;</span><br><span class="line">    while(getline(ifs,buf))&#123;//以一行的形式写入编译器并输出</span><br><span class="line">        cout&lt;&lt;buf&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ifs.close();关闭文件</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    test();//调用test函数</span><br><span class="line">    test1();//调用函数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>关闭文件<br><img src="/2019/05/31/file/file.png" alt="打开方式"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;fstream&gt;//引入写文件的头文件</span><br><span class="line">using namespace std;</span><br><span class="line">void test()&#123;</span><br><span class="line">    ofstream ofs;// 文件的类型 写入文件</span><br><span class="line">    ofs.open(&quot;test.txt&quot;,ios::out);文件名和打开的方式(写的方式)</span><br><span class="line">    ofs&lt;&lt;&quot;你好！&quot;&lt;&lt;endl;把你要写进文件的内容写进去</span><br><span class="line">    ofs.close(); 关闭文件</span><br><span class="line">&#125;</span><br><span class="line">void test1()&#123;</span><br><span class="line">    ifstream ifs;//文件类型，读文件</span><br><span class="line">    ifs.open(&quot;test.txt&quot;,ios::in);//打开的文件名和打开方式(读的方式)</span><br><span class="line">    if(!ifs.is_open())&#123;//判断打开文件</span><br><span class="line">        cout&lt;&lt;&quot;文件打开失败&quot;&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    string buf;</span><br><span class="line">    while(getline(ifs,buf))&#123;//以一行的形式写入编译器并输出</span><br><span class="line">        cout&lt;&lt;buf&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ifs.close();关闭文件</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    test();//调用test函数</span><br><span class="line">    test1();//调用函数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </blockquote>
@@ -384,8 +384,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/31/test-1/" rel="prev" title="test">
-                test <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/31/wed/" rel="prev" title="wed">
+                wed <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -463,7 +463,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
