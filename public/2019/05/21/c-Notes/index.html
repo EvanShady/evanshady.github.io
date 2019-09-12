@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="关于类的一些理解 1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。2:类有三种特性：封装,继承,多态。 类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。   3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete">
+<meta name="description" content="关于类的一些理解  1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。  2:类有三种特性：封装,继承,多态。  类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。    类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用del">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++Notes">
 <meta property="og:url" content="http://yoursite.com/2019/05/21/c-Notes/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="关于类的一些理解 1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。2:类有三种特性：封装,继承,多态。 类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。   3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete">
+<meta property="og:description" content="关于类的一些理解  1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。  2:类有三种特性：封装,继承,多态。  类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。    类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用del">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/05/21/c-Notes/YC4.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/21/c-Notes/YC5.png">
@@ -93,10 +93,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/05/21/c-Notes/YC3.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/21/c-Notes/YC1.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/21/c-Notes/YC2.png">
-<meta property="og:updated_time" content="2019-09-10T07:56:39.720Z">
+<meta property="og:updated_time" content="2019-09-12T05:20:03.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++Notes">
-<meta name="twitter:description" content="关于类的一些理解 1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。2:类有三种特性：封装,继承,多态。 类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。   3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete">
+<meta name="twitter:description" content="关于类的一些理解  1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。  2:类有三种特性：封装,继承,多态。  类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。    类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用del">
 <meta name="twitter:image" content="http://yoursite.com/2019/05/21/c-Notes/YC4.png">
 
 
@@ -309,13 +309,19 @@
       
         <a id="more"></a>
 <h1 id="关于类的一些理解"><a href="#关于类的一些理解" class="headerlink" title="关于类的一些理解"></a>关于类的一些理解</h1><hr>
-<h2 id="1-类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。"><a href="#1-类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。" class="headerlink" title="1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。"></a>1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。</h2><h3 id="2-类有三种特性：封装-继承-多态。"><a href="#2-类有三种特性：封装-继承-多态。" class="headerlink" title="2:类有三种特性：封装,继承,多态。"></a>2:类有三种特性：封装,继承,多态。</h3><blockquote>
+<blockquote>
+<p>1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。</p>
+</blockquote>
+<h3 id="2-类有三种特性：封装-继承-多态。"><a href="#2-类有三种特性：封装-继承-多态。" class="headerlink" title="2:类有三种特性：封装,继承,多态。"></a>2:类有三种特性：封装,继承,多态。</h3><blockquote>
+<blockquote>
 <p>类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。</p>
 </blockquote>
+</blockquote>
 <hr>
-<h4 id="3-类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"><a href="#3-类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！" class="headerlink" title="3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"></a>3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！</h4><p><strong>这里是用指针来new了一个空间，使用访问的时候也要用访问指针的方法来访问它，“-&gt;”</strong><br><img src="/2019/05/21/c-Notes/YC4.png" alt="main"><br><img src="/2019/05/21/c-Notes/YC5.png" alt="程序结果"></p>
+<h1 id="类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"><a href="#类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！" class="headerlink" title="类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"></a>类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！</h1><p><strong>这里是用指针来new了一个空间，使用访问的时候也要用访问指针的方法来访问它，“-&gt;”</strong><br><img src="/2019/05/21/c-Notes/YC4.png" alt="main"><br><img src="/2019/05/21/c-Notes/YC5.png" alt="程序结果"></p>
 <hr>
-<h5 id="4-this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）"><a href="#4-this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）" class="headerlink" title="4:this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）"></a>4:this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）</h5><blockquote>
+<h1 id="this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）"><a href="#this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）" class="headerlink" title="this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）"></a>this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）</h1><hr>
+<blockquote>
 <p>构造函数也可以叫做重载函数，它的作用是初始化类的成员变量。</p>
 <blockquote>
 <p>构造函数分为无参构造和有参构造；其实还有一个拷贝构造。</p>
@@ -343,7 +349,7 @@
 <hr>
 <p><img src="/2019/05/21/c-Notes/YC2.png" alt="程序结果"></p>
 <hr>
-<h6 id="5-析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"><a href="#5-析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。" class="headerlink" title="5:析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"></a>5:析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。</h6>
+<h1 id="析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"><a href="#析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。" class="headerlink" title="析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"></a>析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。</h1>
       
     </div>
     
@@ -502,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于类的一些理解"><span class="nav-number">1.</span> <span class="nav-text">关于类的一些理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。"><span class="nav-number">1.1.</span> <span class="nav-text">1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-类有三种特性：封装-继承-多态。"><span class="nav-number">1.1.1.</span> <span class="nav-text">2:类有三种特性：封装,继承,多态。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">3:类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">4:this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"><span class="nav-number">1.1.1.1.1.1.</span> <span class="nav-text">5:析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于类的一些理解"><span class="nav-number">1.</span> <span class="nav-text">关于类的一些理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-类有三种特性：封装-继承-多态。"><span class="nav-number">1.0.1.</span> <span class="nav-text">2:类有三种特性：封装,继承,多态。</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"><span class="nav-number">2.</span> <span class="nav-text">类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）"><span class="nav-number">3.</span> <span class="nav-text">this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"><span class="nav-number">4.</span> <span class="nav-text">析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。</span></a></li></div>
             
 
           </div>
