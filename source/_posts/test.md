@@ -3,6 +3,9 @@ title: test
 date: 2019-05-19 22:37:18
 tags:
 ---
+注释
+<!--more-->
+
 # 小新
 
 ![小新](test/a.jpg)

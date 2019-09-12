@@ -3,7 +3,7 @@ title: C++Book
 date: 2019-06-12 14:31:03
 tags:
 ---
-注释
+    c++
  <!--more-->
 # C++Book
 # 库
@@ -501,11 +501,17 @@ int main(){
         cout<<*it<<"      ";
     }
     a.clear();//清除向量
+    vector <int > b;
+    a.swap(b);
+    for(it=b.begin();it!=b.end();it++){
+        cout<<*it<<"      ";
+    }
 }
 ```
 ```
 运行结果
 1    3    5   8   10   20
+20   10   8   5   3   1
 20   10   8   5   3   1
 ```
 # 继承
