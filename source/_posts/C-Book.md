@@ -3,7 +3,7 @@ title: C++Book
 date: 2019-06-12 14:31:03
 tags:
 ---
-    c++
+                      c++
  <!--more-->
 # C++Book
 # 库
@@ -506,7 +506,7 @@ int main(){
     for(it=b.begin();it!=b.end();it++){
         cout<<*it<<"      ";
     }
-}
+
 ```
 ```
 运行结果
