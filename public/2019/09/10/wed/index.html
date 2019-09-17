@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="数据库">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-14T08:32:39.350Z">
+<meta property="og:updated_time" content="2019-09-17T06:40:42.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wed">
 <meta name="twitter:description" content="数据库">
@@ -415,7 +415,73 @@
 </ol>
 <ul>
 <li>用户与服务器结构(C/S)</li>
-<li>浏览器与服务器结构(B/S)</li>
+<li>浏览器与服务器结构(B/S)<h1 id="第四节-数据模型"><a href="#第四节-数据模型" class="headerlink" title="第四节(数据模型)"></a>第四节(数据模型)</h1><h2 id="1-数据模型的组成要素"><a href="#1-数据模型的组成要素" class="headerlink" title="1. 数据模型的组成要素"></a>1. 数据模型的组成要素</h2></li>
+</ul>
+<ol>
+<li>数据结构(静态特征)</li>
+<li>数据操作(动态特征)</li>
+<li>数据约束(依存关系)<h3 id="2-数据模型的分类"><a href="#2-数据模型的分类" class="headerlink" title="2. 数据模型的分类"></a>2. 数据模型的分类</h3><blockquote>
+<p><strong>1. 概念层数据模型</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>概念层是数据抽象级别的最高层，其目的是按用户的观点来对世界建模。</li>
+<li>可分为：</li>
+</ul>
+<ol>
+<li>实体：客观存在相互区别的食物。</li>
+<li>属性：实体所具有的某种特性。</li>
+<li>码或键：唯一标识实体的属性集。</li>
+<li>域：属性的取值范围。</li>
+<li>实体性：具有相同属性的实体必然具有共同的特征和性质。</li>
+<li>实体集：同型实体的集合。</li>
+<li>联系：事物内部和事物之间是有联系的。</li>
+</ol>
+<ul>
+<li>概念模型的表示方法（1：1 ; 1：n ; n:n）<blockquote>
+<blockquote>
+<p><strong>2.逻辑层数据模型</strong> </p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>层次模型(使用最早)</li>
+<li>网状模型(复杂)</li>
+<li>关系模型(二维表结构，使用最广)</li>
+<li>面向对象模型<blockquote>
+<blockquote>
+<blockquote>
+<p><strong>3.物理层数据模型</strong></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>定义：描述数据在介质上存储，是逻辑模型的物理实现。</li>
+</ul>
+<ol>
+<li>概念模型到逻辑模型的转换是由数据库设计人员完成的。</li>
+<li>逻辑到物理是由数据库管理系统完成的。</li>
+</ol>
+<hr>
+<h1 id="第二章-关系数据库"><a href="#第二章-关系数据库" class="headerlink" title="第二章 关系数据库"></a>第二章 关系数据库</h1><h2 id="第一节关系数据库概述"><a href="#第一节关系数据库概述" class="headerlink" title="第一节关系数据库概述"></a><strong>第一节关系数据库概述</strong></h2><ul>
+<li>特征：是使用关系数据模型来组织数据。(主流数据模型)</li>
+</ul>
+<h2 id="第二节关系数据模型"><a href="#第二节关系数据模型" class="headerlink" title="第二节关系数据模型"></a><strong>第二节关系数据模型</strong></h2><ol>
+<li>关系数据结构</li>
+</ol>
+<ul>
+<li>表：被称为关系，是一个二维表(由表名，构成表的各个列和数据组成)。</li>
+<li>关系：可分为三种关系，(基本关系，查询表，视图表)。</li>
+<li>列：被称为字段或属性。</li>
+<li>属性：和列是同一个意思。</li>
+<li>行： 被称为元组或记录。</li>
+<li>元组：</li>
+<li>分量：元组中的每一个属性值。</li>
+<li>码或键()</li>
 </ul>
 
       
@@ -576,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一节-数据库系统概述"><span class="nav-number">1.</span> <span class="nav-text">第一节(数据库系统概述)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二节-数据管理技术的发展"><span class="nav-number">2.</span> <span class="nav-text">第二节(数据管理技术的发展)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三节-数据库系统的结构"><span class="nav-number">3.</span> <span class="nav-text">第三节(数据库系统的结构)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一节-数据库系统概述"><span class="nav-number">1.</span> <span class="nav-text">第一节(数据库系统概述)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二节-数据管理技术的发展"><span class="nav-number">2.</span> <span class="nav-text">第二节(数据管理技术的发展)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三节-数据库系统的结构"><span class="nav-number">3.</span> <span class="nav-text">第三节(数据库系统的结构)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四节-数据模型"><span class="nav-number">4.</span> <span class="nav-text">第四节(数据模型)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数据模型的组成要素"><span class="nav-number">4.1.</span> <span class="nav-text">1. 数据模型的组成要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数据模型的分类"><span class="nav-number">4.1.1.</span> <span class="nav-text">2. 数据模型的分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-关系数据库"><span class="nav-number">5.</span> <span class="nav-text">第二章 关系数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一节关系数据库概述"><span class="nav-number">5.1.</span> <span class="nav-text">第一节关系数据库概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二节关系数据模型"><span class="nav-number">5.2.</span> <span class="nav-text">第二节关系数据模型</span></a></li></ol></li></ol></div>
             
 
           </div>
