@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="数据库">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-17T06:40:42.584Z">
+<meta property="og:updated_time" content="2019-09-25T05:57:43.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wed">
 <meta name="twitter:description" content="数据库">
@@ -339,22 +339,14 @@
 <hr>
 <ol start="4">
 <li>数据库系统(DBS) —-  数据库管理员(DBA)<h1 id="第二节-数据管理技术的发展"><a href="#第二节-数据管理技术的发展" class="headerlink" title="第二节(数据管理技术的发展)"></a>第二节(数据管理技术的发展)</h1></li>
-<li>人工管理阶段<blockquote>
-<p>特点</p>
-</blockquote>
-</li>
 </ol>
 <ul>
-<li>数据不保存</li>
-<li>应用程序管理数据</li>
+<li>应用程序管理数据<br><em>特点</em> </li>
 <li>数据面向应用</li>
 </ul>
 <hr>
 <ol start="2">
-<li>文件管理系统<blockquote>
-<p>特点</p>
-</blockquote>
-</li>
+<li>文件管理系统<br><em>特点</em> </li>
 </ol>
 <ul>
 <li>数据可长期存放在磁盘</li>
@@ -365,34 +357,19 @@
 </ul>
 <hr>
 <ol start="3">
-<li>数据库系统阶段(E,F,code)<blockquote>
-<p>重大事件</p>
-</blockquote>
-</li>
+<li>数据库系统阶段(E,F,code)<br><em>重大事件</em> </li>
 </ol>
 <ul>
 <li>1968年 美国IBM公司 (层次模型)</li>
 <li>1969年 美国 codesy (网状模型)</li>
-<li>1970年 美国 EFcode (关系模型)<blockquote>
-<blockquote>
-<p>特点</p>
-</blockquote>
-</blockquote>
-</li>
+<li>1970年 美国 EFcode (关系模型)<br><em>特点</em> </li>
 </ul>
 <ol>
 <li>数据集成</li>
 <li>数据共享性高</li>
 <li>数据冗余小(文件系统的缺陷)</li>
 <li>数据一致性(文件系统的缺陷)</li>
-<li>数据独立性高(文件系统的缺陷)<blockquote>
-<blockquote>
-<blockquote>
-<p>数据库保护</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
+<li>数据独立性高(文件系统的缺陷)<br><em>数据库保护</em> </li>
 <li>数据的安全性</li>
 <li>数据的完整性</li>
 <li>并发控制</li>
@@ -420,10 +397,7 @@
 <ol>
 <li>数据结构(静态特征)</li>
 <li>数据操作(动态特征)</li>
-<li>数据约束(依存关系)<h3 id="2-数据模型的分类"><a href="#2-数据模型的分类" class="headerlink" title="2. 数据模型的分类"></a>2. 数据模型的分类</h3><blockquote>
-<p><strong>1. 概念层数据模型</strong></p>
-</blockquote>
-</li>
+<li>数据约束(依存关系)<h3 id="2-数据模型的分类"><a href="#2-数据模型的分类" class="headerlink" title="2. 数据模型的分类"></a>2. 数据模型的分类</h3><em>概念层数据模型</em> </li>
 </ol>
 <ul>
 <li>概念层是数据抽象级别的最高层，其目的是按用户的观点来对世界建模。</li>
@@ -439,25 +413,13 @@
 <li>联系：事物内部和事物之间是有联系的。</li>
 </ol>
 <ul>
-<li>概念模型的表示方法（1：1 ; 1：n ; n:n）<blockquote>
-<blockquote>
-<p><strong>2.逻辑层数据模型</strong> </p>
-</blockquote>
-</blockquote>
-</li>
+<li>概念模型的表示方法（1：1 ; 1：n ; n:n）<br><em>逻辑层数据模型</em> </li>
 </ul>
 <ol>
 <li>层次模型(使用最早)</li>
 <li>网状模型(复杂)</li>
 <li>关系模型(二维表结构，使用最广)</li>
-<li>面向对象模型<blockquote>
-<blockquote>
-<blockquote>
-<p><strong>3.物理层数据模型</strong></p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
+<li>面向对象模型<br><em>物理层数据模型</em> </li>
 </ol>
 <ul>
 <li>定义：描述数据在介质上存储，是逻辑模型的物理实现。</li>
@@ -483,6 +445,40 @@
 <li>分量：元组中的每一个属性值。</li>
 <li>码或键()</li>
 </ul>
+<hr>
+<p><strong>关系操作集合</strong></p>
+<ol>
+<li>查询操作可以分为：选择，投影，连接，除，并，差，交，笛卡尔积，其中选择，投影，并，差，笛卡尔积是五种基础的，(增，删，改，查，插)。</li>
+<li>关系数据语言的分类</li>
+</ol>
+<ul>
+<li><strong>结构化查询语言</strong>(SQL)</li>
+<li><strong>数据定义语言</strong>(DDL)</li>
+<li><strong>数据操纵语言</strong>(DML)</li>
+<li><strong>数据控制语言(DCL)</strong></li>
+</ul>
+<ol start="3">
+<li><strong>关系的完整性约束</strong></li>
+</ol>
+<ul>
+<li><em>数据库的数据完整性是指：数据库中的数据的正确性，相容性，一致性。</em></li>
+</ul>
+<p>1.<em>关系模型中有三类完整性约束：实体完整性约束，参照完整性约束，用户定义完整性约束，其中(实体完整性约束和参照完整性约束是关系的两个不变性)。</em></p>
+<ul>
+<li><strong>实体关系完整性约束是指：关系的主属性，即主码的组成不能为空。</strong></li>
+<li><strong>参照完整性约束是指：定义在主码和外码之间的引用规则。</strong></li>
+<li><strong>用户定义完整性约束：是针对某一应用环境的完整性约束条件。</strong></li>
+</ul>
+<hr>
+<p><strong>关系数据库的规范化理论</strong></p>
+<p><em>关系模式中可能存在的冗余和异常的问题</em></p>
+<ul>
+<li>数据冗余</li>
+<li>更新异常</li>
+<li>插入异常</li>
+<li>删除异常</li>
+</ul>
+<p><strong>数据依赖(函数依赖与关键字)</strong></p>
 
       
     </div>
