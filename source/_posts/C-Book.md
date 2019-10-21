@@ -101,7 +101,7 @@ using namespace std;
 int main(){
     int arr[]={3,10,5,11,6}
     for(int i=5-1;i>0;i--){
-        //数组比较到最后的那个数字就是最小的数值，所以在这里就不再比较了。
+        //把第一个数字设置为最大的数字来跟剩下的数字一起来比较，所以这的次数是总数来减一
         for(int j=0;j<i;j++>){
             //把每一次大的循环里的数组的大值都往后一个交换位置
             if(arr[j]>arr[j+1]){//条件满足就交换位置
@@ -280,17 +280,24 @@ int main(){
 #include <iostream>
 using namespace std;
 #define add(a,b)(a+b)           //带参的宏定义
+#define test(x) #x         //#是连接
+#define test1(a*,* b) a##b        //a和b是连接在一起的
 int main(){
     string s1("hello,");        //字符串
     string s2("world!");
     cout<<add(100,100)<<endl;
     cout<<add(s1,s2)<<endl;     //使用宏来实现字符串的相加
+    cout<<test(hello world)<<endl;
+    int ab=10;
+    cout<<test1(a,b)<<endl;//这里的ab是连接起来的，所以在前面定义了ab的值，也就是说这里输出的只是变量ab的值，并不是说把a和b当作实参过去的。
 }
 ```
 运行结果是：
 ```
 200
 hello,world
+helloworld
+10
 ```
 **说明了宏的优点有:避免了强类型的检测**
 ----
@@ -346,6 +353,40 @@ int main(){
 ```
 **#if类似与我们在以前代码里的if，#else类似与else,#elif类似elseif**
 **#endif,很重要。如果没有它你的程序是跑不起来的。**
+---
+**在c++中有很多预定义函数，这其中有一中是异常处理函数，关键字(try)** 
+```
+#include <iostream>
+using namespace std;
+int main(){
+     __try{
+      int i;
+      cout<<"请输入一个数字"<<end;
+      cin>>i;
+      if(i<=0){
+      throw "error"
+     }
+      }catch(const char *p){//指定抛出异常的类型
+         cout<<p<<endl;
+      }catch(...){
+      cout<<"在main函数里有异常"<<endl;//任何抛出异常的类型都能接受,这里虽然是可以接受任何类型的异常但在前面已经有指定的抛出类型，所以在这里输出的是指定的抛出类型
+      }
+}
+```
+---
+**e.what(是用来打印异常抛出的)** 
+```
+运行结果
+error
+```
+---
+![不同的类型抛出](C-Book/c-Book4.png)
+- [ ] bad_typeid:
+- [ ] bad_cast
+- [ ] bad_alloc:在new一个内存时，如果没有足够的空间时会抛出异常来，
+- [ ] ios_base::failure:上一个的异常抛出打印的类型
+- [ ] logic_error---out_of_range:这是数组下标越界会抛出(out_of_range)类型的异常来
+
 ```
 #include <iostream>
 using namespace std;
@@ -370,7 +411,7 @@ int main(){
 2. tolower()(小写) 
 3. isupper()(如果字符是大写的就为true，否则false)
 4. islower()(同上)
-5. isspace()(如果字符是空白字符就为true,否则false)
+5. isspace()(如果字符是空白字符就为true,否则false)，一般这个识别的都跟着cin.get()这个函数，因为它识别空格，你可以在它识别空格的时候输出一些东西，下面有个小列子。
 ```
 #include <iostream>
 using namespace std;
@@ -380,7 +421,7 @@ void test(){
     cin>>b;
     a=toupper(b)
     cout<<c<<endl;
-    if(!isupper(b)){//条件一开始为false
+    if(isupper(b)){//条件一开始为false
         cout<<"转换成功\t"<<a<<endl;
     }else{
         cout<<"转换失败"<<endl;
@@ -409,7 +450,7 @@ a
 转换成功   A
 请输入字符
 add test
-add--test--
+add--test--.
 ```
 ----
 # 类
@@ -487,7 +528,7 @@ int main(){
 ```
 #include <iostream>
 #include <vector>
-using space std;
+using namespace std;
 int main(){
     vector <int >a{10,20,3,5,1};
     a.insert(a.begin(),8);//在向量最前面插入数字8
@@ -506,14 +547,75 @@ int main(){
     for(it=b.begin();it!=b.end();it++){
         cout<<*it<<"      ";
     }
-
 ```
+---
 ```
 运行结果
 1    3    5   8   10   20
 20   10   8   5   3   1
 20   10   8   5   3   1
 ```
+```
+# include <iostream>
+using namespace std;
+int main (){
+      int numb[]={10,20,23,11,}
+      int numb1[4]={0};
+      memcpy(numb1,numb,sizeof(numb));
+      for(int i=0;i<4;i++){
+      cout<<numb1[i]<<'   ';
+      }
+}
+```
+---
+
+```
+运行结果
+10   20   23   11
+```
+---
+
+- [ ] **静态成员函数和静态成员变量**
+
+```
+#include <iostream>
+using namespace std;
+".h"
+# include <iostream>
+class Test{
+      private:
+      static int a;
+      int b;
+      public:
+      Test(int _a){
+      a=_a;
+      ++b;
+      }
+      static void show(Test tt){//静态成员函数中通过对象来引用非静态成员
+      cout<<"tt.a="<tt.a<<endl;
+      cout<<"Test::b="<<Test::b<<endl;
+      cout<<"tt.b="<<tt.b<<endl;
+      }
+}
+int Test::b=0;//这是放在main函数上面的
+int main(){
+        Test t1(100);
+        Test t2(200);
+        Test::show(t1);
+        Test::show(t2);//静态成员函数调用时不用对象名 
+
+}
+```
+```
+运行结果为：
+tt.a=100
+Test::b=2
+tt.b=2
+tt.a=200
+Test::b=2
+tt.b=2
+```
+
 # 继承
 ```
 class Teacher{
@@ -557,6 +659,14 @@ int main(){
 # 隐藏
 * 我们以后难免会在派生类里定义属于它自己的成员变量和成员函数，但当我们在声明和定义的时候有时也会不小心的把成员变量和成员函数与基类的成员变量和成员函数名字相同，这是我们的程序就会出现名字隐藏的现象，对于隐藏就是说当我们的派生类与基类中有名字相同的，就可能会出现隐藏。如果不知道什么时候被隐藏了什么，我们可以加上作用域去看看，在这里，我的建议是，尽量不要在继承类里面用同样的名字，不然你会很自闭的。
 * 基类的析构函数最好加上关键字（virtual）写成虚函数，这样在派生类的时候的就能自动调用，而对于，纯虚函数，在派生类中是要重写的性质，因为在基类的纯虚函数是空函数一个，它的本质就是一定要在派生类里面实现它的意义。一个良好的习惯：最好把基类的析构函数写成虚的，这样在派生类中是会自动调用的。
+
+**纯虚函数是不能对它进行实例化的，也就是说不能给它创建对象，这是要注意的重点，不能说你定义的是一个纯虚函数，然后你又在main函数里给它创建一个对象来进行一些操作。** 
+
+
+**在实际开发中，你可以定义一个抽象基类，只完成部分功能，未完成的功能交给派生类去实现(谁派生谁实现)。这部分的功能往往是基类不需要的，或者是在基类中实现不了的，虽然基类完成不了，但强制交给了派生类去实现，否则一样不能被实例化。** 
+
+**抽象基类除了限制了派生类，也实现了多态(也就是说在main函数里，你可以使用基类来调用派生类里面重写的纯虚函数)。** 
+
 # 抽象类
 * 其实就是在类里面把函数写成是纯虚函数，这样在派生类里就剩下重写这些虚函数。一般把抽象类用来设计一套统一的接口。
 ![例子](C-Book/c-Book2.png)
@@ -620,9 +730,9 @@ class Test{
         cout<<_name<<"的年龄"<<_age<<endl;
     }
     //深拷贝构造函数
-    Test(const Test &t){
+    Test(const Test &t){//把类作为函数的参数
         _name=t._name;
-        _age=new int (*t._age);
+        _age=new int (*t._age);//这里用的是指针来new,因为在本类中它就是以指针的方式来存放的，所以你也只能以指针的形式来启用它。
         cout<<"拷贝构造函数"<<endl;
     }
     ~Test(){
@@ -655,3 +765,43 @@ int main(){
 ```
 **其实，拷不拷贝我们要认得类的成员变量有没有指针和引用，一般来说计算机会帮我们直接赋值的，深的拷贝构造函数的问题就是当我们第一次使用构造函数的时候，计算机会跟着自动调用析构函数，把我们之前定义的指针变量给销了，这也得不到我们程序想要的结果啊，不但没有走到我们想要的答案，反倒会给我们的程序报错，这就是个致命的问题,这是我们就只能去解救这个问题，所以我们要用到深的拷贝构造函数。其实在上面的的程序只是简单的想把t1的值赋给t2来间接的让t2有值。**
 ----
+# 类模板
+
+```
+template <class T>//因为要使用模板，所以在定义模板
+class Apple{
+  friend ostream &operator<<(ostream &out,Apple &a){//这里定义的是友元函数，用输出流来输出两个对象的相加
+      out<<a.c<<"+"<<a.n<<endl;
+      return out;
+  }
+private:
+    T c;//泛性的成员变量
+    T n;
+    Apple(T _a,T_b){//构造函数
+    this->c=_a;
+    this->n=_b;
+    }
+    Apple <int> operator+(Apple &a){//这里调用的是类的构造函数来实现两个对象的相加并把相应的数值存放在本类的成员变量中。
+    Apple addsum(this->c+a.c,this->n+a.n);
+    return addsum;
+    }
+
+}
+#include <iostream>
+#include "Apple.h"
+using namespace std;
+int main(){
+     Apple <int>a(10,20); 
+     Apple <int>a1(20,30);
+     Apple <int>c=a+a1;
+     cout<<c<<endl;
+}
+```
+```
+
+运行结果
+30+50
+```
+**注意事项** 
+
+![模板类](C-Book/c-Book5.png) 
