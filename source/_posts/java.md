@@ -29,7 +29,7 @@ Write Once,Run Everywhere
 //有必要说明一下，接下来的是在linux系统下使用终端来让我电脑上的文件进行运行
 
 public class hello{//public(公有访问类型),class(类的标识),hello(类名)
-    public static void main (String arg[]){//是main函数的基本格式,也表明了这里的main是公有的静态方法
+    public static void main (String arg[]){//是main函数的基本格式,也表明main函数是静态方法
     System.out.println("hello,world!");//打印字符串"hello,world!"
     }
 }
