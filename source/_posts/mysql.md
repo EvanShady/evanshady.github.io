@@ -154,3 +154,73 @@ tags:
 * 第二范式(必须满足于一范式，表中非主键列必须完全依赖与任意一个主键位)问题：插入，删除，更新异常，数据冗余。
 * 第三范式(必须满足于第二范式，每个非主键位列与主键不存在传递依赖而是完全依赖)
 * BCNF(必须满足三范式，消去了主属性对键的传递函数依赖)
+---
+
+**数据库操作是在终端下运行的。** 
+* 首先是要下载mysql来进行我们的操作
+* 然后就是一些mysql的基本操作了
+---
+
+// 进入到mysql
+mysql -u root -p
+
+// 接下来只需要输入你的密码就行了
+password:
+
+// 接下来我们就可以直接使用命令来做我们想做的一些基本操作了
+// 显示数据库
+show databases;
+
+![数据库显示](mysql/mysql0.png) 
+
+// 创建你自己的数据库
+
+create database xiaogu(数据库名);
+
+// 显示一下数据库
+
+show databases;
+
+![创建数据库的显示](mysql/mysql1.png) 
+
+// 删除自己创建的数据库
+
+drop database xiaogu;(数据库名)
+
+show databases;
+
+![删除自己创建的数据库](mysql/mysql2.png) 
+
+use xiaogu(更换数据库)
+
+![更换数据库](mysql/mysql3.png) 
+
+// 接下来是对表进行操作了
+
+create table xsb(id int(11)not null,name varchar(3),qq int(11));
+
+desc xsb;
+
+insert into xsb values(214242,'小灰',24441444);
+
+select * from xsb;
+
+![表的操作](mysql/mysql4.png) 
+
+//更改表名
+
+rename table xsb to 学生表;
+
+![更改表名](mysql/mysql5.png) 
+
+// 在表里添加参数
+
+alter table xsb add phone int(11);
+
+// 在表里修改参数
+
+alter table xsb change id _id int(11);
+
+// 在表里删除参数
+
+alter table xsb drop id;
