@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wed">
+<meta property="og:url" content="http://yoursite.com/2019/09/10/mysql/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据库">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/09/10/mysql/mysql0.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/10/mysql/mysql1.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/10/mysql/mysql2.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/10/mysql/mysql3.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/10/mysql/mysql4.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/10/mysql/mysql5.png">
+<meta property="og:updated_time" content="2019-10-29T14:16:09.076Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wed">
+<meta name="twitter:description" content="数据库">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/10/mysql/mysql0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/10/mysql/">
+
+
+
+
+
+  <title>wed | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/10/mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">wed</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-10T15:12:01+08:00">
+                2019-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>数据库
+</code></pre><a id="more"></a>
+<h1 id="第一节-数据库系统概述"><a href="#第一节-数据库系统概述" class="headerlink" title="第一节(数据库系统概述)"></a>第一节(数据库系统概述)</h1><ol>
+<li>数据(date)</li>
+</ol>
+<ul>
+<li>是描述事物的符号记录，是指用物理符号记录下来的，可以鉴别的信息。</li>
+</ul>
+<hr>
+<ol start="2">
+<li>数据库(DB)</li>
+</ol>
+<ul>
+<li>存储数据的仓库。<blockquote>
+<p>特点</p>
+</blockquote>
+</li>
+<li>永久储存，有组织，可共享。</li>
+</ul>
+<hr>
+<ol start="3">
+<li>数据库管理系统(ABS)</li>
+</ol>
+<ul>
+<li>专门用于建立和管理数据库的软件，以及提供必要的安全性和完整性。<blockquote>
+<p>功能</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>数据定义功能</li>
+<li>数据操纵功能</li>
+<li>数据库的运行管理功能</li>
+<li>数据库的建立和维护功能</li>
+<li>数据有组织,存储和管理功能</li>
+<li>其他功能(通信功能，不同数据库之间数据的相互共享)</li>
+</ol>
+<hr>
+<ol start="4">
+<li>数据库系统(DBS) —-  数据库管理员(DBA)<h1 id="第二节-数据管理技术的发展"><a href="#第二节-数据管理技术的发展" class="headerlink" title="第二节(数据管理技术的发展)"></a>第二节(数据管理技术的发展)</h1></li>
+</ol>
+<ul>
+<li>应用程序管理数据<br><em>特点</em> </li>
+<li>数据面向应用</li>
+</ul>
+<hr>
+<ol start="2">
+<li>文件管理系统<br><em>特点</em> </li>
+</ol>
+<ul>
+<li>数据可长期存放在磁盘</li>
+<li>数据的逻辑结构与物理结构有了区别</li>
+<li>文件组织呈多样化</li>
+<li>对数据的操作以记录为单位</li>
+<li>数据不再属于某个特定的程序可重复使用</li>
+</ul>
+<hr>
+<ol start="3">
+<li>数据库系统阶段(E,F,code)<br><em>重大事件</em> </li>
+</ol>
+<ul>
+<li>1968年 美国IBM公司 (层次模型)</li>
+<li>1969年 美国 codesy (网状模型)</li>
+<li>1970年 美国 EFcode (关系模型)<br><em>特点</em> </li>
+</ul>
+<ol>
+<li>数据集成</li>
+<li>数据共享性高</li>
+<li>数据冗余小(文件系统的缺陷)</li>
+<li>数据一致性(文件系统的缺陷)</li>
+<li>数据独立性高(文件系统的缺陷)<br><em>数据库保护</em> </li>
+<li>数据的安全性</li>
+<li>数据的完整性</li>
+<li>并发控制</li>
+<li>故障恢复<h1 id="第三节-数据库系统的结构"><a href="#第三节-数据库系统的结构" class="headerlink" title="第三节(数据库系统的结构)"></a>第三节(数据库系统的结构)</h1></li>
+<li>三级模式的结构<br>外模式(子模式和用户模式)</li>
+</ol>
+<ul>
+<li>模式(概念模式和逻辑模式)</li>
+<li>内模式(存储模式)</li>
+<li>两层映像</li>
+</ul>
+<ol>
+<li>外模式和概念模式(多个)</li>
+<li>逻辑模式和内模式(唯一一个)</li>
+</ol>
+<hr>
+<ol start="2">
+<li>数据库系统的运行与应用结构</li>
+</ol>
+<ul>
+<li>用户与服务器结构(C/S)</li>
+<li>浏览器与服务器结构(B/S)</li>
+</ul>
+<h1 id="第四节-数据模型"><a href="#第四节-数据模型" class="headerlink" title="第四节(数据模型)"></a>第四节(数据模型)</h1><h2 id="1-数据模型的组成要素"><a href="#1-数据模型的组成要素" class="headerlink" title="1. 数据模型的组成要素"></a>1. 数据模型的组成要素</h2><ol>
+<li>数据结构(静态特征)</li>
+<li>数据操作(动态特征)</li>
+<li>数据约束(依存关系)<h3 id="2-数据模型的分类"><a href="#2-数据模型的分类" class="headerlink" title="2. 数据模型的分类"></a>2. 数据模型的分类</h3><em>概念层数据模型</em> </li>
+</ol>
+<ul>
+<li>概念层是数据抽象级别的最高层，其目的是按用户的观点来对世界建模。</li>
+<li>可分为：</li>
+</ul>
+<ol>
+<li>实体：客观存在相互区别的食物。</li>
+<li>属性：实体所具有的某种特性。</li>
+<li>码或键：唯一标识实体的属性集。</li>
+<li>域：属性的取值范围。</li>
+<li>实体性：具有相同属性的实体必然具有共同的特征和性质。</li>
+<li>实体集：同型实体的集合。</li>
+<li>联系：事物内部和事物之间是有联系的。</li>
+</ol>
+<ul>
+<li>概念模型的表示方法（1：1 ; 1：n ; n:n）<br><em>逻辑层数据模型</em> </li>
+</ul>
+<ol>
+<li>层次模型(使用最早)</li>
+<li>网状模型(复杂)</li>
+<li>关系模型(二维表结构，使用最广)</li>
+<li>面向对象模型<br><em>物理层数据模型</em> </li>
+</ol>
+<ul>
+<li>定义：描述数据在介质上存储，是逻辑模型的物理实现。</li>
+</ul>
+<ol>
+<li>概念模型到逻辑模型的转换是由数据库设计人员完成的。</li>
+<li>逻辑到物理是由数据库管理系统完成的。</li>
+</ol>
+<hr>
+<h1 id="第二章-关系数据库"><a href="#第二章-关系数据库" class="headerlink" title="第二章 关系数据库"></a>第二章 关系数据库</h1><h2 id="第一节关系数据库概述"><a href="#第一节关系数据库概述" class="headerlink" title="第一节关系数据库概述"></a><strong>第一节关系数据库概述</strong></h2><ul>
+<li>特征：是使用关系数据模型来组织数据。(主流数据模型)</li>
+</ul>
+<h2 id="第二节关系数据模型"><a href="#第二节关系数据模型" class="headerlink" title="第二节关系数据模型"></a><strong>第二节关系数据模型</strong></h2><ol>
+<li>关系数据结构</li>
+</ol>
+<ul>
+<li>表：被称为关系，是一个二维表(由表名，构成表的各个列和数据组成)。</li>
+<li>关系：可分为三种关系，(基本关系，查询表，视图表)。</li>
+<li>列：被称为字段或属性。</li>
+<li>属性：和列是同一个意思。</li>
+<li>行： 被称为元组或记录。</li>
+<li>元组：</li>
+<li>分量：元组中的每一个属性值。</li>
+<li>码或键()</li>
+</ul>
+<hr>
+<p><strong>关系操作集合</strong></p>
+<ol>
+<li>查询操作可以分为：选择，投影，连接，除，并，差，交，笛卡尔积，其中选择，投影，并，差，笛卡尔积是五种基础的，(增，删，改，查，插)。</li>
+<li>关系数据语言的分类</li>
+</ol>
+<ul>
+<li><strong>结构化查询语言</strong>(SQL)</li>
+<li><strong>数据定义语言</strong>(DDL)</li>
+<li><strong>数据操纵语言</strong>(DML)</li>
+<li><strong>数据控制语言(DCL)</strong></li>
+</ul>
+<ol start="3">
+<li><strong>关系的完整性约束</strong></li>
+</ol>
+<ul>
+<li><em>数据库的数据完整性是指：数据库中的数据的正确性，相容性，一致性。</em></li>
+</ul>
+<p>1.<em>关系模型中有三类完整性约束：实体完整性约束，参照完整性约束，用户定义完整性约束，其中(实体完整性约束和参照完整性约束是关系的两个不变性)。</em></p>
+<ul>
+<li><strong>实体关系完整性约束是指：关系的主属性，即主码的组成不能为空。</strong></li>
+<li><strong>参照完整性约束是指：定义在主码和外码之间的引用规则。</strong></li>
+<li><strong>用户定义完整性约束：是针对某一应用环境的完整性约束条件。</strong></li>
+</ul>
+<hr>
+<p><strong>关系数据库的规范化理论</strong></p>
+<p><em>关系模式中可能存在的冗余和异常的问题</em></p>
+<ul>
+<li>数据冗余</li>
+<li>更新异常</li>
+<li>插入异常</li>
+<li>删除异常</li>
+</ul>
+<h2 id="数据依赖-函数依赖与关键字"><a href="#数据依赖-函数依赖与关键字" class="headerlink" title="数据依赖(函数依赖与关键字)"></a><strong>数据依赖(函数依赖与关键字)</strong></h2><ul>
+<li style="list-style: none"><input type="checkbox"> 函数依赖与关键字</li>
+</ul>
+<ul>
+<li>函数依赖分为：完全函数依赖，部分函数依赖，传递函数依赖。</li>
+</ul>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 范式与关系规范化过程</li>
+</ul>
+<p><strong>规范化：一个低一级范式的关系模式通过模式分解可以转换为多个高一级范式的关系模式的集合</strong> </p>
+<p><strong>规范化的优点：</strong> </p>
+<ol>
+<li>大大减少了数据冗余</li>
+<li>改进了数据库整体组织</li>
+<li>增强了数据的一致性</li>
+<li>增加了数据库的设计性</li>
+</ol>
+<ul>
+<li>第一范式(列的字段名不可再分)</li>
+<li>第二范式(必须满足于一范式，表中非主键列必须完全依赖与任意一个主键位)问题：插入，删除，更新异常，数据冗余。</li>
+<li>第三范式(必须满足于第二范式，每个非主键位列与主键不存在传递依赖而是完全依赖)</li>
+<li>BCNF(必须满足三范式，消去了主属性对键的传递函数依赖)</li>
+</ul>
+<hr>
+<p><strong>数据库操作是在终端下运行的。</strong> </p>
+<ul>
+<li>首先是要下载mysql来进行我们的操作</li>
+<li>然后就是一些mysql的基本操作了</li>
+</ul>
+<hr>
+<p>// 进入到mysql<br>mysql -u root -p</p>
+<p>// 接下来只需要输入你的密码就行了<br>password:</p>
+<p>// 接下来我们就可以直接使用命令来做我们想做的一些基本操作了<br>// 显示数据库<br>show databases;</p>
+<p><img src="/2019/09/10/mysql/mysql0.png" alt="数据库显示"> </p>
+<p>// 创建你自己的数据库</p>
+<p>create database xiaogu(数据库名);</p>
+<p>// 显示一下数据库</p>
+<p>show databases;</p>
+<p><img src="/2019/09/10/mysql/mysql1.png" alt="创建数据库的显示"> </p>
+<p>// 删除自己创建的数据库</p>
+<p>drop database xiaogu;(数据库名)</p>
+<p>show databases;</p>
+<p><img src="/2019/09/10/mysql/mysql2.png" alt="删除自己创建的数据库"> </p>
+<p>use xiaogu(更换数据库)</p>
+<p><img src="/2019/09/10/mysql/mysql3.png" alt="更换数据库"> </p>
+<p>// 接下来是对表进行操作了</p>
+<p>create table xsb(id int(11)not null,name varchar(3),qq int(11));</p>
+<p>desc xsb;</p>
+<p>insert into xsb values(214242,’小灰’,24441444);</p>
+<p>select * from xsb;</p>
+<p><img src="/2019/09/10/mysql/mysql4.png" alt="表的操作"> </p>
+<p>//更改表名</p>
+<p>rename table xsb to 学生表;</p>
+<p><img src="/2019/09/10/mysql/mysql5.png" alt="更改表名"> </p>
+<p>// 在表里添加参数</p>
+<p>alter table xsb add phone int(11);</p>
+<p>// 在表里修改参数</p>
+<p>alter table xsb change id _id int(11);</p>
+<p>// 在表里删除参数</p>
+<p>alter table xsb drop id;</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/19/java/" rel="next" title="java">
+                <i class="fa fa-chevron-left"></i> java
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/10/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一节-数据库系统概述"><span class="nav-number">1.</span> <span class="nav-text">第一节(数据库系统概述)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二节-数据管理技术的发展"><span class="nav-number">2.</span> <span class="nav-text">第二节(数据管理技术的发展)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三节-数据库系统的结构"><span class="nav-number">3.</span> <span class="nav-text">第三节(数据库系统的结构)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四节-数据模型"><span class="nav-number">4.</span> <span class="nav-text">第四节(数据模型)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数据模型的组成要素"><span class="nav-number">4.1.</span> <span class="nav-text">1. 数据模型的组成要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数据模型的分类"><span class="nav-number">4.1.1.</span> <span class="nav-text">2. 数据模型的分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-关系数据库"><span class="nav-number">5.</span> <span class="nav-text">第二章 关系数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一节关系数据库概述"><span class="nav-number">5.1.</span> <span class="nav-text">第一节关系数据库概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二节关系数据模型"><span class="nav-number">5.2.</span> <span class="nav-text">第二节关系数据模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据依赖-函数依赖与关键字"><span class="nav-number">5.3.</span> <span class="nav-text">数据依赖(函数依赖与关键字)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
