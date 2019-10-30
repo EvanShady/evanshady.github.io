@@ -224,3 +224,4 @@ alter table xsb change id _id int(11);
 // 在表里删除参数
 
 alter table xsb drop id;
+

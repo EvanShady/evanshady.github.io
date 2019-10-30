@@ -20,10 +20,12 @@ Write Once,Run Everywhere
 
 - [ ] JRE(java运行时环境)
 *是javaAPI子集和java虚拟机组成* 
+
 **前面二者的区别是：JDK包含着JRE。如果仅仅是运行java程序的话就需要JRE。如果是要自己动手写java程序就要部署JDK环境。** 
 ---
 
 **java系统可分为：javaEE(标准版)，javaSE(企业版)，javaME(微型版)，javaCARD(智能卡版)** 
+---
 
 ```
 //有必要说明一下，接下来的是在linux系统下使用终端来让我电脑上的文件进行运行
@@ -35,5 +37,45 @@ public class hello{//public(公有访问类型),class(类的标识),hello(类名
 }
 ```
 ![终端运行的结果](Java/java0.png) 
+---
+
 
 **这里要注意一下的就是文件的后缀是.java,其次是以javac 来作为第一次的关键字来操作文件，接着就会生成一个后缀为.class的文件，然后就是运行你写的文件，记住后面没有任何的后缀。** 
+
+* **java是面向对象的过程，也就是说在java中只有方法而没有所谓的函数。** 
+
+```
+public class Test{
+    public static void main(String args[]){
+    scanner s=new scanner(System.in);//为了可以让用户输入，在这里使用了scanner类,因为它附属与System.in
+    System.out.println("请输入你的性别");
+    String set=s.nextLint();//以字符串的形式输入
+    System.out.println("请输入你的姓名");
+    String name =s.nextLint();
+    switch(set){
+    case "男":
+    System.out.println(name+"男士");
+    break;
+    case "女":
+    System.out.println(name+"女士");
+    break;
+    default :
+    System.out.println("输入有误");
+    break;
+    }
+    s.close();//关闭类
+}
+
+```
+![运行结果](Java/java2.png) 
+
+![输入的方式](Java/java1.png) 
+
+*在这里只是简单的让用户输入了两次都是以字符串的方式来输入的，当然你也可以让用户输入你想让用户输入的数据类型(eg:int ,double)，上面也有参照的照片。* 
+
+* **合法的标识符** 
+- [ ] 不能存在关键字
+- [ ] 首字母不能是数字
+- [ ] 不能存在运算符
+- [ ] 标识符是区别大小写的
+- [ ] 标识符的命令规则是强制性的
