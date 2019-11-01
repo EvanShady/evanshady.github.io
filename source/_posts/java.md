@@ -67,9 +67,12 @@ public class Test{
 }
 
 ```
-![运行结果](Java/java2.png) 
 
-![输入的方式](Java/java1.png) 
+
+![运行结果](Java/java2.png)
+
+
+![输入的方式](Java/java1.png)
 
 *在这里只是简单的让用户输入了两次都是以字符串的方式来输入的，当然你也可以让用户输入你想让用户输入的数据类型(eg:int ,double)，上面也有参照的照片。* 
 
