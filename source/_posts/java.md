@@ -79,3 +79,55 @@ public class Test{
 - [ ] 不能存在运算符
 - [ ] 标识符是区别大小写的
 - [ ] 标识符的命令规则是强制性的
+
+`我们都知道数据的类型有int,short,float,double,byte(字节)。最常见的就是int(整形的数据类型)。在java中我们可以通过程序来输出各个数据类型的范围是多少，最大值和最小值，和数据类型
+`
+
+```
+public class Test{
+    public static void main (String args[]){
+    int a=Integer.Size;
+    System.out.println("int的范围:"+a);
+    int b=Integer.MAX_VALUE;
+    System.out.println("int的最大值:"+b);
+    int c=Integer.MIN_VALUE
+    System.out.println("int的最小值:"+c);
+    Class <Integer> d=Integer.TYPE;
+    System.out.println("数据类型:"+d);
+    }
+}
+```
+
+```
+运行结果：
+int的范围:32
+int的最大值:2147483647
+int的最小值:-2147483648
+数据类型:int
+```
+---
+```
+public class Test{
+            static int i=10;
+    public static void main(String args[]){
+            int a=1;
+            int b=2;
+            {
+            int b=3;//main方法的变量名是不可以重复的，一个变量只能使用一个名，在这里就是重复使用了变量b，所以程序会报错。
+            System.out.println("b="+b);
+            System.out.println("a="+a);
+            System.out.println("i="+i);
+            }
+            System.out.println("b="+b);
+            System.out.println("a="+a);
+            System.out.println("i="+i);
+
+    }
+}
+```
+
+```
+上面的程序是运行不过的，这也是java的特别之处，在c++中，变量b是可以用的，但在java中是不可以的。
+```
+
+
