@@ -64,6 +64,16 @@ public class Test{
     break;
     }
     s.close();//关闭类
+    InputStreamReader input=new InputStreamReader(System.in);//定义在键盘输入
+    BufferedReader Buff=new BufferedReader(input);//以缓冲流的形式来接受input
+    //用try和catch机制来处理异常
+    try{
+    System.out.println("请输入字符：");
+    String s=Buff.readLine();
+    System.out.println("字符："+s);
+    }catch (Exception e){
+    System.out.println("异常");
+    }
 }
 
 ```
@@ -132,5 +142,215 @@ public class Test{
 ```
 上面的程序是运行不过的，这也是java的特别之处，在c++中，变量b是可以用的，但在java中是不可以的。
 ```
+```
+public class Test{
+    public static void main (String args[]){
+            char ch = '\"';//转义字符
+            System.out.println(ch);
+            System.out.println("\"hello,world!"\");
+            System.out.println(ch+"hello,world!"+ch);
+    }
+}
+```
 
+```
+运行结果
+"
+"hello,world!"
+"hello,world!"
+```
+---
 
+`总结可以得知，不管是用变量来存放转义字符，还是直接使用转义字符的方式来输出字符，程序都是可以顺利运行的，当然你也可以不使用变量来存放转义字符，但一个程序里面有太多的转义字符的存在你用变量来存放不是更好使用？这样你也不容易搞混已有的转义字符的使用。` 
+```
+public class Test{
+    public static void main(String args[]){
+        System.out.println(2+3+"k");
+        System.out.println(6+6+"aa"+6+6);
+    }
+}
+```
+
+```
+运行结果
+5k
+12aa66
+```
+---
+
+`上面的2+3是一个表达式，所以这里是5,但后面跟的是字符和+(字符串相加)的符号，所以是5k,下面的也是一样的，唯一不一样的是在+(字符串相加)之后，计算机会自动认为后面的也是+(字符串相加)所以后面的就是12aa66。但如果把上面的双引号换成单引号就是以数字的形式先加后输出的。` 
+
+# 数组
+```
+public class Test{
+    public static void main(String args[]){
+                int i=3;//这是在堆内存的分配的内存(也可以说是在编译是分配的),读取速度快，但数据的活动范围小(缺少灵活性)
+                int y=new Integer(1);//是在栈内存分配的内存(也可以说是运行时分配的内存),读取速度慢，但数据灵活性高。
+    }
+}
+```
+
+<++>
+```
+public class test{
+    public static void main(String args[]){
+            Randow rand=new Randow();//声明随机数字的对象
+            int []numb=new int [rand.nextInt(10)];//rand.nextInt(10)这句话的意思是随机生成一个0～10的数字作为数组的长度
+            for(int i=0;i<numb.length;i++){//为数组赋值。从0～100来选择每次的赋值的数值
+                numb[i]=rand.nextInt(100);
+            }
+            for(int a : numb){//打印数组里的元素
+            System.out.println(a);
+            }
+           
+    }
+}
+```
+
+**在c++中的指针，在java是叫做引用数据类型，相当与c++中的地址指针** 
+```
+public class test{
+    public static void main(String args[]){
+    Randow rand=new Randow();//声明随机数字的对象
+    int []a=new int[rand.nextInt(10)];//定义数组长度
+    int []b=a;//把数组a赋值给数组b
+    for(int i=0;i<a.length;i++){//为数组a赋值
+            a[i]=rand.nextInt(100);
+            System.out.println(a[i]);
+            System.out.println(b[i]);
+    }
+    }
+}
+```
+
+`上面程序的结果每次都是不要的，但值得注意的是输出的结果，肯定不会让你们失望的，因为数组b里面的元素是和数组a的元素是一样的。其实，上面最重要的一点就是数组b=数组a，它的等于是连着后面的a数组的赋值。` 
+
+---
+
+```
+public class test{
+    public static void main(String args[]){
+            Randow rand=new Randow();
+            int [][]numb=new int[3][1];//声明数组numb和给数组长度
+            for(int i=0;i<numb.length;i++){//给数组赋值并输出数组里的元素
+                for(int j=0;j<numb[i].length;j++){
+                        numb[i][j]=rand.nextInt(10);
+                        System.out.println(numb[i][j]);
+                }
+            }
+    }
+}
+```
+
+`一样的，上面的数组每运行一次程序的结果都是不一样的。` 
+
+---
+```
+public class test{
+    public static void main(String args){
+            int []numb=new int[]{10,23,41,6,11};//声明一个数组，并赋初值
+            int a=Randow rand=new Randow(3)+1;//生成随机数字，范围是1～4
+            for(int i=0;i<a;i++){//把随机数字的大小作为条件,并从一开始交换位置
+                int temp=numb[i];
+                numb[i]=numb[i+1];
+                numb[i+1]=temp;
+            }
+            for(int b:numb){//输出数组里的元素
+            System.out.println(b);
+            }
+
+    }
+}
+```
+
+`上面程序实现的是乱序，就是每次输出的结果都是不一样的。` 
+
+---
+
+# 对象
+**类描述了对象的属性和对象的方法，类是对象的模板，更可以说，对象是类的实例，是一个实实在在存在的个体。所以说，面向对象的程序重要的是类的设计而不是对象的设计。** 
+`类的声明格式:` 
+- [ ] [标识符] class 类的名称
+{
+        //类的属性
+        //类的方法
+}
+`类的标识符:` 
+- [ ] 默认的(default):这个类只能被这个类的对象和同一个包中的其它的类访问，即使是其它包里的这个类的子类都不能被访问，它只认同一包里的类。
+
+- [ ] 私有(private):如果一个方法或者属性被定义为私有的，那么只能在本类里访问它。
+
+- [ ] 公有(public):如果一个方法或属性被定义为公有的，那么它不仅能跨类的对象所调用，还能在其它包中被访问。
+
+- [ ] 保护(protected):如果一个方法或属性被定义为保护的，那么它能被本类的方法所访问，也能被子类所访问，即使子类在其它包里。
+
+![java访问机制](Java/java3.png) 
+
+```
+public class Test{
+    public static void main (String args[]){
+            System.out.println("------"创建对象"-------");
+            new Apple();//匿名对象
+    }
+}
+class Apple{
+        static String a="string-a";
+        Static String b;
+        String c="string-c";
+        Strint d;
+        Static{//static 属于静态代码块，在这里运行的是这段代码块，而不是类的构造函数先
+                printstatic("before static");
+                b="string-b";
+                printstatic("after static");
+        }
+        static void printstatic(String name){//这里要加静态的关键字，因为调用是静态来的所以这里也要有静态的关键字来表明这里是静态，不然是会报错的。
+                System.out.println("------"+name+"-------");
+                System.out.println("a="+a);
+                System.out.println("b="+b);
+        }
+        Apple(){
+            print("before class");
+            d="string-d";
+            print("after class");
+        }
+        void print(){
+                System.out.println("------"+name+"-------");
+                System.out.println("a="+a);
+                System.out.println("b="+b);
+                System.out.println("c="+c);
+                System.out.println("d="+d);
+
+        }
+}
+```
+![运行结果](Java/java4.png) 
+
+```
+上面的对象是经过匿名对象来实例化的，也就是没有给new的对象一个堆内存，一旦这句语句实现完，计算机会自动回收这个内存，将不再存在程序里，这也是java的垃圾回收机制(BC)，这也是为我们考虑的，不知道你有没有发现，上面的几个程序我都是用new来给类分配的对象，但我不但没有在类中写析构函数，也没有在main函数里delete对象的实例化。因为这一切都是java的BC机制帮我们做了。
+
+```
+public class Test{
+
+    public static void main(String args[]){
+            String name=new String ("java");
+            String _name=new String ("java");
+            String hua=_name;
+            if(name==_name){
+            System.out.println("地址相同");
+            }else{
+            System.out.println("地址不同");
+            }
+            if(name.equals(_name)){
+            System.out.println("内容相同");
+            }else{
+            System.out.println("内容不同");
+            }
+}
+```
+
+```
+运行结果:
+地址不同
+内容相同
+```
+上面的程序分别实现了字符串地址(==)和字符串内容(equals方法)的比较，第一个变量和第二个变量的是经过new来分配的栈内存的地址，所以输出的是地址不相同,而最后一个的是进行的内容比较，因为初始化的原因，这里也是输出的内容相同。 

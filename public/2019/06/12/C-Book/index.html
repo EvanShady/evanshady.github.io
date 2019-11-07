@@ -86,17 +86,17 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="c++">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book4.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book2.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book1.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book3.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book5.png">
+<meta property="og:image" content="http://evanshady.github.io/2019/06/12/C-Book/c-Book4.png">
+<meta property="og:image" content="http://evanshady.github.io/2019/06/12/C-Book/c-Book.png">
+<meta property="og:image" content="http://evanshady.github.io/2019/06/12/C-Book/c-Book2.png">
+<meta property="og:image" content="http://evanshady.github.io/2019/06/12/C-Book/c-Book1.png">
+<meta property="og:image" content="http://evanshady.github.io/2019/06/12/C-Book/c-Book3.png">
+<meta property="og:image" content="http://evanshady.github.io/2019/06/12/C-Book/c-Book5.png">
 <meta property="og:updated_time" content="2019-08-20T12:46:37.251Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++Book">
 <meta name="twitter:description" content="c++">
-<meta name="twitter:image" content="http://yoursite.com/2019/06/12/C-Book/c-Book4.png">
+<meta name="twitter:image" content="http://evanshady.github.io/2019/06/12/C-Book/c-Book4.png">
 
 
 
@@ -405,7 +405,7 @@
 <hr>
 <p><strong>e.what(是用来打印异常抛出的)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">运行结果</span><br><span class="line">error</span><br></pre></td></tr></table></figure></p>
 <hr>
-<p><img src="/2019/06/12/C-Book/c-Book4.png" alt="不同的类型抛出"></p>
+<p><img src="//EvanShady.github.io/2019/06/12/C-Book/c-Book4.png" alt="不同的类型抛出"></p>
 <ul>
 <li style="list-style: none"><input type="checkbox"> bad_typeid:</li>
 <li style="list-style: none"><input type="checkbox"> bad_cast</li>
@@ -495,7 +495,7 @@
 <ol>
 <li>公有继承：是以公有的形式来继承的基类，这也就意味着在基类是什么类型的在派生类也是一样的关系。</li>
 <li>私有继承：是以私有的形式来继承的基类,就是说继承下来的基类都是以私有的形式来继承的。</li>
-<li>保护继承：是以保护的形式来继承的基类，它是基于公有继承和私有继承的中间，如果你不想在外界被访问到，又想在派生类中被访问，这就可以用保护的形式来继承下来了，但基类的私有成员对象在保护的派生类中依然是私有成员对象。<br><img src="/2019/06/12/C-Book/c-Book.png" alt="继承的方式"><br><strong>派生类不会自动的继承基类的构造函数</strong><h1 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h1></li>
+<li>保护继承：是以保护的形式来继承的基类，它是基于公有继承和私有继承的中间，如果你不想在外界被访问到，又想在派生类中被访问，这就可以用保护的形式来继承下来了，但基类的私有成员对象在保护的派生类中依然是私有成员对象。<br><img src="//EvanShady.github.io/2019/06/12/C-Book/c-Book.png" alt="继承的方式"><br><strong>派生类不会自动的继承基类的构造函数</strong><h1 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h1></li>
 </ol>
 <ul>
 <li>我们以后难免会在派生类里定义属于它自己的成员变量和成员函数，但当我们在声明和定义的时候有时也会不小心的把成员变量和成员函数与基类的成员变量和成员函数名字相同，这是我们的程序就会出现名字隐藏的现象，对于隐藏就是说当我们的派生类与基类中有名字相同的，就可能会出现隐藏。如果不知道什么时候被隐藏了什么，我们可以加上作用域去看看，在这里，我的建议是，尽量不要在继承类里面用同样的名字，不然你会很自闭的。</li>
@@ -505,7 +505,7 @@
 <p><strong>在实际开发中，你可以定义一个抽象基类，只完成部分功能，未完成的功能交给派生类去实现(谁派生谁实现)。这部分的功能往往是基类不需要的，或者是在基类中实现不了的，虽然基类完成不了，但强制交给了派生类去实现，否则一样不能被实例化。</strong> </p>
 <p><strong>抽象基类除了限制了派生类，也实现了多态(也就是说在main函数里，你可以使用基类来调用派生类里面重写的纯虚函数)。</strong> </p>
 <h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><ul>
-<li>其实就是在类里面把函数写成是纯虚函数，这样在派生类里就剩下重写这些虚函数。一般把抽象类用来设计一套统一的接口。<br><img src="/2019/06/12/C-Book/c-Book2.png" alt="例子"><br><img src="/2019/06/12/C-Book/c-Book1.png" alt="例子"><br><img src="/2019/06/12/C-Book/c-Book3.png" alt="运行结果"><br><strong>重新认识了类的继承，这里我没有用到构造函数来给成员变量赋值，因为用了构造函数会变的很自闭，发正我是完全不能理解的那种，所以我用来另外一种方法，虽然算不上什么，但我觉得自己理解写出来的东西是可以的。孙悟空吃唐僧，这是多么厉害的，我想这个结果连孙悟空自己也不敢想的，我帮他实现了，嘻嘻。</strong></li>
+<li>其实就是在类里面把函数写成是纯虚函数，这样在派生类里就剩下重写这些虚函数。一般把抽象类用来设计一套统一的接口。<br><img src="//EvanShady.github.io/2019/06/12/C-Book/c-Book2.png" alt="例子"><br><img src="//EvanShady.github.io/2019/06/12/C-Book/c-Book1.png" alt="例子"><br><img src="//EvanShady.github.io/2019/06/12/C-Book/c-Book3.png" alt="运行结果"><br><strong>重新认识了类的继承，这里我没有用到构造函数来给成员变量赋值，因为用了构造函数会变的很自闭，发正我是完全不能理解的那种，所以我用来另外一种方法，虽然算不上什么，但我觉得自己理解写出来的东西是可以的。孙悟空吃唐僧，这是多么厉害的，我想这个结果连孙悟空自己也不敢想的，我帮他实现了，嘻嘻。</strong></li>
 <li>这里的基类是不能被实例化的，因为基类里面的show方法，我用的是纯虚函数来写的，不能被实例化，但在派生类要实现，你不实现的话，你写这个虚函数就没意义了，基类的纯虚函数在派生类你一定要写进去，不要编译器会报错的，<h1 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h1><strong>在类中有指针又要多个类的对象的时候最好写一下类的拷贝构造函数</strong></li>
 </ul>
 <ol>
@@ -534,7 +534,7 @@
 <h2 id="其实，拷不拷贝我们要认得类的成员变量有没有指针和引用，一般来说计算机会帮我们直接赋值的，深的拷贝构造函数的问题就是当我们第一次使用构造函数的时候，计算机会跟着自动调用析构函数，把我们之前定义的指针变量给销了，这也得不到我们程序想要的结果啊，不但没有走到我们想要的答案，反倒会给我们的程序报错，这就是个致命的问题-这是我们就只能去解救这个问题，所以我们要用到深的拷贝构造函数。其实在上面的的程序只是简单的想把t1的值赋给t2来间接的让t2有值。"><a href="#其实，拷不拷贝我们要认得类的成员变量有没有指针和引用，一般来说计算机会帮我们直接赋值的，深的拷贝构造函数的问题就是当我们第一次使用构造函数的时候，计算机会跟着自动调用析构函数，把我们之前定义的指针变量给销了，这也得不到我们程序想要的结果啊，不但没有走到我们想要的答案，反倒会给我们的程序报错，这就是个致命的问题-这是我们就只能去解救这个问题，所以我们要用到深的拷贝构造函数。其实在上面的的程序只是简单的想把t1的值赋给t2来间接的让t2有值。" class="headerlink" title="其实，拷不拷贝我们要认得类的成员变量有没有指针和引用，一般来说计算机会帮我们直接赋值的，深的拷贝构造函数的问题就是当我们第一次使用构造函数的时候，计算机会跟着自动调用析构函数，把我们之前定义的指针变量给销了，这也得不到我们程序想要的结果啊，不但没有走到我们想要的答案，反倒会给我们的程序报错，这就是个致命的问题,这是我们就只能去解救这个问题，所以我们要用到深的拷贝构造函数。其实在上面的的程序只是简单的想把t1的值赋给t2来间接的让t2有值。"></a><strong>其实，拷不拷贝我们要认得类的成员变量有没有指针和引用，一般来说计算机会帮我们直接赋值的，深的拷贝构造函数的问题就是当我们第一次使用构造函数的时候，计算机会跟着自动调用析构函数，把我们之前定义的指针变量给销了，这也得不到我们程序想要的结果啊，不但没有走到我们想要的答案，反倒会给我们的程序报错，这就是个致命的问题,这是我们就只能去解救这个问题，所以我们要用到深的拷贝构造函数。其实在上面的的程序只是简单的想把t1的值赋给t2来间接的让t2有值。</strong></h2><h1 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">template &lt;class T&gt;//因为要使用模板，所以在定义模板</span><br><span class="line">class Apple&#123;</span><br><span class="line">  friend ostream &amp;operator&lt;&lt;(ostream &amp;out,Apple &amp;a)&#123;//这里定义的是友元函数，用输出流来输出两个对象的相加</span><br><span class="line">      out&lt;&lt;a.c&lt;&lt;&quot;+&quot;&lt;&lt;a.n&lt;&lt;endl;</span><br><span class="line">      return out;</span><br><span class="line">  &#125;</span><br><span class="line">private:</span><br><span class="line">    T c;//泛性的成员变量</span><br><span class="line">    T n;</span><br><span class="line">    Apple(T _a,T_b)&#123;//构造函数</span><br><span class="line">    this-&gt;c=_a;</span><br><span class="line">    this-&gt;n=_b;</span><br><span class="line">    &#125;</span><br><span class="line">    Apple &lt;int&gt; operator+(Apple &amp;a)&#123;//这里调用的是类的构造函数来实现两个对象的相加并把相应的数值存放在本类的成员变量中。</span><br><span class="line">    Apple addsum(this-&gt;c+a.c,this-&gt;n+a.n);</span><br><span class="line">    return addsum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &quot;Apple.h&quot;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">     Apple &lt;int&gt;a(10,20); </span><br><span class="line">     Apple &lt;int&gt;a1(20,30);</span><br><span class="line">     Apple &lt;int&gt;c=a+a1;</span><br><span class="line">     cout&lt;&lt;c&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">运行结果</span><br><span class="line">30+50</span><br></pre></td></tr></table></figure>
 <p><strong>注意事项</strong> </p>
-<p><img src="/2019/06/12/C-Book/c-Book5.png" alt="模板类"> </p>
+<p><img src="//EvanShady.github.io/2019/06/12/C-Book/c-Book5.png" alt="模板类"> </p>
 
       
     </div>
@@ -648,7 +648,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
