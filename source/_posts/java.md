@@ -162,6 +162,7 @@ public class Test{
 ---
 
 `总结可以得知，不管是用变量来存放转义字符，还是直接使用转义字符的方式来输出字符，程序都是可以顺利运行的，当然你也可以不使用变量来存放转义字符，但一个程序里面有太多的转义字符的存在你用变量来存放不是更好使用？这样你也不容易搞混已有的转义字符的使用。` 
+
 ```
 public class Test{
     public static void main(String args[]){
@@ -190,7 +191,6 @@ public class Test{
 }
 ```
 
-<++>
 ```
 public class test{
     public static void main(String args[]){
@@ -298,7 +298,7 @@ class Apple{
         Static String b;
         String c="string-c";
         Strint d;
-        Static{//static 属于静态代码块，在这里运行的是这段代码块，而不是类的构造函数先
+        Static{//static 属于静态代码块，最先运行的是这段代码块，而不是类的构造函数先
                 printstatic("before static");
                 b="string-b";
                 printstatic("after static");
@@ -346,11 +346,208 @@ public class Test{
             System.out.println("内容不同");
             }
 }
-```
-
-```
 运行结果:
 地址不同
 内容相同
 ```
-上面的程序分别实现了字符串地址(==)和字符串内容(equals方法)的比较，第一个变量和第二个变量的是经过new来分配的栈内存的地址，所以输出的是地址不相同,而最后一个的是进行的内容比较，因为初始化的原因，这里也是输出的内容相同。 
+
+上面的程序分别实现了字符串地址(==)和字符串内容(equals方法)的比较，第一个变量和第二个变量的是经过new来分配的栈内存的地址，所以输出的是地址不相同,而最后一个的是进行的内容比较，因为初始化的原因，这里也是输出的内容相同。
+
+
+构造方法的注意事项
+- [ ] 构造方法的名称与类的名称是一样的
+- [ ] 构造方法也是和普通方法一样的，可以被重载，但构造方法的调用是通过在创建类的对象的时候自动调用的，这是与普通方法的调用是不一样的
+- [ ] 构造方法是没有返回值的
+- [ ] 构造方法是不能被static和final修饰的
+- [ ] 构造方法是不能被继承的，如果子类要使用父类的构造方法只能使用关键字(super)来进行调用
+
+```
+public Test{
+
+    private String name;
+    Test(){
+    System.out.println("类的无参构造方法的调用");
+    }
+    Test(String _name){
+        this->name=_name;
+        System.out.println("类的有参构造方法的调用");
+    }
+    public static void main(String args[]){
+            new Test();//这是匿名调用类的构造方法
+            Test test=new Test();//这和上面是等价的
+            Test t1=new Test("小明");
+    }
+}
+
+上面的程序做的只是简单的演示类的构造方法的重载。
+
+```
+public Test{
+    public static void main(String args[]){
+    Apple apple;
+    apple=Apple.V();
+    System.out.println("姓名:"+apple.name);
+    }
+}
+class Apple{
+        String name;
+        private Apple (){
+        name="hello";
+        }
+        private static final Apple APPLE=new Apple();
+        public static V(){
+        return APPLE;
+        }
+}
+```
+
+上面的程序的重要性是:当你不想一个类被频繁调用的是时候，可以通过对类的构造方法的私有化来实现
+
+
+
+
+# 代码块
+- [ ] 普通代码块(就是普通的放在Main方法里面的代码块)
+- [ ] 构造代码块(放在类里面，比构造方法更先一步执行的代码块)
+- [ ] 静态代码块(比构造代码块更快一步，如果和Main方法是放在同一个类的话，那它比Main方法更快一步执行)
+- [ ] 同步代码块
+
+> 普通代码块
+
+```
+public class Test{
+        public static void main(String args[]){
+        {int x=10;//普通代码块
+        System.out.println("x");
+        }//如果不要这个代码块，程序将会报错，因为在一个方法里，不能有同名的变量名
+        int x=100;
+        System.out.println("x");
+}
+}
+```
+
+```
+运行结果为:
+10
+100
+```
+
+>> 构造代码块
+
+```
+public class Test{
+    public static void main(String args[]){
+           Peron p=new peron(); 
+           Peron p1=new Peron("笑话");
+    }
+}
+class Peron{
+    private int x;
+    String name;
+    {
+    System.out.println("构造代码块的调用");//这是构造代码块
+    x=10;
+    }
+    Peron(){
+        System.out.println("类的无参构造方法的调用\t"+x);
+    }
+    Peron(String _name){
+    this->name=_name;
+    System.out.println("类的有参构造方法的调用\t"+x);
+    }
+}
+
+```
+```
+程序的运行结果为:
+    构造代码块的调用
+    类的无参构造方法的调用  10
+    构造代码块的调用
+    类的有参构造方法的调用  10
+```
+
+上面类中是有一块属于构造代码块，而它的速度比构造方法的调用都还快，以前我们只知道对于类来说，构造方法是第一个调用的，因为在我们声明类的对象的时候就是通过类的构造方法来实现的，但现在不一样的是，你只要在类中加个中括号({}),里面的代码实现比类的构造方法都还要快被实现，这使得我们的代码更简化一步。比如，就像上面一样，给一个成员变量复制，而不是通过它的构造方法来实现，你只需要定义一个变量，然后再加个({}),就能实现对成员变量的复制，速度还比类的构造方法快一布。
+
+**由此我们可以知道，类的代码块中的初始化是一个类的所有构造方法都共有的“交集”部分，具有个性化的初始化还是要放在各自的构造方法里** 
+
+
+>>> 静态代码块
+
+```
+public class Test{
+    static {
+    System.out.println("静态方法的调用");
+    }
+    {
+    System.out.println("构造代码块的调用");
+    }
+    Test(){
+    System.out.println("构造方法的调用");
+    }
+    public static void main(String args[]){
+            System.out.println("创建第1个对象");
+            new Test();
+            System.out.println("创建第1个对象");
+            new Test();
+            System.out.println("创建第1个对象");
+            new Test();
+    }
+}
+
+```
+```
+程序的运行结果为:
+    静态代码块的调用
+    创建第1个对象
+    构造代码块的调用
+    构造方法的调用
+    创建第2个对象
+    构造代码块的调用
+    构造方法的调用
+    创建第3个对象
+    构造代码块的调用
+    构造方法的调用
+
+```
+
+
+**从上面的案例可以看出来，在执行时机上，静态代码块是在类加载的时候就会执行的，因为早于类的构造代码块和类的构造方法。当一个静态代码块和Main方法在同一个类中，Main方法的调用也是在静态代码块的后面的。静态代码块的执行级别是最高的。**    
+
+
+
+```
+public class Test{
+    public static int [] show(int []numb){
+        numb[0]=10;
+        numb[1]=12;
+        numb[2]=13;
+        return numb;
+    }
+    public static void show1(int []numb){
+        for(int i:numb){
+        System.out.print(i+"\t");
+        }
+    }
+        public static void main(String args[]){
+            int [] numb =new int{1,2,3,4,5};
+            for(int i:numb){
+            System.out.print(i+"\t");
+            }
+            System.out.println();
+            System.out.println("--------------");
+            show(numb);
+            Show1(numb);
+
+    }
+}
+```
+
+```
+    程序的运行结果为:
+    1 2 3 4 5 
+    10 11 12 4 5
+```
+
+`上面的程序只是简单的利用java的特性用新的方式来打印数组，只需要一个变量来操作数组对象就行了，比我们之前在c++中的方式简便多了，也是代码的量也减少了，这无疑是一件好事，还利用了引用数据类型来实现对数组的操作，更加利用了静态方法来进行对数组里的元素更改。` 
+
+
