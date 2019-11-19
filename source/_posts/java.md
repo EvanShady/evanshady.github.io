@@ -182,15 +182,23 @@ public class Test{
 `上面的2+3是一个表达式，所以这里是5,但后面跟的是字符和+(字符串相加)的符号，所以是5k,下面的也是一样的，唯一不一样的是在+(字符串相加)之后，计算机会自动认为后面的也是+(字符串相加)所以后面的就是12aa66。但如果把上面的双引号换成单引号就是以数字的形式先加后输出的。` 
 
 # 数组
+
+import java.util.Randow;//随机数字的包
+
 ```
 public class Test{
     public static void main(String args[]){
                 int i=3;//这是在堆内存的分配的内存(也可以说是在编译是分配的),读取速度快，但数据的活动范围小(缺少灵活性)
                 int y=new Integer(1);//是在栈内存分配的内存(也可以说是运行时分配的内存),读取速度慢，但数据灵活性高。
+                System.out.println((int)(Math.randow()*10));//生成随机数字，0～10
+                Randow rand=new Randow();
+                int i=rand.nextInt(10);//随机生成0～10的数字
+                System.out.println(i);
     }
 }
 ```
 
+import java.util.Randow;//导入随机数字的包
 ```
 public class test{
     public static void main(String args[]){
@@ -202,7 +210,6 @@ public class test{
             for(int a : numb){//打印数组里的元素
             System.out.println(a);
             }
-           
     }
 }
 ```
@@ -551,3 +558,709 @@ public class Test{
 `上面的程序只是简单的利用java的特性用新的方式来打印数组，只需要一个变量来操作数组对象就行了，比我们之前在c++中的方式简便多了，也是代码的量也减少了，这无疑是一件好事，还利用了引用数据类型来实现对数组的操作，更加利用了静态方法来进行对数组里的元素更改。` 
 
 
+```
+import java.util.*//导入sort包
+public class Test{
+    public static void main(String args[]){
+    int []numb={10,2,46,33,5};
+    Arrays.sort(numb);//进行数组的排序
+    System.out.println("排序后:");
+    for(int i:numb){
+    System.out.print(i+"\t");
+    }
+        
+    }
+}
+
+```  
+
+
+```
+程序的运行结果为:
+排序后:
+2 5 10 33 46
+```
+
+# 枚举(enum)
+`enum A{红色，黄色，白色}枚举是作为类来被调用的，在定义的同时是连着对象的构造方法一起被调用的` 
+```
+enum Cloro{红色，黄色，白色}//是枚举的关键字,定义了一个枚举并初始化了
+public class Test{
+    public static void main(String args[]){
+            //java中的枚举其实是一个类来的，在这个类里面还有很多不一样的方法，其作用都是不一样的。
+            Cloro []cloro=Cloro.values();//Cloro.values()是类的静态方法来的，但是以字符串的形式来的，所以在前面要定义一个同类型的数组来接收,方法是自动生成的
+            for(Cloro i:cloro){
+            System.out.println(i);
+            }
+            Cloro c=Cloro.valueof(Cloro.class,"白色");//以指定的颜色来赋给对象,这里的参数有点不一样的就是，参数是类的类型,方法是自动生成的
+            System.out.println(c);
+            
+    }
+}
+```
+
+```
+运行结果:
+红色
+黄色
+白色
+白色
+```
+
+枚举的注意事项
+- [ ] 如果把枚举的标识符定义为public的话要放在独立的文件里面而不能和main方法放在同一个文件，如果标识符是默认的话就可以放在同一个文件里
+- [ ] 使用enum来定义枚举的时候，默认会继承于java.lang.Enum类。默认会用final来修饰，因此无法派生子类。
+- [ ] 使用enum来定义的时候，初始化也要和定义一起,如果没有把赋值放在同一行，而这个enum将无法被实例法。
+- [ ] 所以使用enum来定义枚举的时候都会默认生成values方法，该方法可以方便遍历所有枚举值，而在枚举中还是有其它的自动生成的方法来给我们使用。
+
+**enum(枚举)用关键字定义的时候相当于定义了一个类，而这个类继承于Enum类。而在Enum类中的所有方法都是保护类型的，因此这些方法都可以在声明了enum对象中被使用。** 
+
+```
+enum A{红色，紫色，白色}
+public class Test{
+    public static void main(String args[]){
+            A []a=A.valuse();//把枚举中的元素都放在对应类型的数组中
+            for(A i:a){
+            System.out.println(i.name+i.ordinal());输出的是数组中的元素和数组的下标
+            }
+    }
+}
+```
+
+```
+运行结果:
+红色0
+紫色1
+白色3
+```
+
+`在枚举中的下表要是没有给定提定的数值，计算机就会自动给它一个下标，而下标的值是以数组的形式来赋值的。` 
+
+
+`EnumMap是Map接口的子类，也就是说Enummap是继承于类Map的` 
+
+```
+import java.util.Map;//导包
+import java.util.EnumMap;//导包
+enum Color{红色，黄色，绿色}
+public class Test{
+    public static void main(String args[]){
+        EnumMap<Color,String>emap=new EnumMap<Color,String>(Color.class);//映射<><KeyType,nameType>,更重要的是EnumMap的构造方法的参数不能为空，需要指定一个枚举类
+        emap.put(Color.红色,"RED");//把映射的对象和值都写进去
+        emap.put(Color.黄色,"YELLOW");
+        emap.put(Color.绿色,"BLUE");
+        for(Map.Entry<Color,String>me:emap.entrySet()){//把映射的键和值都打印出来,其中的两个方法是Map中的静态方法，EnumMap作为Map的子类所以能调用其中的方法。
+        System.out.println(me.getKey()+me.getValue());
+        }
+    }
+}
+```
+
+```
+运行结果:
+红色RED
+黄色YELLOW
+绿色BLUE
+```
+
+上面的打印用的是新的打印方法，而EnumMap的类型是Map来的，所以它要Map.来点出它的方法来进行打印,Key是不允许重复的，而它的值却允许重复，EnumSet是一个集合来的
+
+```
+import java.util.EnumSet;//导包
+import java.util.Iterator;//导包
+enum Color{红色，绿色，紫色}
+public class Test{
+    public static void main(String args[]){
+        EnumSet<Color> set=EnumSet.allof(Color.class);//声明集合<EnumTepy>并把对应类型的枚举类放在集合中,allof是集合EnumSet中的静态方法，用来把参数中的枚举类放在集合中作为集合的元素
+        Iterator <Color>iter=set.iterator();//声明迭代器并把集合放在迭代器中
+        while(iter.hasNext()){//参数是确认迭代器中的元素是否为空,为空的时候返回false
+        System.out.println(iter.Next());//打印迭代器中的元素
+        }
+        EnumSet <Color>aset=EnumSet.noneof(Color.class);//表示作为空的集合
+    }
+    Iterator iterator=aset.iterator();
+    while(iterator.hasNext()){
+    System.out.println(iterator.Next());//这里是打印不出来的，所以下面的结果为空
+    }
+}
+```
+
+
+```
+运行结果:
+红色
+绿色
+紫色
+```
+
+
+```
+enum Color{
+    RED("红色",3),BLUE("蓝色",4),YELLOW("黄色",5);//定义枚举并指定颜色和下标，是以私有构造方法来显示调用枚举类的属性，(也就是说成员)
+    private String Name;//元素的名字
+    private int Indext;//元素的下标
+    private Color(String name,int indexc){//枚举类的构造方法是私有化的,所有的枚举对象都必须显示调用此构造方法。
+            this->Name=name;
+            this->Indext=indexc;
+    }
+    public static void setname(int indexc,String name){
+        for(Color c:Color.values()){
+            if(c.Indexc==indexc){
+            c.Name=name;
+            }
+        }
+    }
+    public static void setindexc(String name,int indexc){
+        for(Color c:Color.values()){
+            if(c.Name==name){
+            c.Indexc=indexc;
+            }
+        }
+    }
+    public String getname(String name){
+    return name;
+    }
+    public int getindexc(int intexc){
+    return intexc;
+    }
+
+
+}
+public class Test{
+    public static void main(String args[]){
+        System.out.println(Color.RED.getname());//RED是枚举类型的Color的枚举实例。这些枚举实例是公有的静态对象(进一步说，它们可以视为枚举类的属性成员)
+        System.out.println(Color.RED.getindexc());
+        System.out.println(Color.BLUE.getname());
+        System.out.println(Color.BLUE.getindexc());
+        System.out.println(Color.YELLOW.getname());
+        System.out.println(Color.YELLOW.getindexc());
+        System.out.println("自定义元素");
+        Color.setname(3,"白色");//通过属性下标来改变属性的名字
+        System.out.println(Color.RED.getname());
+        System.out.println(Color.RED.getindexc());
+        Color.setindexc("黄色",7);//通过属性的名字来改变属性的下标
+        System.out.println(Color.YELLOW.getname());
+        System.out.println(Color.YELLOW.getindexc());
+    }
+}
+```
+
+```
+运行结果:
+红色
+3
+蓝色
+4
+黄色
+5
+白色
+3
+黄色
+7
+
+```
+
+在上面的程序中都是通过私有的构造方法来显示调用成员属性的，在上面属性其实是RED,BLUE,YELLOW,只不过我在这里都没对它操作，在这里比较容易混淆的是，根本不明白谁才是枚举的成员属性，你也可以通过上面的Values()(是枚举类自动生成的用来遍历枚举属性的方法),其实在上面我也用到了这个方法来对成员属性的名字和下标来进行改变它们对应的值。在最开始的时候定义的枚举的属性其实是在调用私有构造方法来实现实例化。只要把这个搞懂了，其实那些改变成员属性的方法都是很简单理解的。
+
+
+```
+enum Color{
+    红色
+    {
+        public String show(){
+            return "RED";
+        }
+    },
+    蓝色
+    {
+        public String show(){
+            return "BLUE";
+        }
+    },
+    黄色
+    {
+        public String show(){
+            return "YELLOW";
+        }
+    };
+    public abstract String show();//把上面的show方法定义为抽象方法(abstract)抽象关键字
+
+}
+public class Test{
+    public static void main(String args[]){
+        
+        for(Color c:Color.values){
+        System.out.println(c.ordinal+"\t"+c.name()+"----"+c.show());
+        }
+    }
+}
+```
+
+```
+运行结果:
+0  红色----RED
+1  蓝色----BLUE
+2  黄色----YELLOW
+```
+
+抽象方法关键字(abstract)，修饰没有主体的方法，在这里需要在枚举对象中一一单独实现，否则报
+
+
+```
+enum Weekday {Sun,Mon,Tue}
+public class Test{
+    public static void main(String args[]){
+            Weekday w=Weekday.Sun;
+            switch(w){
+                case Mon:
+                System.out.println(Do Monday work);
+                case Sun:
+                System.out.println(Do Sunday work);
+            }
+    }
+}
+```
+
+```
+运行结果:
+Do Sunday work
+```
+
+这里是当你定义的是枚举类中的哪个元素的对象的时候，通过switch来进行选择，你输出的语句是你在switch写的语句。
+
+
+# 类
+|控制范围|private|default|protected|public|
+|----|----|----|----|----|
+|类|只能内部类允许私有，只能在当前类被访问|可以被当前包中的所有类访问|只有在内部类可以被设为保护权限,相同包中的类和其子类可以被访问|可以被所有类访问|
+|属性|只能被当前类访问|可以被相同包中的类访问|可以被当前包中的所有类访问和当前类的子类访问|可以被所有类访问|
+|方法|只能被当前类访问|可以被相同包中的类访问|可以被相同包中的类访问和当前类的子类访问|可以被所有类访问|
+
+
+
+`java中对于类来说有封装，继承，多态。` 
+
+`java中类的成员变量的权限有私有，公有，保护，默认，在上面的表格中都给出了对应的权限范围，java类只有允许单继承不允许多继承，但允许多重继承，` 
+
+```
+import java.util.ArrayList;
+public class Test{
+    public static void main(String args[]){
+    System.out.println("集合大小");
+    Apple a=new Apple();//调用类的构造方法来实现对集合的操作
+    ArrayList <Interger>array=a.getarray();//声明一个集合来对类中的公有方法中的返回值进行赋值给这个集合,很重要的是，在这里传的是引用而不是数据的副本。
+    System.out.println(array.size());//打印集合的大小
+    array.add(8);//对集合的引用进行加值的操作
+    Arrjy <Interger>a1=a.getarray();又重新定义一个集合来对调用的类的公有方法的返回值进行赋值
+    System.out.println(a1.size());//打印集合的大小
+    System.out.println("集合元素");
+    for(Interger i:a1){
+    System.out.println(i);
+    }
+
+    }
+}
+class Apple{
+        private ArrayList<Interger>array=new ArrayList<Interger>();//声明一个私有集合作为类的成员变量
+        Apple(){//构造方法,对集合进行初始化
+        array.add(1);
+        array.add(1);
+        array.add(1);
+        }
+        ArrayList<Interger>getarray(){//返回集合
+        return array;
+        }
+
+}
+```
+
+```
+运行结果:
+集合大小
+3
+4
+集合元素
+1
+1
+1
+8
+```
+
+**其实在上面的程序中最难懂的是，在main方法里的集合的操作是引用的操作而不是简单的副本操作，在java中，除了基本的数据类型，其它都是引用类型,其中类也是引用类型** 
+
+
+关于继承的限制
+- [ ] java中继承允许多继承，但也许多重继承
+- [ ] 从父类继承的私有成员不能被子类直接使用，要通过方法来间接调用
+- [ ] 子类在进行对象实例化的时候，先调用父类的构造方法对父类的成员变量进行赋值，然后在调用子类的构造方法，其作用是一样的。
+
+```
+public class Test{
+    public static void mai(String args[]){
+        
+    }
+}
+final class A{
+    final void show(){
+    System.out.println("如果这个方法在不想被子类覆写，可以在方法前面加上这个修饰符来确定不被子类覆写");
+    }
+
+}
+//class B extends A{}//是错误的,所以注释掉
+```
+
+上面的程序是不行的，因为父类的修饰符是final，它是不能被继承的
+
+```
+public class Test{
+    public static void main(String args[]){
+        A a=new B();
+        a.show();
+    }
+}
+class A {
+    A(){
+    System.out.println("父类的构造方法")
+    }
+    void show(){
+        System.out.println("走");
+    }
+}
+class B extends A{
+    B(){
+    System.out.println("子类的构造方法
+    }
+    void show(){
+        System.out.println("飞");
+    }
+}
+class C extends A{
+    C(){
+        System.out.println("子类的构造方法
+}
+    void show(){
+        System.out.println("跑");
+    }
+}
+```
+
+```
+运行结果:
+父类的构造方法
+子类的构造方法
+飞
+```
+
+上面的程序主要是实现多态的重要性，还有就是继承的小细节，继承是先调用父类的构造方法之后再调用子类的构造方法。在刚开始的时候就写过了在上面是先声明一个父类对象来进行对子类的实例化，然后在调用子类中覆写父类成员方法的方法，其实你也完全可以通过子类的对象来对子类进行实例化，在这里主要是实现类的多态。
+
+
+方法重载与覆写的区别
+- [ ] 重载是在本类中实现的，而覆写主要是在子类中重写父类的方法
+- [ ] 重载要求方法的参数个数和参数类型的顺序和参数的类型和方法名字，其中的任意一个不同。而覆写是方法名称和参数个数和类型与父类是一致的就行了
+
+
+`this&&super` 
+----
+```
+public class Test{
+    public static void main(String args[]){
+            B b=new B();
+            b.show();
+    }
+}
+class A{
+        String name;
+        void show(){
+        this->name="java";
+        }
+}
+class B extends A{
+    String name;
+    void show(){
+        this->name="shanghai";
+        super.show();
+        System.out.println(name+"\t"+super.name);
+    }
+}
+
+```
+
+```
+运行结果:
+shanghai  java
+
+```
+
+|区别|this|super|
+|----|----|-----|
+|查找范围|先从本类中找到属性或方法，本类找不到再去父类寻找|不查询父类的属性或方法，直接从子类调用父类的指定属性和方法|
+|调用构造|this使用的是本类的构造|super先调用的是父类的构造方法，然后在调用子类的构造方法|
+|特殊|表示当前的对象|可以看作是父类的引用对象|
+|关系|两者的关系是属于二选一的关系，不能被同时调用|
+---
+抽象类
+----
+
+```
+public class Test{
+        public static void main(String args[]){
+        A a=new B("小艾",11);
+        a.show();
+        A a1=new C("笑话",12);
+        a1.show();
+    }
+}
+abstract class A{
+        public abstract void show();
+}
+class B extends A{
+        String name;
+        int age;
+        B(String _name,int _age){
+        }
+        public void show(){
+        System.out.println("学生\t"+name+"\t"+age);
+        }
+}
+class C extends B{
+    C(String _name,int _age){
+            super(_name,_age);
+    }
+    public show(){
+    System.out.println("工人\t"+name+"\t"+age);
+    }
+}
+```
+
+```
+运行结果:
+学生  小艾  11
+工人  笑话  12
+```
+
+上面的类A是一个抽象类来的，抽象类是不能被实例化的，顾名思义，抽象类是没有实现的方法的，在上面的父类中只有定义成员方法为抽象方法的的一个定义，没有实现的行为，抽象类的实现一般是在子类中一一实现的，这也得于抽象类的特性，抽象类是不能被实例化的，这样做会报错的，一般的抽象类都是有子类的，子类的重要作用之一是实现父类中的抽象方法，这是很重要的，还有就是，定义在父类的全部抽象方法在子类中都要重写这些抽象方法，不然会报错，记住是全部都要重写。
+
+
+# 接口(interface)
+`接口是java所提供的另外一种重要的技术，是一种特殊的类，它的结构和抽象类很相似。接口里的数据成必须初始化，数据成员均为常量，常见的是全局变量。` 
+`为了避免在接口中添加新的方法后要修改所有的实现类，允许定义默认方法` 
+
+使用接口的原则
+- [ ] 接口必须有子类，子类依靠(关键字)implements来实现多个接口
+- [ ] 接口的子类必须重写接口中的所有抽象方法
+- [ ] 接口可以利用对象的多态性，利用子类的对象进行实例化
+- [ ] 接口和一般的类是一样的，具有成员变量和成员方法，但数据成员必须进行初始化，而初始化的值是不能被修改的，相当与是常量，方法也必须是抽象的或者是(default)，所以在接口中这两个特性是可以忽略的，因为在接口中不管是成员方法或者是成员变量都是特性都是肯定了的。
+
+
+```
+public class Test{
+    public static void main(String args[]){
+            
+            B b=new B();
+            b.show();
+            b.print();
+        System.out.println(A.name);
+        //System.out.println(b.name);//不能通过类的实现来访问静态成员
+    }
+}
+interface A{
+        public static String name="hello";
+        public void show();
+        default void print(){
+        System.out.println("你好");
+        }
+}
+class B implements A{
+    //name="HELLO";//这个是错误的
+    public void show(){
+        System.out.println(name);
+    }
+}
+
+```
+
+```
+运行结果:
+hello
+你好
+hello
+```
+
+上面的程序只是简单的介绍接口的基本定义的格式，其中有成员变量和成员方法，而其中的成员变量是全局类型的(还必须给初始化值)，成员方法分两种，一种是抽象方法(在子类是实现的方法，在接口只是声明而已)，另外是其它类型的成员方法
+
+
+**在这里在强调一次，接口与抽象类唯一不同的就是子类，对于接口来说可以实现多个接口，但抽象类是不能多继承的** 
+
+```
+public class Test{
+    public static void main(String args[]){
+        C c=new C();
+        c.show();
+    }
+}
+interface A{
+    default void show(){
+    System.out.println("A接口的默认方法");
+    }
+}
+interface B{
+    default void show(){
+    System.out.println("B接口的默认方法");
+    }
+}
+class c implements A , B{}
+```
+
+上面的程序是错误的，因为在接口中的默认方法中如果有同名的方法，你在调用方法的同时，编译器会不知道你要调用的到底是哪一个方法，这就产生了所谓的二义性，一般来说在接口中一定不要有同名的变量,还有就是上面的接口是没有抽象类型的方法，所以在子类中是空的
+
+
+`在前面说过，接口是允许多继承的，接口中对于抽象类和接口的继承是先继承后实现` 
+
+
+```
+public class Test{
+    public static void main(String args[]){
+        F f=new F();
+        A a=f;//声明一个接口对象来指向子类，主要是在调用方法的时候让你清晰的知道在那个接口中调用的是那个方法。你也可以不写，直接用子类的实例化对象来调用
+        B b=f;
+        C c=f;
+        D d=f;
+        a.show();
+        b.prin();
+        c.print();
+        c.xiao();
+        d.printd();
+        d.xi();
+    }
+}
+interface A{
+        public static String name="小新";
+        public void show();
+}
+interface B{
+    public void prin();
+}
+interface  C extends A , B{//接口继承多个接口
+    public void print();
+    default void xiao(){
+    System.out.println(name+"\t多接口继承");
+    }
+}
+abstract class D implements A,B{//抽象类继承多个接口
+    abstract public void printd();
+    void xi(){
+    System.out.println(name+"\t抽象类继承");
+    }
+}
+class F extends D implements C{
+    public void show(){
+    System.out.println("你好");
+    }
+    public void prin(){
+    System.out.println("hello,world");
+    }
+    public void print(){
+    System.out.println("一个接口继承多个接口"+name);
+    }
+    public void printd(){
+    System.out.println("抽象类继承多个接口");
+    }
+}
+```
+
+```
+
+
+
+运行结果:
+你好
+hello,world
+一个接口继承多个接口
+小新 多接口继承
+抽象类继承多个接口
+小新 抽象类继承
+```
+
+在上面的程序中我们可以知道，对于接口的继承，一个接口可以继承多个接口(extends)来继承，继承的同时不用进行对继承的接口进行实现。抽象类继承多个接口(implements),继承的同时一样不要进行对已继承的接口的方法实现，但子类一定要对继承的接口和抽象类中的方法进行实现,还有就是，不管是多接口继承还是抽象类继承，都是基于继承的特性来实现继承的，都会继承父接口的成员变量。对于接口的成员变量一定要在声明的同时就进行初始化。
+
+
+接口的作用--制定标准
+`接口是标准，所谓的标准，指的是各方共同遵守的一个原则。只有操作标准统一了，所有的参与者才可以按照统一的规则操作` 
+
+```
+public class Test{
+    public static void main(String args[]){
+        Computer c=new Computer();
+        c.show(new B);//拿子类的引用来作为参数调用父接口中的方法
+        c.show(new C);//拿子类的引用来作为参数调用父接口中的方法
+
+    }
+}
+interface USB{
+        public void work();
+}
+class B implements USB{
+    public void work(){
+        System.out.println("USB在工作");
+    }
+}
+class C implements USB{
+    public void work(){
+        System.out.println("USB在打印机中工作");
+    }
+}
+class Computer{
+    public void show(USB usb){//父接口作为方法的参数
+        usb.work();//调用类中的方法
+    }
+}
+```
+
+```
+运行结果:
+USB在工作
+USB在打印机中工作
+```
+
+上面展现的是接口作用--制定标准，利用接口USB来制定工作的标准，通过继承来实现接口中的方法，最后通过电脑类中的方法来调用在子类的实现
+
+接口--工厂的设计
+```
+public class Test{
+    public static void main(String args[]){
+    A a=F.getname("apple");
+        
+    }
+}
+interface A{
+        public void eat();
+}
+class apple implements A{
+    public void eat(){
+        System.out.println("吃苹果");
+    }
+}
+class oright implements A{
+    public void eat(){
+    System.out.println("吃橙子");
+    }
+}
+class F{
+    public static A getname(String name){
+        if("apple".equals(name)){
+        return new apple();
+        }
+        if("oright".equals(name)){
+        return new oright();
+        }
+        return null;
+    }
+}
+```
+
+```
+运行结果:
+吃苹果
+```
+
+此时的程序，在客户端没有和具体的子类耦合在一起，这样一来，如果再有更多的A接口子类出现，只需要修改F类即可，即:所有的接口对象都通过F类取得，在程序员自己开发的代码中，只要是遇见要取得接口对象实例的操作，都应该使用工厂设计模式。
