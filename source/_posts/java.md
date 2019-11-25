@@ -1,12 +1,15 @@
 ---
-title: java
+title: Java
 date: 2019-09-19 10:37:00
-ags:
 ---
+
+![终端运行的结果](Java/java0.png) 
 
 Write Once,Run Everywhere
  <!--more-->
+
  **达到对面向对象编程思想更加深入的理解，是对面向对象的各种特性及其实现细节更加熟练的掌握。** 
+
  ---
 
  *一步一个脚印的连好java的基本功。对于我来说是最好不过的，掌握java的基本语法。(类与对象，构造方法，引用传递，内部类，异常，包，java常用类库，javaIO，java类集)* 
@@ -36,9 +39,10 @@ public class hello{//public(公有访问类型),class(类的标识),hello(类名
     }
 }
 ```
-![终端运行的结果](Java/java0.png) 
----
 
+![终端运行的结果](Java/java0.png) 
+
+---
 
 **这里要注意一下的就是文件的后缀是.java,其次是以javac 来作为第一次的关键字来操作文件，接着就会生成一个后缀为.class的文件，然后就是运行你写的文件，记住后面没有任何的后缀。** 
 
@@ -75,12 +79,10 @@ public class Test{
     System.out.println("异常");
     }
 }
-
 ```
 
 
 ![运行结果](Java/java2.png)
-
 
 ![输入的方式](Java/java1.png)
 
@@ -118,7 +120,9 @@ int的最大值:2147483647
 int的最小值:-2147483648
 数据类型:int
 ```
+
 ---
+
 ```
 public class Test{
             static int i=10;
@@ -142,6 +146,7 @@ public class Test{
 ```
 上面的程序是运行不过的，这也是java的特别之处，在c++中，变量b是可以用的，但在java中是不可以的。
 ```
+
 ```
 public class Test{
     public static void main (String args[]){
@@ -263,8 +268,7 @@ public class test{
                 numb[i+1]=temp;
             }
             for(int b:numb){//输出数组里的元素
-            System.out.println(b);
-            }
+            System.out.println(b);,你在这个时候使用基本数据类型是不能放进去的，因为容器里面都是放            }
 
     }
 }
@@ -1197,7 +1201,7 @@ public class Test{
     }
 }
 interface USB{
-        public void work();
+        public void work();//这是抽象方法
 }
 class B implements USB{
     public void work(){
@@ -1264,3 +1268,261 @@ class F{
 ```
 
 此时的程序，在客户端没有和具体的子类耦合在一起，这样一来，如果再有更多的A接口子类出现，只需要修改F类即可，即:所有的接口对象都通过F类取得，在程序员自己开发的代码中，只要是遇见要取得接口对象实例的操作，都应该使用工厂设计模式。
+
+
+匿名类使用注意事项
+- [ ] 使用匿名类的时候必须是继承一个类或者是实现一个接口，但是两者不可同时兼得，只能是继承一个类或者是实现一个接口
+- [ ] 匿名内部类是不能定义构造方法的
+- [ ] 匿名内部类不存在静态方法和静态变量
+- [ ] 匿名内部类属于局部内部类，所以局部内部类的限制同样对局部内部类生效
+- [ ] 匿名内部类不能是抽象的，它必须是一个实现的继承类或者是实现接口的所有抽象方法
+
+static
+- [ ] 由static定义的类方法，可以直接由类名直接调用，另外的就是static属性是一个共享的属性
+
+# java常用的类
+`API(应用程序编程接口)`
+
+基本类型的包装类
+----
+|基本数据类型|基本类型的包装类|
+|------------|----------------|
+|int|Integer|
+|double|Double|
+|byte|Byte|
+|char|Char|
+|float|Float|
+|shart|Shart|
+|long|Long|
+|boolean|Boolean|
+
+装箱与拆箱
+-----
+所谓的装箱就是把基本数据类型用它们相对应的引用数据类型包起来，使它们具有对象的特质，例如把int包装成Integer类的对象
+所谓拆箱就是与装箱刚刚相反，将Integer类的对象重新简化成基本数据类型
+```
+public class Test{
+    public static void main(String args[]){
+            Integer i=new Integer(10);
+            int x=i.intValue();
+            System.out.println(x);
+            Double b=new Double(100.00);
+            double b1=b.doubleValue();
+            System.out.println(b1);
+
+    }
+}
+```
+
+```
+运行结果:
+10
+100.00
+```
+
+上面的程序是利用拆箱来把Integer类的包装类拆成基本数据类型Int，下面的double也是一样的
+装箱的操作:就是将基本数据类型变为包装类，利用各个包装类的构造方法来完成
+拆箱的操作:将包装类变为基本数据类型，利用各自的类的xxx.Value()方法来实现
+
+基本数据类型与String类的转换
+----
+**但是以下的操作是不包括Char类的，因为String类有一个CharAt方法可以取得指定索引的字符** 
+
+`将String类型转换成基本数据类型` 
+
+```
+public class Test{
+    public static void main(String args[]){
+            String s="123";
+            int i=Int.parseInt(s);
+            String s1="123.6";
+            double b=Double.parseDouble(s1);
+            System.out.println(i);
+            System.out.println(b);
+    }
+}
+```
+
+```
+运行结果:
+123
+123。6
+```
+
+在将字符串换成基本数据类型的时候要注意一定要符合对应的数据类型，不能把数据类型搞混。
+
+`把基本数据类型变为String类型` 
+
+```
+public class Test{
+    public static void main(String args[]){
+            int i=100;
+            String s=String.ValueOf(i);
+            System.out.println(s);
+            double b=123.6;
+            String s1=String.ValueOf(b);
+            System.out.println(s1);
+    }
+}
+
+```
+
+```
+运行结果:
+100
+123.6
+```
+
+上面是利用String类里的机制方法来进行对不同基本数据类型转换成String类。
+
+# 日期操作类
+|类名|说明|
+|----|----|
+|LocalDateTime|存储了日期和时间|
+|LocalDate|存储了日期|
+|LocalTime|存储了时间|
+
+
+```
+import java.time.LocalDate;
+import java.time.YearMonth;
+import java.time.Year;
+impore java.time.MonDay;
+public class Test{
+    public static void main(String args[]){
+            LocalDateTime l1=LocalDateTime.now();
+            System.out.println(l1);//根据日期类来调用方法来打印现在的年月日,在这里就不打印了,自己尝试
+            Year year=Year.of(2010);
+            YearMonth yearmonth=year.at(2);
+            LocalDate localdate=yearmonth.at(28);
+            System.out.println(localdate);
+            System.out.println(localdate.isEqual(localdate));
+            MonthDay m=Monday.of(4,15);
+            localdate l=m.atyear(2015);
+            System.out.println(l);
+    }
+}
+```
+
+```
+运行结果:
+2010-2-18
+true
+2015-4-15
+```
+从上面的程序可以看出，在java中对日期的操作是非常强大的，可以根据自己的需求来慢慢进行设置，在上面我也给出了对于日期类的归属。
+
+
+```
+import java.time.*;
+import java.time.format.*;
+public class Test{
+    public static void main(String aegs[]){
+            LocalDate localdate=LocalDate.now();//获取当前日期
+            DateTimeForMatter datetime=DateTimeForMatter.ofPattern("dd/mm/uuuu");//设置日期打印的格式
+            String str=localdate.ofmat(datetime);//把当期日期放在设置好的日期格式
+            System.out.println(str);//打印出来
+    }
+}
+```
+
+```
+运行结果:
+自己尝试了，仆街。
+```
+
+在java中，设置日期的格式是用过DateTimeForMatter类来设置格式的，然后把时间放在设置好的格式里，最后通过String类来进行打印出来。
+
+# 正则
+
+|正则标识符|意义|
+|----------|----|
+|\ |表示一位字符|
+|\\|表示多位字符|
+|\n|匹配换行|
+|[abc]|a,b,c中的任意一位|
+|[^abc]|表示不是abc中的任意一位|
+|[a-zA-Z]|表示任意一位字母(不管大小写)|
+|[0-9]|表示0-9任意一位|
+|.|表示任意一位字符|
+|\d|等价与0-9|
+|\D|等价与[^0-9]|
+|\s|表示一位空格|
+|\S|表示非空格|
+|\w|等价与[a-zA-Z0-9]|
+|\W|等价与[^a-zA-Z0-9]|
+|^|表示正则的开头|
+|$|表示正则的结尾|
+
+```
+public class Test{
+    public static void main(Strng args[]){
+        if("123".matches"\\d+"){
+            System.out.println("true");
+        }else{
+        System.out.println("false");
+        }
+        String s="1234@163.com";//给出字符串
+        String s1="\\w+@\\w+.\\w+";//给出邮箱的格式(w:等价于[a-zA-Z0-9])
+        System.out.println(s.matches(s1));//验证上面的邮箱格式
+    }
+}
+```
+
+```
+运行结果:
+true
+true
+```
+
+上面的程序是通过正则来判断并输出结果的，上面的方法是正则类里的一个方法，意思是判断字符串是不是由数字组成的，是就输出true，不是就false，明显与结果是一样的。
+|方法|意义|
+|----|----|
+|boolean matches(String test)|将字符与给出的正则表达式进行匹配验证|
+|String replaceAll(String test,String replacement)|按照指定的正则进行替换|
+|String replzceFirst(String test,String replacement)|按照指定的正则进行替换首个|
+
+```
+public class Test{
+    public static void main(String args[]){
+            String s="123abcd3546efg";
+            String s1="\\d+";多个数字
+            System.out.println(s.replaceAll(s1,""));//在字符串中替换数字
+            System.out.println(s.replaceFirst(s1,""));//在字符串中替换首个字符前数字
+
+    }
+}
+```
+
+```
+运行结果:
+abcdefg
+abcd3546efg
+```
+
+在上面我给出的正则表达式的表示符可以在这个程序里尽情的尝试，你也会有发现的，但重要的是对你的理解有帮助,这样学起来是理解性的学习而不是一味的烦躁。
+
+BigDecimal(大数值)
+----
+
+```
+import java.math.BigDecimal;
+public class Test{
+    public static void main(String args[]){
+            BigDecimal b=new BigDecimal("3456789101112")
+            BigDecimal b1=new BigDecimal("123456789");
+            System.out.println(b.add(b1));//加法
+            System.out.println(b.subtract(b1));//减法
+            System.out.println(b.multipy(b1));//乘法
+            System.out.println(b.multipy(b1).setScale(1,BigDecimal.ROUND_up));//乘法,但是以进一的形式来输出值
+            System.out.println(b.divide(b1,BigDecimal.ROUND_DOWN));//除法
+            BigDecimal b2[]=b.divideAndRemainder(b1);//除法，并把值放在数组里面
+            System.out.println("商"+b2[0]+"余"+b2[1]);
+    }
+}
+
+```
+
+上面的程序主要是应对于大的数字，在int和long都无法容纳的时候就使用BigDecimal类型来进行操作，(结果自己动手)
+
+**当需要在ArrayList和HashMap中放东西的时候,你在这个时候使用基本数据类型是不能放进去的，因为容器里面都是放** <++>
