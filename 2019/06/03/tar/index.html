@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://evanshady.github.io').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="注释">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tar">
+<meta property="og:url" content="https://evanshady.github.io/2019/06/03/tar/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="注释">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://evanshady.github.io/2019/06/03/tar/tar.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/06/03/tar/tar1.png">
+<meta property="og:updated_time" content="2019-09-10T09:09:34.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tar">
+<meta name="twitter:description" content="注释">
+<meta name="twitter:image" content="https://evanshady.github.io/2019/06/03/tar/tar.png">
+
+<link rel="canonical" href="https://evanshady.github.io/2019/06/03/tar/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>tar | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="default">
+    <link itemprop="mainEntityOfPage" href="https://evanshady.github.io/2019/06/03/tar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EvanShady">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          tar
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-06-03 17:55:22" itemprop="dateCreated datePublished" datetime="2019-06-03T17:55:22+08:00">2019-06-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-10 17:09:34" itemprop="dateModified" datetime="2019-09-10T17:09:34+08:00">2019-09-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>注释<br><a id="more"></a></p>
+<h1 id="TAR"><a href="#TAR" class="headerlink" title="TAR"></a>TAR</h1><h2 id="tar-打包命令-也可以说是备份，在我们管理文件的时候有很多的好处，当我们的文件各自的位置不一样的时候这时就是打包发挥的时候了。你只需要一条命令就可解决这些傻逼问题，下面是一些tar常用的命令"><a href="#tar-打包命令-也可以说是备份，在我们管理文件的时候有很多的好处，当我们的文件各自的位置不一样的时候这时就是打包发挥的时候了。你只需要一条命令就可解决这些傻逼问题，下面是一些tar常用的命令" class="headerlink" title="tar(打包命令)也可以说是备份，在我们管理文件的时候有很多的好处，当我们的文件各自的位置不一样的时候这时就是打包发挥的时候了。你只需要一条命令就可解决这些傻逼问题，下面是一些tar常用的命令"></a><strong>tar(打包命令)也可以说是备份，在我们管理文件的时候有很多的好处，当我们的文件各自的位置不一样的时候这时就是打包发挥的时候了。你只需要一条命令就可解决这些傻逼问题，下面是一些tar常用的命令</strong></h2><p>//声明:test1,test2,是存在的文件，也是你接下来要操作的文件。</p>
+<ol>
+<li>tar -cf file.tar test1<br>//这里是把test1这个文件打包在一个file.tar的包里面,这里的c是创建一个文件，f后面是紧跟这文件名。</li>
+<li>tar -rf file.tar test2<br>//这里是把test2追加到file.tar文件中,r是追加。</li>
+<li>tar -uf file.tar<br>//这里是把刚刚的file.tar文件更新，u是更新的意思。</li>
+<li>tar -tf file.tar<br>//这里是把file.tar文件的内容列出来，t是查看文件中的内容。</li>
+<li>tar -xf file.tar<br>解压file.tar文件<br><strong>值得注意的是后面跟着的一定要是文件名！！！</strong><blockquote>
+<p>tar调用gzip</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>tar -czf filetest1.tar.gz file1<br>//调用gzip要使用-z的参数，意思是和上面一样的，c是创建一个文件，f后面紧跟着文件名。 </li>
+<li>tar -xzf filetest1.tar.gz<br>//解压上面的文件<blockquote>
+<blockquote>
+<p>压缩</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>上面是用tar打包，这里就是用zip压缩。<br>zip -r test3.zip file.tar<br>//这里是把上面的文件压缩到新的文件。<br>unzip test3.zip<br>//解压。<br><strong>在这里文件的后缀名很重要，因为这关系着我们的文件性质，有的时候你会因为文件的后缀名而把你自己搞自闭，</strong><br><strong>所以你要在每次操作文件之前要想清楚操作之后的文件的后缀是什么类型的，也要接的上你将要操作文件的后缀,</strong><br><strong>不能说，前一个文件后缀和你后面的文件的后缀不一样，这样也是不可以的。</strong></li>
+</ol>
+<hr>
+<p><img src="/2019/06/03/tar/tar.png" alt="ta"></p>
+<hr>
+<p><strong>压缩的方法有多种，但我觉得也没必要都记住，因为大多数都只是参数不一样而已，大多的格式是一样的。</strong><br><strong>只要我们能在工作中解决自身的小问题就行，其它的，慢慢就会记住的，在这里我还是挺赞同小伙子说的一句话。</strong><br><strong>你想要最短的时间学会你想学的东西，你就一定要多去用它，这样你才是最快的掌握它。</strong></p>
+<hr>
+<p><img src="/2019/06/03/tar/tar1.png" alt></p>
+<h4 id="无标题"><a href="#无标题" class="headerlink" title="无标题"></a>无标题</h4><ol>
+<li>我是从下午四点多学到现在的，中间尝试了很多，自己也就慢慢的理解了，接下来也就是有事没事就操作一波的事情。</li>
+<li>感觉linux要完全掌握真的不是一件简单的事情，要一步一步的走向它，你得慢慢地去学，我希望以后的自己是每天都有学习的，因为我是这么想的，但偶尔给自己放放假也是可以的,因为你是人，不是一个冷冰冰的机器，你有开心，难过，伤心，烦躁的时候，但你随着时间的流逝，有时你的年龄是不允许你做的一些事情，没有小时候的随心所欲，在别人的眼里只不过是一个小孩子的幼稚而已。</li>
+<li>七月的风，八月的雨，卑微的我喜欢遥远的你。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/05/31/Class/" rel="prev" title="Class">
+      <i class="fa fa-chevron-left"></i> Class
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/06/04/Noteslinux1/" rel="next" title="Noteslinux1">
+      Noteslinux1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TAR"><span class="nav-number">1.</span> <span class="nav-text">TAR</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tar-打包命令-也可以说是备份，在我们管理文件的时候有很多的好处，当我们的文件各自的位置不一样的时候这时就是打包发挥的时候了。你只需要一条命令就可解决这些傻逼问题，下面是一些tar常用的命令"><span class="nav-number">1.1.</span> <span class="nav-text">tar(打包命令)也可以说是备份，在我们管理文件的时候有很多的好处，当我们的文件各自的位置不一样的时候这时就是打包发挥的时候了。你只需要一条命令就可解决这些傻逼问题，下面是一些tar常用的命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无标题"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">无标题</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EvanShady</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EvanShady</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

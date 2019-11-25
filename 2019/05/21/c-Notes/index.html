@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://evanshady.github.io').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++Notes">
+<meta property="og:url" content="https://evanshady.github.io/2019/05/21/c-Notes/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="类">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://evanshady.github.io/2019/05/21/c-Notes/YC4.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/05/21/c-Notes/YC5.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/05/21/c-Notes/WC.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/05/21/c-Notes/YC.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/05/21/c-Notes/YC3.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/05/21/c-Notes/YC1.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/05/21/c-Notes/YC2.png">
+<meta property="og:updated_time" content="2019-09-12T07:19:33.334Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c++Notes">
+<meta name="twitter:description" content="类">
+<meta name="twitter:image" content="https://evanshady.github.io/2019/05/21/c-Notes/YC4.png">
+
+<link rel="canonical" href="https://evanshady.github.io/2019/05/21/c-Notes/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>c++Notes | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="default">
+    <link itemprop="mainEntityOfPage" href="https://evanshady.github.io/2019/05/21/c-Notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EvanShady">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          c++Notes
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-05-21 15:13:50" itemprop="dateCreated datePublished" datetime="2019-05-21T15:13:50+08:00">2019-05-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-12 15:19:33" itemprop="dateModified" datetime="2019-09-12T15:19:33+08:00">2019-09-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <pre><code>类
+</code></pre><a id="more"></a>
+<h1 id="关于类的一些理解"><a href="#关于类的一些理解" class="headerlink" title="关于类的一些理解"></a>关于类的一些理解</h1><hr>
+<blockquote>
+<p>1:类是面对对象的编程，它是以对象为基本来进行编程的。这样的说法就是安慰一些我们这些编程人也可以每天面对对象，仅此而已。</p>
+</blockquote>
+<h3 id="2-类有三种特性：封装-继承-多态。"><a href="#2-类有三种特性：封装-继承-多态。" class="headerlink" title="2:类有三种特性：封装,继承,多态。"></a>2:类有三种特性：封装,继承,多态。</h3><blockquote>
+<blockquote>
+<p>类的封装，其实就是把成员变量设为私有的，也就是隐藏起来，然后再用方法/函数来实现你想要的结果。在类里面用set来进行封装，用get来返回。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h1 id="类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"><a href="#类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！" class="headerlink" title="类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"></a>类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！</h1><p><strong>这里是用指针来new了一个空间，使用访问的时候也要用访问指针的方法来访问它，“-&gt;”</strong><br><img src="/2019/05/21/c-Notes/YC4.png" alt="main"><br><img src="/2019/05/21/c-Notes/YC5.png" alt="程序结果"></p>
+<hr>
+<h1 id="this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）"><a href="#this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）" class="headerlink" title="this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）"></a>this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）</h1><hr>
+<blockquote>
+<p>构造函数也可以叫做重载函数，它的作用是初始化类的成员变量。</p>
+<blockquote>
+<p>构造函数分为无参构造和有参构造；其实还有一个拷贝构造。</p>
+<ol>
+<li>无参构造函数，也叫默认构造函数，随你喜欢。还有就是，无参构造函数是计算机自动调用的，就算你没调用它，计算机也会自动帮你调用。</li>
+</ol>
+</blockquote>
+</blockquote>
+<p><img src="/2019/05/21/c-Notes/WC.png" alt="无参构造函数"></p>
+<hr>
+<ol start="2">
+<li>有参构造函数，其实就是带参数的函数。</li>
+</ol>
+<p><img src="/2019/05/21/c-Notes/YC.png" alt="有参构造"></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>类里面的构造函数都是可以和show方法一起连用的，这样就可以看到构造函数无，有参之间的变化。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><img src="/2019/05/21/c-Notes/YC3.png" alt="show"></p>
+<hr>
+<p><img src="/2019/05/21/c-Notes/YC1.png" alt="main函数"></p>
+<hr>
+<p><img src="/2019/05/21/c-Notes/YC2.png" alt="程序结果"></p>
+<hr>
+<h1 id="析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"><a href="#析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。" class="headerlink" title="析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"></a>析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。</h1>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/05/19/test/" rel="prev" title="test">
+      <i class="fa fa-chevron-left"></i> test
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/05/31/file/" rel="next" title="file">
+      file <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于类的一些理解"><span class="nav-number">1.</span> <span class="nav-text">关于类的一些理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-类有三种特性：封装-继承-多态。"><span class="nav-number">1.0.1.</span> <span class="nav-text">2:类有三种特性：封装,继承,多态。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！"><span class="nav-number">2.</span> <span class="nav-text">类还可以用指针来实现。用new在堆内存里申请一个空间，记得要用delete来释放空间！！！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this指针，它可以访问类里面的所有成员变量和函数，（this-gt-加成员变量-成员函数）"><span class="nav-number">3.</span> <span class="nav-text">this指针，它可以访问类里面的所有成员变量和函数，（this-&gt;加成员变量/成员函数）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。"><span class="nav-number">4.</span> <span class="nav-text">析构函数其实是释放为指针成员变量的。比如你用指针new了一个新的成员变量，那在你程序完以后你得要释放它吧，总不能让它成为我们所畏惧的野指针，这时你就可以在析构函数里释放。</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EvanShady</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EvanShady</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

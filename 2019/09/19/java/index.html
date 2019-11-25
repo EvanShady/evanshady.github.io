@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://evanshady.github.io').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Write Once,Run Everywhere">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java">
+<meta property="og:url" content="https://evanshady.github.io/2019/09/19/java/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Write Once,Run Everywhere">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://evanshady.github.io/2019/09/19/java/java0.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/09/19/java/java0.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/09/19/java/java2.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/09/19/java/java1.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/09/19/java/java3.png">
+<meta property="og:image" content="https://evanshady.github.io/2019/09/19/java/java4.png">
+<meta property="og:updated_time" content="2019-11-25T00:37:10.851Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java">
+<meta name="twitter:description" content="Write Once,Run Everywhere">
+<meta name="twitter:image" content="https://evanshady.github.io/2019/09/19/java/java0.png">
+
+<link rel="canonical" href="https://evanshady.github.io/2019/09/19/java/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Java | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="default">
+    <link itemprop="mainEntityOfPage" href="https://evanshady.github.io/2019/09/19/java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EvanShady">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-09-19 10:37:00" itemprop="dateCreated datePublished" datetime="2019-09-19T10:37:00+08:00">2019-09-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-25 08:37:10" itemprop="dateModified" datetime="2019-11-25T08:37:10+08:00">2019-11-25</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="/2019/09/19/java/java0.png" alt="终端运行的结果"> </p>
+<p>Write Once,Run Everywhere<br> <a id="more"></a></p>
+<p> <strong>达到对面向对象编程思想更加深入的理解，是对面向对象的各种特性及其实现细节更加熟练的掌握。</strong> </p>
+<hr>
+<p> <em>一步一个脚印的连好java的基本功。对于我来说是最好不过的，掌握java的基本语法。(类与对象，构造方法，引用传递，内部类，异常，包，java常用类库，javaIO，java类集)</em> </p>
+<ol>
+<li>走技术之路(在学习java的同时，把基础的知识打好一定的基础)</li>
+<li>定位成为技术类管理成员(掌握基础的java知识，还要有几年的工作经验)</li>
+<li>java软件开发发展前景好，移植性也很强。</li>
+</ol>
+<ul>
+<li style="list-style: none"><input type="checkbox"> JDK(java开发工具包)</li>
+</ul>
+<p><em>是编程语言和javaAPI类库和java虚拟机(是完成移植性的重要机制)来组成的</em> </p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> JRE(java运行时环境)<br><em>是javaAPI子集和java虚拟机组成</em> </li>
+</ul>
+<h2 id="前面二者的区别是：JDK包含着JRE。如果仅仅是运行java程序的话就需要JRE。如果是要自己动手写java程序就要部署JDK环境。"><a href="#前面二者的区别是：JDK包含着JRE。如果仅仅是运行java程序的话就需要JRE。如果是要自己动手写java程序就要部署JDK环境。" class="headerlink" title="前面二者的区别是：JDK包含着JRE。如果仅仅是运行java程序的话就需要JRE。如果是要自己动手写java程序就要部署JDK环境。 "></a><strong>前面二者的区别是：JDK包含着JRE。如果仅仅是运行java程序的话就需要JRE。如果是要自己动手写java程序就要部署JDK环境。</strong> </h2><h2 id="java系统可分为：javaEE-标准版-，javaSE-企业版-，javaME-微型版-，javaCARD-智能卡版"><a href="#java系统可分为：javaEE-标准版-，javaSE-企业版-，javaME-微型版-，javaCARD-智能卡版" class="headerlink" title="java系统可分为：javaEE(标准版)，javaSE(企业版)，javaME(微型版)，javaCARD(智能卡版) "></a><strong>java系统可分为：javaEE(标准版)，javaSE(企业版)，javaME(微型版)，javaCARD(智能卡版)</strong> </h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//有必要说明一下，接下来的是在linux系统下使用终端来让我电脑上的文件进行运行</span><br><span class="line"></span><br><span class="line">public class hello&#123;//public(公有访问类型),class(类的标识),hello(类名)</span><br><span class="line">    public static void main (String arg[])&#123;//是main函数的基本格式,也表明main函数是静态方法</span><br><span class="line">    System.out.println(&quot;hello,world!&quot;);//打印字符串&quot;hello,world!&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/09/19/java/java0.png" alt="终端运行的结果"> </p>
+<hr>
+<p><strong>这里要注意一下的就是文件的后缀是.java,其次是以javac 来作为第一次的关键字来操作文件，接着就会生成一个后缀为.class的文件，然后就是运行你写的文件，记住后面没有任何的后缀。</strong> </p>
+<ul>
+<li><strong>java是面向对象的过程，也就是说在java中只有方法而没有所谓的函数。</strong> </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">    scanner s=new scanner(System.in);//为了可以让用户输入，在这里使用了scanner类,因为它附属与System.in</span><br><span class="line">    System.out.println(&quot;请输入你的性别&quot;);</span><br><span class="line">    String set=s.nextLint();//以字符串的形式输入</span><br><span class="line">    System.out.println(&quot;请输入你的姓名&quot;);</span><br><span class="line">    String name =s.nextLint();</span><br><span class="line">    switch(set)&#123;</span><br><span class="line">    case &quot;男&quot;:</span><br><span class="line">    System.out.println(name+&quot;男士&quot;);</span><br><span class="line">    break;</span><br><span class="line">    case &quot;女&quot;:</span><br><span class="line">    System.out.println(name+&quot;女士&quot;);</span><br><span class="line">    break;</span><br><span class="line">    default :</span><br><span class="line">    System.out.println(&quot;输入有误&quot;);</span><br><span class="line">    break;</span><br><span class="line">    &#125;</span><br><span class="line">    s.close();//关闭类</span><br><span class="line">    InputStreamReader input=new InputStreamReader(System.in);//定义在键盘输入</span><br><span class="line">    BufferedReader Buff=new BufferedReader(input);//以缓冲流的形式来接受input</span><br><span class="line">    //用try和catch机制来处理异常</span><br><span class="line">    try&#123;</span><br><span class="line">    System.out.println(&quot;请输入字符：&quot;);</span><br><span class="line">    String s=Buff.readLine();</span><br><span class="line">    System.out.println(&quot;字符：&quot;+s);</span><br><span class="line">    &#125;catch (Exception e)&#123;</span><br><span class="line">    System.out.println(&quot;异常&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/09/19/java/java2.png" alt="运行结果"></p>
+<p><img src="/2019/09/19/java/java1.png" alt="输入的方式"></p>
+<p><em>在这里只是简单的让用户输入了两次都是以字符串的方式来输入的，当然你也可以让用户输入你想让用户输入的数据类型(eg:int ,double)，上面也有参照的照片。</em> </p>
+<ul>
+<li><strong>合法的标识符</strong> </li>
+</ul>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 不能存在关键字</li>
+<li style="list-style: none"><input type="checkbox"> 首字母不能是数字</li>
+<li style="list-style: none"><input type="checkbox"> 不能存在运算符</li>
+<li style="list-style: none"><input type="checkbox"> 标识符是区别大小写的</li>
+<li style="list-style: none"><input type="checkbox"> 标识符的命令规则是强制性的</li>
+</ul>
+<p><code>我们都知道数据的类型有int,short,float,double,byte(字节)。最常见的就是int(整形的数据类型)。在java中我们可以通过程序来输出各个数据类型的范围是多少，最大值和最小值，和数据类型</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">    public static void main (String args[])&#123;</span><br><span class="line">    int a=Integer.Size;</span><br><span class="line">    System.out.println(&quot;int的范围:&quot;+a);</span><br><span class="line">    int b=Integer.MAX_VALUE;</span><br><span class="line">    System.out.println(&quot;int的最大值:&quot;+b);</span><br><span class="line">    int c=Integer.MIN_VALUE</span><br><span class="line">    System.out.println(&quot;int的最小值:&quot;+c);</span><br><span class="line">    Class &lt;Integer&gt; d=Integer.TYPE;</span><br><span class="line">    System.out.println(&quot;数据类型:&quot;+d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">运行结果：</span><br><span class="line">int的范围:32</span><br><span class="line">int的最大值:2147483647</span><br><span class="line">int的最小值:-2147483648</span><br><span class="line">数据类型:int</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">            static int i=10;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">            int a=1;</span><br><span class="line">            int b=2;</span><br><span class="line">            &#123;</span><br><span class="line">            int b=3;//main方法的变量名是不可以重复的，一个变量只能使用一个名，在这里就是重复使用了变量b，所以程序会报错。</span><br><span class="line">            System.out.println(&quot;b=&quot;+b);</span><br><span class="line">            System.out.println(&quot;a=&quot;+a);</span><br><span class="line">            System.out.println(&quot;i=&quot;+i);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(&quot;b=&quot;+b);</span><br><span class="line">            System.out.println(&quot;a=&quot;+a);</span><br><span class="line">            System.out.println(&quot;i=&quot;+i);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上面的程序是运行不过的，这也是java的特别之处，在c++中，变量b是可以用的，但在java中是不可以的。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">    public static void main (String args[])&#123;</span><br><span class="line">            char ch = &apos;\&quot;&apos;;//转义字符</span><br><span class="line">            System.out.println(ch);</span><br><span class="line">            System.out.println(&quot;\&quot;hello,world!&quot;\&quot;);</span><br><span class="line">            System.out.println(ch+&quot;hello,world!&quot;+ch);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">运行结果</span><br><span class="line">&quot;</span><br><span class="line">&quot;hello,world!&quot;</span><br><span class="line">&quot;hello,world!&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><code>总结可以得知，不管是用变量来存放转义字符，还是直接使用转义字符的方式来输出字符，程序都是可以顺利运行的，当然你也可以不使用变量来存放转义字符，但一个程序里面有太多的转义字符的存在你用变量来存放不是更好使用？这样你也不容易搞混已有的转义字符的使用。</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        System.out.println(2+3+&quot;k&quot;);</span><br><span class="line">        System.out.println(6+6+&quot;aa&quot;+6+6);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">运行结果</span><br><span class="line">5k</span><br><span class="line">12aa66</span><br></pre></td></tr></table></figure>
+<hr>
+<p><code>上面的2+3是一个表达式，所以这里是5,但后面跟的是字符和+(字符串相加)的符号，所以是5k,下面的也是一样的，唯一不一样的是在+(字符串相加)之后，计算机会自动认为后面的也是+(字符串相加)所以后面的就是12aa66。但如果把上面的双引号换成单引号就是以数字的形式先加后输出的。</code> </p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>import java.util.Randow;//随机数字的包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">                int i=3;//这是在堆内存的分配的内存(也可以说是在编译是分配的),读取速度快，但数据的活动范围小(缺少灵活性)</span><br><span class="line">                int y=new Integer(1);//是在栈内存分配的内存(也可以说是运行时分配的内存),读取速度慢，但数据灵活性高。</span><br><span class="line">                System.out.println((int)(Math.randow()*10));//生成随机数字，0～10</span><br><span class="line">                Randow rand=new Randow();</span><br><span class="line">                int i=rand.nextInt(10);//随机生成0～10的数字</span><br><span class="line">                System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>import java.util.Randow;//导入随机数字的包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class test&#123;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">            Randow rand=new Randow();//声明随机数字的对象</span><br><span class="line">            int []numb=new int [rand.nextInt(10)];//rand.nextInt(10)这句话的意思是随机生成一个0～10的数字作为数组的长度</span><br><span class="line">            for(int i=0;i&lt;numb.length;i++)&#123;//为数组赋值。从0～100来选择每次的赋值的数值</span><br><span class="line">                numb[i]=rand.nextInt(100);</span><br><span class="line">            &#125;</span><br><span class="line">            for(int a : numb)&#123;//打印数组里的元素</span><br><span class="line">            System.out.println(a);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>在c++中的指针，在java是叫做引用数据类型，相当与c++中的地址指针</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class test&#123;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">    Randow rand=new Randow();//声明随机数字的对象</span><br><span class="line">    int []a=new int[rand.nextInt(10)];//定义数组长度</span><br><span class="line">    int []b=a;//把数组a赋值给数组b</span><br><span class="line">    for(int i=0;i&lt;a.length;i++)&#123;//为数组a赋值</span><br><span class="line">            a[i]=rand.nextInt(100);</span><br><span class="line">            System.out.println(a[i]);</span><br><span class="line">            System.out.println(b[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>上面程序的结果每次都是不要的，但值得注意的是输出的结果，肯定不会让你们失望的，因为数组b里面的元素是和数组a的元素是一样的。其实，上面最重要的一点就是数组b=数组a，它的等于是连着后面的a数组的赋值。</code> </p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class test&#123;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">            Randow rand=new Randow();</span><br><span class="line">            int [][]numb=new int[3][1];//声明数组numb和给数组长度</span><br><span class="line">            for(int i=0;i&lt;numb.length;i++)&#123;//给数组赋值并输出数组里的元素</span><br><span class="line">                for(int j=0;j&lt;numb[i].length;j++)&#123;</span><br><span class="line">                        numb[i][j]=rand.nextInt(10);</span><br><span class="line">                        System.out.println(numb[i][j]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>一样的，上面的数组每运行一次程序的结果都是不一样的。</code> </p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class test&#123;</span><br><span class="line">    public static void main(String args)&#123;</span><br><span class="line">            int []numb=new int[]&#123;10,23,41,6,11&#125;;//声明一个数组，并赋初值</span><br><span class="line">            int a=Randow rand=new Randow(3)+1;//生成随机数字，范围是1～4</span><br><span class="line">            for(int i=0;i&lt;a;i++)&#123;//把随机数字的大小作为条件,并从一开始交换位置</span><br><span class="line">                int temp=numb[i];</span><br><span class="line">                numb[i]=numb[i+1];</span><br><span class="line">                numb[i+1]=temp;</span><br><span class="line">            &#125;</span><br><span class="line">            for(int b:numb)&#123;//输出数组里的元素</span><br><span class="line">            System.out.println(b);,你在这个时候使用基本数据类型是不能放进去的，因为容器里面都是放            &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>上面程序实现的是乱序，就是每次输出的结果都是不一样的。</code> </p>
+<hr>
+<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><p><strong>类描述了对象的属性和对象的方法，类是对象的模板，更可以说，对象是类的实例，是一个实实在在存在的个体。所以说，面向对象的程序重要的是类的设计而不是对象的设计。</strong><br><code>类的声明格式:</code> </p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> [标识符] class 类的名称<br>{<pre><code>//类的属性
+//类的方法
+</code></pre>}<br><code>类的标识符:</code> </li>
+<li><p>[ ] 默认的(default):这个类只能被这个类的对象和同一个包中的其它的类访问，即使是其它包里的这个类的子类都不能被访问，它只认同一包里的类。</p>
+</li>
+<li><p>[ ] 私有(private):如果一个方法或者属性被定义为私有的，那么只能在本类里访问它。</p>
+</li>
+<li><p>[ ] 公有(public):如果一个方法或属性被定义为公有的，那么它不仅能跨类的对象所调用，还能在其它包中被访问。</p>
+</li>
+<li><p>[ ] 保护(protected):如果一个方法或属性被定义为保护的，那么它能被本类的方法所访问，也能被子类所访问，即使子类在其它包里。</p>
+</li>
+</ul>
+<p><img src="/2019/09/19/java/java3.png" alt="java访问机制"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">    public static void main (String args[])&#123;</span><br><span class="line">            System.out.println(&quot;------&quot;创建对象&quot;-------&quot;);</span><br><span class="line">            new Apple();//匿名对象</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Apple&#123;</span><br><span class="line">        static String a=&quot;string-a&quot;;</span><br><span class="line">        Static String b;</span><br><span class="line">        String c=&quot;string-c&quot;;</span><br><span class="line">        Strint d;</span><br><span class="line">        Static&#123;//static 属于静态代码块，最先运行的是这段代码块，而不是类的构造函数先</span><br><span class="line">                printstatic(&quot;before static&quot;);</span><br><span class="line">                b=&quot;string-b&quot;;</span><br><span class="line">                printstatic(&quot;after static&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        static void printstatic(String name)&#123;//这里要加静态的关键字，因为调用是静态来的所以这里也要有静态的关键字来表明这里是静态，不然是会报错的。</span><br><span class="line">                System.out.println(&quot;------&quot;+name+&quot;-------&quot;);</span><br><span class="line">                System.out.println(&quot;a=&quot;+a);</span><br><span class="line">                System.out.println(&quot;b=&quot;+b);</span><br><span class="line">        &#125;</span><br><span class="line">        Apple()&#123;</span><br><span class="line">            print(&quot;before class&quot;);</span><br><span class="line">            d=&quot;string-d&quot;;</span><br><span class="line">            print(&quot;after class&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        void print()&#123;</span><br><span class="line">                System.out.println(&quot;------&quot;+name+&quot;-------&quot;);</span><br><span class="line">                System.out.println(&quot;a=&quot;+a);</span><br><span class="line">                System.out.println(&quot;b=&quot;+b);</span><br><span class="line">                System.out.println(&quot;c=&quot;+c);</span><br><span class="line">                System.out.println(&quot;d=&quot;+d);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/09/19/java/java4.png" alt="运行结果"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上面的对象是经过匿名对象来实例化的，也就是没有给new的对象一个堆内存，一旦这句语句实现完，计算机会自动回收这个内存，将不再存在程序里，这也是java的垃圾回收机制(BC)，这也是为我们考虑的，不知道你有没有发现，上面的几个程序我都是用new来给类分配的对象，但我不但没有在类中写析构函数，也没有在main函数里delete对象的实例化。因为这一切都是java的BC机制帮我们做了。</span><br></pre></td></tr></table></figure>
+<p>public class Test{</p>
+<pre><code>public static void main(String args[]){
+        String name=new String (&quot;java&quot;);
+        String _name=new String (&quot;java&quot;);
+        String hua=_name;
+        if(name==_name){
+        System.out.println(&quot;地址相同&quot;);
+        }else{
+        System.out.println(&quot;地址不同&quot;);
+        }
+        if(name.equals(_name)){
+        System.out.println(&quot;内容相同&quot;);
+        }else{
+        System.out.println(&quot;内容不同&quot;);
+        }
+</code></pre><p>}<br>运行结果:<br>地址不同<br>内容相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面的程序分别实现了字符串地址(==)和字符串内容(equals方法)的比较，第一个变量和第二个变量的是经过new来分配的栈内存的地址，所以输出的是地址不相同,而最后一个的是进行的内容比较，因为初始化的原因，这里也是输出的内容相同。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">构造方法的注意事项</span><br><span class="line">- [ ] 构造方法的名称与类的名称是一样的</span><br><span class="line">- [ ] 构造方法也是和普通方法一样的，可以被重载，但构造方法的调用是通过在创建类的对象的时候自动调用的，这是与普通方法的调用是不一样的</span><br><span class="line">- [ ] 构造方法是没有返回值的</span><br><span class="line">- [ ] 构造方法是不能被static和final修饰的</span><br><span class="line">- [ ] 构造方法是不能被继承的，如果子类要使用父类的构造方法只能使用关键字(super)来进行调用</span><br></pre></td></tr></table></figure></p>
+<p>public Test{</p>
+<pre><code>private String name;
+Test(){
+System.out.println(&quot;类的无参构造方法的调用&quot;);
+}
+Test(String _name){
+    this-&gt;name=_name;
+    System.out.println(&quot;类的有参构造方法的调用&quot;);
+}
+public static void main(String args[]){
+        new Test();//这是匿名调用类的构造方法
+        Test test=new Test();//这和上面是等价的
+        Test t1=new Test(&quot;小明&quot;);
+}
+</code></pre><p>}</p>
+<p>上面的程序做的只是简单的演示类的构造方法的重载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public Test&#123;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">    Apple apple;</span><br><span class="line">    apple=Apple.V();</span><br><span class="line">    System.out.println(&quot;姓名:&quot;+apple.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Apple&#123;</span><br><span class="line">        String name;</span><br><span class="line">        private Apple ()&#123;</span><br><span class="line">        name=&quot;hello&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        private static final Apple APPLE=new Apple();</span><br><span class="line">        public static V()&#123;</span><br><span class="line">        return APPLE;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的程序的重要性是:当你不想一个类被频繁调用的是时候，可以通过对类的构造方法的私有化来实现</p>
+<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><ul>
+<li style="list-style: none"><input type="checkbox"> 普通代码块(就是普通的放在Main方法里面的代码块)</li>
+<li style="list-style: none"><input type="checkbox"> 构造代码块(放在类里面，比构造方法更先一步执行的代码块)</li>
+<li style="list-style: none"><input type="checkbox"> 静态代码块(比构造代码块更快一步，如果和Main方法是放在同一个类的话，那它比Main方法更快一步执行)</li>
+<li style="list-style: none"><input type="checkbox"> 同步代码块</li>
+</ul>
+<blockquote>
+<p>普通代码块</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">        public static void main(String args[])&#123;</span><br><span class="line">        &#123;int x=10;//普通代码块</span><br><span class="line">        System.out.println(&quot;x&quot;);</span><br><span class="line">        &#125;//如果不要这个代码块，程序将会报错，因为在一个方法里，不能有同名的变量名</span><br><span class="line">        int x=100;</span><br><span class="line">        System.out.println(&quot;x&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">运行结果为:</span><br><span class="line">10</span><br><span class="line">100</span><br></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<p>构造代码块</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">           Peron p=new peron(); </span><br><span class="line">           Peron p1=new Peron(&quot;笑话&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Peron&#123;</span><br><span class="line">    private int x;</span><br><span class="line">    String name;</span><br><span class="line">    &#123;</span><br><span class="line">    System.out.println(&quot;构造代码块的调用&quot;);//这是构造代码块</span><br><span class="line">    x=10;</span><br><span class="line">    &#125;</span><br><span class="line">    Peron()&#123;</span><br><span class="line">        System.out.println(&quot;类的无参构造方法的调用\t&quot;+x);</span><br><span class="line">    &#125;</span><br><span class="line">    Peron(String _name)&#123;</span><br><span class="line">    this-&gt;name=_name;</span><br><span class="line">    System.out.println(&quot;类的有参构造方法的调用\t&quot;+x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">程序的运行结果为:</span><br><span class="line">    构造代码块的调用</span><br><span class="line">    类的无参构造方法的调用  10</span><br><span class="line">    构造代码块的调用</span><br><span class="line">    类的有参构造方法的调用  10</span><br></pre></td></tr></table></figure>
+<p>上面类中是有一块属于构造代码块，而它的速度比构造方法的调用都还快，以前我们只知道对于类来说，构造方法是第一个调用的，因为在我们声明类的对象的时候就是通过类的构造方法来实现的，但现在不一样的是，你只要在类中加个中括号({}),里面的代码实现比类的构造方法都还要快被实现，这使得我们的代码更简化一步。比如，就像上面一样，给一个成员变量复制，而不是通过它的构造方法来实现，你只需要定义一个变量，然后再加个({}),就能实现对成员变量的复制，速度还比类的构造方法快一布。</p>
+<p><strong>由此我们可以知道，类的代码块中的初始化是一个类的所有构造方法都共有的“交集”部分，具有个性化的初始化还是要放在各自的构造方法里</strong> </p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>静态代码块</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">    static &#123;</span><br><span class="line">    System.out.println(&quot;静态方法的调用&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">    System.out.println(&quot;构造代码块的调用&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    Test()&#123;</span><br><span class="line">    System.out.println(&quot;构造方法的调用&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">            System.out.println(&quot;创建第1个对象&quot;);</span><br><span class="line">            new Test();</span><br><span class="line">            System.out.println(&quot;创建第1个对象&quot;);</span><br><span class="line">            new Test();</span><br><span class="line">            System.out.println(&quot;创建第1个对象&quot;);</span><br><span class="line">            new Test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">程序的运行结果为:</span><br><span class="line">    静态代码块的调用</span><br><span class="line">    创建第1个对象</span><br><span class="line">    构造代码块的调用</span><br><span class="line">    构造方法的调用</span><br><span class="line">    创建第2个对象</span><br><span class="line">    构造代码块的调用</span><br><span class="line">    构造方法的调用</span><br><span class="line">    创建第3个对象</span><br><span class="line">    构造代码块的调用</span><br><span class="line">    构造方法的调用</span><br></pre></td></tr></table></figure>
+<p><strong>从上面的案例可以看出来，在执行时机上，静态代码块是在类加载的时候就会执行的，因为早于类的构造代码块和类的构造方法。当一个静态代码块和Main方法在同一个类中，Main方法的调用也是在静态代码块的后面的。静态代码块的执行级别是最高的。</strong>    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">    public static int [] show(int []numb)&#123;</span><br><span class="line">        numb[0]=10;</span><br><span class="line">        numb[1]=12;</span><br><span class="line">        numb[2]=13;</span><br><span class="line">        return numb;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void show1(int []numb)&#123;</span><br><span class="line">        for(int i:numb)&#123;</span><br><span class="line">        System.out.print(i+&quot;\t&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        public static void main(String args[])&#123;</span><br><span class="line">            int [] numb =new int&#123;1,2,3,4,5&#125;;</span><br><span class="line">            for(int i:numb)&#123;</span><br><span class="line">            System.out.print(i+&quot;\t&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">            System.out.println(&quot;--------------&quot;);</span><br><span class="line">            show(numb);</span><br><span class="line">            Show1(numb);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">程序的运行结果为:</span><br><span class="line">1 2 3 4 5 </span><br><span class="line">10 11 12 4 5</span><br></pre></td></tr></table></figure>
+<p><code>上面的程序只是简单的利用java的特性用新的方式来打印数组，只需要一个变量来操作数组对象就行了，比我们之前在c++中的方式简便多了，也是代码的量也减少了，这无疑是一件好事，还利用了引用数据类型来实现对数组的操作，更加利用了静态方法来进行对数组里的元素更改。</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*//导入sort包</span><br><span class="line">public class Test&#123;</span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">    int []numb=&#123;10,2,46,33,5&#125;;</span><br><span class="line">    Arrays.sort(numb);//进行数组的排序</span><br><span class="line">    System.out.println(&quot;排序后:&quot;);</span><br><span class="line">    for(int i:numb)&#123;</span><br><span class="line">    System.out.print(i+&quot;\t&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+<p>程序的运行结果为:<br>排序后:<br>2 5 10 33 46<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 枚举(enum)</span><br><span class="line">`enum A&#123;红色，黄色，白色&#125;枚举是作为类来被调用的，在定义的同时是连着对象的构造方法一起被调用的`</span><br></pre></td></tr></table></figure></p>
+<p>enum Cloro{红色，黄色，白色}//是枚举的关键字,定义了一个枚举并初始化了<br>public class Test{<br>    public static void main(String args[]){<br>            //java中的枚举其实是一个类来的，在这个类里面还有很多不一样的方法，其作用都是不一样的。<br>            Cloro []cloro=Cloro.values();//Cloro.values()是类的静态方法来的，但是以字符串的形式来的，所以在前面要定义一个同类型的数组来接收,方法是自动生成的<br>            for(Cloro i:cloro){<br>            System.out.println(i);<br>            }<br>            Cloro c=Cloro.valueof(Cloro.class,”白色”);//以指定的颜色来赋给对象,这里的参数有点不一样的就是，参数是类的类型,方法是自动生成的<br>            System.out.println(c);</p>
+<pre><code>}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>红色<br>黄色<br>白色<br>白色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">枚举的注意事项</span><br><span class="line">- [ ] 如果把枚举的标识符定义为public的话要放在独立的文件里面而不能和main方法放在同一个文件，如果标识符是默认的话就可以放在同一个文件里</span><br><span class="line">- [ ] 使用enum来定义枚举的时候，默认会继承于java.lang.Enum类。默认会用final来修饰，因此无法派生子类。</span><br><span class="line">- [ ] 使用enum来定义的时候，初始化也要和定义一起,如果没有把赋值放在同一行，而这个enum将无法被实例法。</span><br><span class="line">- [ ] 所以使用enum来定义枚举的时候都会默认生成values方法，该方法可以方便遍历所有枚举值，而在枚举中还是有其它的自动生成的方法来给我们使用。</span><br><span class="line"></span><br><span class="line">**enum(枚举)用关键字定义的时候相当于定义了一个类，而这个类继承于Enum类。而在Enum类中的所有方法都是保护类型的，因此这些方法都可以在声明了enum对象中被使用。**</span><br></pre></td></tr></table></figure></p>
+<p>enum A{红色，紫色，白色}<br>public class Test{<br>    public static void main(String args[]){<br>            A []a=A.valuse();//把枚举中的元素都放在对应类型的数组中<br>            for(A i:a){<br>            System.out.println(i.name+i.ordinal());输出的是数组中的元素和数组的下标<br>            }<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>红色0<br>紫色1<br>白色3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">`在枚举中的下表要是没有给定提定的数值，计算机就会自动给它一个下标，而下标的值是以数组的形式来赋值的。` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">`EnumMap是Map接口的子类，也就是说Enummap是继承于类Map的`</span><br></pre></td></tr></table></figure></p>
+<p>import java.util.Map;//导包<br>import java.util.EnumMap;//导包<br>enum Color{红色，黄色，绿色}<br>public class Test{<br>    public static void main(String args[]){<br>        EnumMap&lt;Color,String&gt;emap=new EnumMap&lt;Color,String&gt;(Color.class);//映射&lt;&gt;&lt;KeyType,nameType&gt;,更重要的是EnumMap的构造方法的参数不能为空，需要指定一个枚举类<br>        emap.put(Color.红色,”RED”);//把映射的对象和值都写进去<br>        emap.put(Color.黄色,”YELLOW”);<br>        emap.put(Color.绿色,”BLUE”);<br>        for(Map.Entry&lt;Color,String&gt;me:emap.entrySet()){//把映射的键和值都打印出来,其中的两个方法是Map中的静态方法，EnumMap作为Map的子类所以能调用其中的方法。<br>        System.out.println(me.getKey()+me.getValue());<br>        }<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>红色RED<br>黄色YELLOW<br>绿色BLUE<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面的打印用的是新的打印方法，而EnumMap的类型是Map来的，所以它要Map.来点出它的方法来进行打印,Key是不允许重复的，而它的值却允许重复，EnumSet是一个集合来的</span><br></pre></td></tr></table></figure></p>
+<p>import java.util.EnumSet;//导包<br>import java.util.Iterator;//导包<br>enum Color{红色，绿色，紫色}<br>public class Test{<br>    public static void main(String args[]){<br>        EnumSet<color> set=EnumSet.allof(Color.class);//声明集合<enumtepy>并把对应类型的枚举类放在集合中,allof是集合EnumSet中的静态方法，用来把参数中的枚举类放在集合中作为集合的元素<br>        Iterator <color>iter=set.iterator();//声明迭代器并把集合放在迭代器中<br>        while(iter.hasNext()){//参数是确认迭代器中的元素是否为空,为空的时候返回false<br>        System.out.println(iter.Next());//打印迭代器中的元素<br>        }<br>        EnumSet <color>aset=EnumSet.noneof(Color.class);//表示作为空的集合<br>    }<br>    Iterator iterator=aset.iterator();<br>    while(iterator.hasNext()){<br>    System.out.println(iterator.Next());//这里是打印不出来的，所以下面的结果为空<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></color></color></enumtepy></color></p>
+<p>运行结果:<br>红色<br>绿色<br>紫色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>enum Color{<br>    RED(“红色”,3),BLUE(“蓝色”,4),YELLOW(“黄色”,5);//定义枚举并指定颜色和下标，是以私有构造方法来显示调用枚举类的属性，(也就是说成员)<br>    private String Name;//元素的名字<br>    private int Indext;//元素的下标<br>    private Color(String name,int indexc){//枚举类的构造方法是私有化的,所有的枚举对象都必须显示调用此构造方法。<br>            this-&gt;Name=name;<br>            this-&gt;Indext=indexc;<br>    }<br>    public static void setname(int indexc,String name){<br>        for(Color c:Color.values()){<br>            if(c.Indexc==indexc){<br>            c.Name=name;<br>            }<br>        }<br>    }<br>    public static void setindexc(String name,int indexc){<br>        for(Color c:Color.values()){<br>            if(c.Name==name){<br>            c.Indexc=indexc;<br>            }<br>        }<br>    }<br>    public String getname(String name){<br>    return name;<br>    }<br>    public int getindexc(int intexc){<br>    return intexc;<br>    }</p>
+<p>}<br>public class Test{<br>    public static void main(String args[]){<br>        System.out.println(Color.RED.getname());//RED是枚举类型的Color的枚举实例。这些枚举实例是公有的静态对象(进一步说，它们可以视为枚举类的属性成员)<br>        System.out.println(Color.RED.getindexc());<br>        System.out.println(Color.BLUE.getname());<br>        System.out.println(Color.BLUE.getindexc());<br>        System.out.println(Color.YELLOW.getname());<br>        System.out.println(Color.YELLOW.getindexc());<br>        System.out.println(“自定义元素”);<br>        Color.setname(3,”白色”);//通过属性下标来改变属性的名字<br>        System.out.println(Color.RED.getname());<br>        System.out.println(Color.RED.getindexc());<br>        Color.setindexc(“黄色”,7);//通过属性的名字来改变属性的下标<br>        System.out.println(Color.YELLOW.getname());<br>        System.out.println(Color.YELLOW.getindexc());<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>红色<br>3<br>蓝色<br>4<br>黄色<br>5<br>白色<br>3<br>黄色<br>7</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在上面的程序中都是通过私有的构造方法来显示调用成员属性的，在上面属性其实是RED,BLUE,YELLOW,只不过我在这里都没对它操作，在这里比较容易混淆的是，根本不明白谁才是枚举的成员属性，你也可以通过上面的Values()(是枚举类自动生成的用来遍历枚举属性的方法),其实在上面我也用到了这个方法来对成员属性的名字和下标来进行改变它们对应的值。在最开始的时候定义的枚举的属性其实是在调用私有构造方法来实现实例化。只要把这个搞懂了，其实那些改变成员属性的方法都是很简单理解的。</span><br></pre></td></tr></table></figure>
+<p>enum Color{<br>    红色<br>    {<br>        public String show(){<br>            return “RED”;<br>        }<br>    },<br>    蓝色<br>    {<br>        public String show(){<br>            return “BLUE”;<br>        }<br>    },<br>    黄色<br>    {<br>        public String show(){<br>            return “YELLOW”;<br>        }<br>    };<br>    public abstract String show();//把上面的show方法定义为抽象方法(abstract)抽象关键字</p>
+<p>}<br>public class Test{<br>    public static void main(String args[]){</p>
+<pre><code>    for(Color c:Color.values){
+    System.out.println(c.ordinal+&quot;\t&quot;+c.name()+&quot;----&quot;+c.show());
+    }
+}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>0  红色—-RED<br>1  蓝色—-BLUE<br>2  黄色—-YELLOW<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">抽象方法关键字(abstract)，修饰没有主体的方法，在这里需要在枚举对象中一一单独实现，否则报</span><br></pre></td></tr></table></figure></p>
+<p>enum Weekday {Sun,Mon,Tue}<br>public class Test{<br>    public static void main(String args[]){<br>            Weekday w=Weekday.Sun;<br>            switch(w){<br>                case Mon:<br>                System.out.println(Do Monday work);<br>                case Sun:<br>                System.out.println(Do Sunday work);<br>            }<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>Do Sunday work<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这里是当你定义的是枚举类中的哪个元素的对象的时候，通过switch来进行选择，你输出的语句是你在switch写的语句。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 类</span><br><span class="line">|控制范围|private|default|protected|public|</span><br><span class="line">|----|----|----|----|----|</span><br><span class="line">|类|只能内部类允许私有，只能在当前类被访问|可以被当前包中的所有类访问|只有在内部类可以被设为保护权限,相同包中的类和其子类可以被访问|可以被所有类访问|</span><br><span class="line">|属性|只能被当前类访问|可以被相同包中的类访问|可以被当前包中的所有类访问和当前类的子类访问|可以被所有类访问|</span><br><span class="line">|方法|只能被当前类访问|可以被相同包中的类访问|可以被相同包中的类访问和当前类的子类访问|可以被所有类访问|</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">`java中对于类来说有封装，继承，多态。` </span><br><span class="line"></span><br><span class="line">`java中类的成员变量的权限有私有，公有，保护，默认，在上面的表格中都给出了对应的权限范围，java类只有允许单继承不允许多继承，但允许多重继承，`</span><br></pre></td></tr></table></figure></p>
+<p>import java.util.ArrayList;<br>public class Test{<br>    public static void main(String args[]){<br>    System.out.println(“集合大小”);<br>    Apple a=new Apple();//调用类的构造方法来实现对集合的操作<br>    ArrayList <interger>array=a.getarray();//声明一个集合来对类中的公有方法中的返回值进行赋值给这个集合,很重要的是，在这里传的是引用而不是数据的副本。<br>    System.out.println(array.size());//打印集合的大小<br>    array.add(8);//对集合的引用进行加值的操作<br>    Arrjy <interger>a1=a.getarray();又重新定义一个集合来对调用的类的公有方法的返回值进行赋值<br>    System.out.println(a1.size());//打印集合的大小<br>    System.out.println(“集合元素”);<br>    for(Interger i:a1){<br>    System.out.println(i);<br>    }</interger></interger></p>
+<pre><code>}
+</code></pre><p>}<br>class Apple{<br>        private ArrayList<interger>array=new ArrayList<interger>();//声明一个私有集合作为类的成员变量<br>        Apple(){//构造方法,对集合进行初始化<br>        array.add(1);<br>        array.add(1);<br>        array.add(1);<br>        }<br>        ArrayList<interger>getarray(){//返回集合<br>        return array;<br>        }</interger></interger></interger></p>
+<p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>集合大小<br>3<br>4<br>集合元素<br>1<br>1<br>1<br>8<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**其实在上面的程序中最难懂的是，在main方法里的集合的操作是引用的操作而不是简单的副本操作，在java中，除了基本的数据类型，其它都是引用类型,其中类也是引用类型** </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">关于继承的限制</span><br><span class="line">- [ ] java中继承允许多继承，但也许多重继承</span><br><span class="line">- [ ] 从父类继承的私有成员不能被子类直接使用，要通过方法来间接调用</span><br><span class="line">- [ ] 子类在进行对象实例化的时候，先调用父类的构造方法对父类的成员变量进行赋值，然后在调用子类的构造方法，其作用是一样的。</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void mai(String args[]){</p>
+<pre><code>}
+</code></pre><p>}<br>final class A{<br>    final void show(){<br>    System.out.println(“如果这个方法在不想被子类覆写，可以在方法前面加上这个修饰符来确定不被子类覆写”);<br>    }</p>
+<p>}<br>//class B extends A{}//是错误的,所以注释掉<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面的程序是不行的，因为父类的修饰符是final，它是不能被继承的</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){<br>        A a=new B();<br>        a.show();<br>    }<br>}<br>class A {<br>    A(){<br>    System.out.println(“父类的构造方法”)<br>    }<br>    void show(){<br>        System.out.println(“走”);<br>    }<br>}<br>class B extends A{<br>    B(){<br>    System.out.println(“子类的构造方法<br>    }<br>    void show(){<br>        System.out.println(“飞”);<br>    }<br>}<br>class C extends A{<br>    C(){<br>        System.out.println(“子类的构造方法<br>}<br>    void show(){<br>        System.out.println(“跑”);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>父类的构造方法<br>子类的构造方法<br>飞<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面的程序主要是实现多态的重要性，还有就是继承的小细节，继承是先调用父类的构造方法之后再调用子类的构造方法。在刚开始的时候就写过了在上面是先声明一个父类对象来进行对子类的实例化，然后在调用子类中覆写父类成员方法的方法，其实你也完全可以通过子类的对象来对子类进行实例化，在这里主要是实现类的多态。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">方法重载与覆写的区别</span><br><span class="line">- [ ] 重载是在本类中实现的，而覆写主要是在子类中重写父类的方法</span><br><span class="line">- [ ] 重载要求方法的参数个数和参数类型的顺序和参数的类型和方法名字，其中的任意一个不同。而覆写是方法名称和参数个数和类型与父类是一致的就行了</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">`this&amp;&amp;super` </span><br><span class="line">----</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){<br>            B b=new B();<br>            b.show();<br>    }<br>}<br>class A{<br>        String name;<br>        void show(){<br>        this-&gt;name=”java”;<br>        }<br>}<br>class B extends A{<br>    String name;<br>    void show(){<br>        this-&gt;name=”shanghai”;<br>        super.show();<br>        System.out.println(name+”\t”+super.name);<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>运行结果:<br>shanghai  java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">|区别|this|super|</span><br><span class="line">|----|----|-----|</span><br><span class="line">|查找范围|先从本类中找到属性或方法，本类找不到再去父类寻找|不查询父类的属性或方法，直接从子类调用父类的指定属性和方法|</span><br><span class="line">|调用构造|this使用的是本类的构造|super先调用的是父类的构造方法，然后在调用子类的构造方法|</span><br><span class="line">|特殊|表示当前的对象|可以看作是父类的引用对象|</span><br><span class="line">|关系|两者的关系是属于二选一的关系，不能被同时调用|</span><br><span class="line">---</span><br><span class="line">抽象类</span><br><span class="line">----</span><br></pre></td></tr></table></figure>
+<p>public class Test{<br>        public static void main(String args[]){<br>        A a=new B(“小艾”,11);<br>        a.show();<br>        A a1=new C(“笑话”,12);<br>        a1.show();<br>    }<br>}<br>abstract class A{<br>        public abstract void show();<br>}<br>class B extends A{<br>        String name;<br>        int age;<br>        B(String _name,int _age){<br>        }<br>        public void show(){<br>        System.out.println(“学生\t”+name+”\t”+age);<br>        }<br>}<br>class C extends B{<br>    C(String _name,int _age){<br>            super(_name,_age);<br>    }<br>    public show(){<br>    System.out.println(“工人\t”+name+”\t”+age);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>学生  小艾  11<br>工人  笑话  12<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面的类A是一个抽象类来的，抽象类是不能被实例化的，顾名思义，抽象类是没有实现的方法的，在上面的父类中只有定义成员方法为抽象方法的的一个定义，没有实现的行为，抽象类的实现一般是在子类中一一实现的，这也得于抽象类的特性，抽象类是不能被实例化的，这样做会报错的，一般的抽象类都是有子类的，子类的重要作用之一是实现父类中的抽象方法，这是很重要的，还有就是，定义在父类的全部抽象方法在子类中都要重写这些抽象方法，不然会报错，记住是全部都要重写。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 接口(interface)</span><br><span class="line">`接口是java所提供的另外一种重要的技术，是一种特殊的类，它的结构和抽象类很相似。接口里的数据成必须初始化，数据成员均为常量，常见的是全局变量。` </span><br><span class="line">`为了避免在接口中添加新的方法后要修改所有的实现类，允许定义默认方法` </span><br><span class="line"></span><br><span class="line">使用接口的原则</span><br><span class="line">- [ ] 接口必须有子类，子类依靠(关键字)implements来实现多个接口</span><br><span class="line">- [ ] 接口的子类必须重写接口中的所有抽象方法</span><br><span class="line">- [ ] 接口可以利用对象的多态性，利用子类的对象进行实例化</span><br><span class="line">- [ ] 接口和一般的类是一样的，具有成员变量和成员方法，但数据成员必须进行初始化，而初始化的值是不能被修改的，相当与是常量，方法也必须是抽象的或者是(default)，所以在接口中这两个特性是可以忽略的，因为在接口中不管是成员方法或者是成员变量都是特性都是肯定了的。</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){</p>
+<pre><code>        B b=new B();
+        b.show();
+        b.print();
+    System.out.println(A.name);
+    //System.out.println(b.name);//不能通过类的实现来访问静态成员
+}
+</code></pre><p>}<br>interface A{<br>        public static String name=”hello”;<br>        public void show();<br>        default void print(){<br>        System.out.println(“你好”);<br>        }<br>}<br>class B implements A{<br>    //name=”HELLO”;//这个是错误的<br>    public void show(){<br>        System.out.println(name);<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>运行结果:<br>hello<br>你好<br>hello<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面的程序只是简单的介绍接口的基本定义的格式，其中有成员变量和成员方法，而其中的成员变量是全局类型的(还必须给初始化值)，成员方法分两种，一种是抽象方法(在子类是实现的方法，在接口只是声明而已)，另外是其它类型的成员方法</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**在这里在强调一次，接口与抽象类唯一不同的就是子类，对于接口来说可以实现多个接口，但抽象类是不能多继承的**</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){<br>        C c=new C();<br>        c.show();<br>    }<br>}<br>interface A{<br>    default void show(){<br>    System.out.println(“A接口的默认方法”);<br>    }<br>}<br>interface B{<br>    default void show(){<br>    System.out.println(“B接口的默认方法”);<br>    }<br>}<br>class c implements A , B{}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面的程序是错误的，因为在接口中的默认方法中如果有同名的方法，你在调用方法的同时，编译器会不知道你要调用的到底是哪一个方法，这就产生了所谓的二义性，一般来说在接口中一定不要有同名的变量,还有就是上面的接口是没有抽象类型的方法，所以在子类中是空的</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">`在前面说过，接口是允许多继承的，接口中对于抽象类和接口的继承是先继承后实现`</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){<br>        F f=new F();<br>        A a=f;//声明一个接口对象来指向子类，主要是在调用方法的时候让你清晰的知道在那个接口中调用的是那个方法。你也可以不写，直接用子类的实例化对象来调用<br>        B b=f;<br>        C c=f;<br>        D d=f;<br>        a.show();<br>        b.prin();<br>        c.print();<br>        c.xiao();<br>        d.printd();<br>        d.xi();<br>    }<br>}<br>interface A{<br>        public static String name=”小新”;<br>        public void show();<br>}<br>interface B{<br>    public void prin();<br>}<br>interface  C extends A , B{//接口继承多个接口<br>    public void print();<br>    default void xiao(){<br>    System.out.println(name+”\t多接口继承”);<br>    }<br>}<br>abstract class D implements A,B{//抽象类继承多个接口<br>    abstract public void printd();<br>    void xi(){<br>    System.out.println(name+”\t抽象类继承”);<br>    }<br>}<br>class F extends D implements C{<br>    public void show(){<br>    System.out.println(“你好”);<br>    }<br>    public void prin(){<br>    System.out.println(“hello,world”);<br>    }<br>    public void print(){<br>    System.out.println(“一个接口继承多个接口”+name);<br>    }<br>    public void printd(){<br>    System.out.println(“抽象类继承多个接口”);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>你好<br>hello,world<br>一个接口继承多个接口<br>小新 多接口继承<br>抽象类继承多个接口<br>小新 抽象类继承<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在上面的程序中我们可以知道，对于接口的继承，一个接口可以继承多个接口(extends)来继承，继承的同时不用进行对继承的接口进行实现。抽象类继承多个接口(implements),继承的同时一样不要进行对已继承的接口的方法实现，但子类一定要对继承的接口和抽象类中的方法进行实现,还有就是，不管是多接口继承还是抽象类继承，都是基于继承的特性来实现继承的，都会继承父接口的成员变量。对于接口的成员变量一定要在声明的同时就进行初始化。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">接口的作用--制定标准</span><br><span class="line">`接口是标准，所谓的标准，指的是各方共同遵守的一个原则。只有操作标准统一了，所有的参与者才可以按照统一的规则操作`</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){<br>        Computer c=new Computer();<br>        c.show(new B);//拿子类的引用来作为参数调用父接口中的方法<br>        c.show(new C);//拿子类的引用来作为参数调用父接口中的方法</p>
+<pre><code>}
+</code></pre><p>}<br>interface USB{<br>        public void work();//这是抽象方法<br>}<br>class B implements USB{<br>    public void work(){<br>        System.out.println(“USB在工作”);<br>    }<br>}<br>class C implements USB{<br>    public void work(){<br>        System.out.println(“USB在打印机中工作”);<br>    }<br>}<br>class Computer{<br>    public void show(USB usb){//父接口作为方法的参数<br>        usb.work();//调用类中的方法<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>USB在工作<br>USB在打印机中工作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面展现的是接口作用--制定标准，利用接口USB来制定工作的标准，通过继承来实现接口中的方法，最后通过电脑类中的方法来调用在子类的实现</span><br><span class="line"></span><br><span class="line">接口--工厂的设计</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){<br>    A a=F.getname(“apple”);</p>
+<pre><code>}
+</code></pre><p>}<br>interface A{<br>        public void eat();<br>}<br>class apple implements A{<br>    public void eat(){<br>        System.out.println(“吃苹果”);<br>    }<br>}<br>class oright implements A{<br>    public void eat(){<br>    System.out.println(“吃橙子”);<br>    }<br>}<br>class F{<br>    public static A getname(String name){<br>        if(“apple”.equals(name)){<br>        return new apple();<br>        }<br>        if(“oright”.equals(name)){<br>        return new oright();<br>        }<br>        return null;<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>吃苹果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">此时的程序，在客户端没有和具体的子类耦合在一起，这样一来，如果再有更多的A接口子类出现，只需要修改F类即可，即:所有的接口对象都通过F类取得，在程序员自己开发的代码中，只要是遇见要取得接口对象实例的操作，都应该使用工厂设计模式。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">匿名类使用注意事项</span><br><span class="line">- [ ] 使用匿名类的时候必须是继承一个类或者是实现一个接口，但是两者不可同时兼得，只能是继承一个类或者是实现一个接口</span><br><span class="line">- [ ] 匿名内部类是不能定义构造方法的</span><br><span class="line">- [ ] 匿名内部类不存在静态方法和静态变量</span><br><span class="line">- [ ] 匿名内部类属于局部内部类，所以局部内部类的限制同样对局部内部类生效</span><br><span class="line">- [ ] 匿名内部类不能是抽象的，它必须是一个实现的继承类或者是实现接口的所有抽象方法</span><br><span class="line"></span><br><span class="line">static</span><br><span class="line">- [ ] 由static定义的类方法，可以直接由类名直接调用，另外的就是static属性是一个共享的属性</span><br><span class="line"></span><br><span class="line"># java常用的类</span><br><span class="line">`API(应用程序编程接口)`</span><br><span class="line"></span><br><span class="line">基本类型的包装类</span><br><span class="line">----</span><br><span class="line">|基本数据类型|基本类型的包装类|</span><br><span class="line">|------------|----------------|</span><br><span class="line">|int|Integer|</span><br><span class="line">|double|Double|</span><br><span class="line">|byte|Byte|</span><br><span class="line">|char|Char|</span><br><span class="line">|float|Float|</span><br><span class="line">|shart|Shart|</span><br><span class="line">|long|Long|</span><br><span class="line">|boolean|Boolean|</span><br><span class="line"></span><br><span class="line">装箱与拆箱</span><br><span class="line">-----</span><br><span class="line">所谓的装箱就是把基本数据类型用它们相对应的引用数据类型包起来，使它们具有对象的特质，例如把int包装成Integer类的对象</span><br><span class="line">所谓拆箱就是与装箱刚刚相反，将Integer类的对象重新简化成基本数据类型</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){<br>            Integer i=new Integer(10);<br>            int x=i.intValue();<br>            System.out.println(x);<br>            Double b=new Double(100.00);<br>            double b1=b.doubleValue();<br>            System.out.println(b1);</p>
+<pre><code>}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>10<br>100.00<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面的程序是利用拆箱来把Integer类的包装类拆成基本数据类型Int，下面的double也是一样的</span><br><span class="line">装箱的操作:就是将基本数据类型变为包装类，利用各个包装类的构造方法来完成</span><br><span class="line">拆箱的操作:将包装类变为基本数据类型，利用各自的类的xxx.Value()方法来实现</span><br><span class="line"></span><br><span class="line">基本数据类型与String类的转换</span><br><span class="line">----</span><br><span class="line">**但是以下的操作是不包括Char类的，因为String类有一个CharAt方法可以取得指定索引的字符** </span><br><span class="line"></span><br><span class="line">`将String类型转换成基本数据类型`</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){<br>            String s=”123”;<br>            int i=Int.parseInt(s);<br>            String s1=”123.6”;<br>            double b=Double.parseDouble(s1);<br>            System.out.println(i);<br>            System.out.println(b);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>123<br>123。6<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在将字符串换成基本数据类型的时候要注意一定要符合对应的数据类型，不能把数据类型搞混。</span><br><span class="line"></span><br><span class="line">`把基本数据类型变为String类型`</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){<br>            int i=100;<br>            String s=String.ValueOf(i);<br>            System.out.println(s);<br>            double b=123.6;<br>            String s1=String.ValueOf(b);<br>            System.out.println(s1);<br>    }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>运行结果:<br>100<br>123.6<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面是利用String类里的机制方法来进行对不同基本数据类型转换成String类。</span><br><span class="line"></span><br><span class="line"># 日期操作类</span><br><span class="line">|类名|说明|</span><br><span class="line">|----|----|</span><br><span class="line">|LocalDateTime|存储了日期和时间|</span><br><span class="line">|LocalDate|存储了日期|</span><br><span class="line">|LocalTime|存储了时间|</span><br></pre></td></tr></table></figure></p>
+<p>import java.time.LocalDate;<br>import java.time.YearMonth;<br>import java.time.Year;<br>impore java.time.MonDay;<br>public class Test{<br>    public static void main(String args[]){<br>            LocalDateTime l1=LocalDateTime.now();<br>            System.out.println(l1);//根据日期类来调用方法来打印现在的年月日,在这里就不打印了,自己尝试<br>            Year year=Year.of(2010);<br>            YearMonth yearmonth=year.at(2);<br>            LocalDate localdate=yearmonth.at(28);<br>            System.out.println(localdate);<br>            System.out.println(localdate.isEqual(localdate));<br>            MonthDay m=Monday.of(4,15);<br>            localdate l=m.atyear(2015);<br>            System.out.println(l);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>2010-2-18<br>true<br>2015-4-15<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从上面的程序可以看出，在java中对日期的操作是非常强大的，可以根据自己的需求来慢慢进行设置，在上面我也给出了对于日期类的归属。</span><br></pre></td></tr></table></figure></p>
+<p>import java.time.<em>;<br>import java.time.format.</em>;<br>public class Test{<br>    public static void main(String aegs[]){<br>            LocalDate localdate=LocalDate.now();//获取当前日期<br>            DateTimeForMatter datetime=DateTimeForMatter.ofPattern(“dd/mm/uuuu”);//设置日期打印的格式<br>            String str=localdate.ofmat(datetime);//把当期日期放在设置好的日期格式<br>            System.out.println(str);//打印出来<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>自己尝试了，仆街。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在java中，设置日期的格式是用过DateTimeForMatter类来设置格式的，然后把时间放在设置好的格式里，最后通过String类来进行打印出来。</span><br><span class="line"></span><br><span class="line"># 正则</span><br><span class="line"></span><br><span class="line">|正则标识符|意义|</span><br><span class="line">|----------|----|</span><br><span class="line">|\ |表示一位字符|</span><br><span class="line">|\\|表示多位字符|</span><br><span class="line">|\n|匹配换行|</span><br><span class="line">|[abc]|a,b,c中的任意一位|</span><br><span class="line">|[^abc]|表示不是abc中的任意一位|</span><br><span class="line">|[a-zA-Z]|表示任意一位字母(不管大小写)|</span><br><span class="line">|[0-9]|表示0-9任意一位|</span><br><span class="line">|.|表示任意一位字符|</span><br><span class="line">|\d|等价与0-9|</span><br><span class="line">|\D|等价与[^0-9]|</span><br><span class="line">|\s|表示一位空格|</span><br><span class="line">|\S|表示非空格|</span><br><span class="line">|\w|等价与[a-zA-Z0-9]|</span><br><span class="line">|\W|等价与[^a-zA-Z0-9]|</span><br><span class="line">|^|表示正则的开头|</span><br><span class="line">|$|表示正则的结尾|</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(Strng args[]){<br>        if(“123”.matches”\d+”){<br>            System.out.println(“true”);<br>        }else{<br>        System.out.println(“false”);<br>        }<br>        String s=”<a href="mailto:1234@163.com" target="_blank" rel="noopener">1234@163.com</a>“;//给出字符串<br>        String s1=”\w+@\w+.\w+”;//给出邮箱的格式(w:等价于[a-zA-Z0-9])<br>        System.out.println(s.matches(s1));//验证上面的邮箱格式<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>true<br>true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上面的程序是通过正则来判断并输出结果的，上面的方法是正则类里的一个方法，意思是判断字符串是不是由数字组成的，是就输出true，不是就false，明显与结果是一样的。</span><br><span class="line">|方法|意义|</span><br><span class="line">|----|----|</span><br><span class="line">|boolean matches(String test)|将字符与给出的正则表达式进行匹配验证|</span><br><span class="line">|String replaceAll(String test,String replacement)|按照指定的正则进行替换|</span><br><span class="line">|String replzceFirst(String test,String replacement)|按照指定的正则进行替换首个|</span><br></pre></td></tr></table></figure></p>
+<p>public class Test{<br>    public static void main(String args[]){<br>            String s=”123abcd3546efg”;<br>            String s1=”\d+”;多个数字<br>            System.out.println(s.replaceAll(s1,””));//在字符串中替换数字<br>            System.out.println(s.replaceFirst(s1,””));//在字符串中替换首个字符前数字</p>
+<pre><code>}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>运行结果:<br>abcdefg<br>abcd3546efg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在上面我给出的正则表达式的表示符可以在这个程序里尽情的尝试，你也会有发现的，但重要的是对你的理解有帮助,这样学起来是理解性的学习而不是一味的烦躁。</span><br><span class="line"></span><br><span class="line">BigDecimal(大数值)</span><br><span class="line">----</span><br></pre></td></tr></table></figure></p>
+<p>import java.math.BigDecimal;<br>public class Test{<br>    public static void main(String args[]){<br>            BigDecimal b=new BigDecimal(“3456789101112”)<br>            BigDecimal b1=new BigDecimal(“123456789”);<br>            System.out.println(b.add(b1));//加法<br>            System.out.println(b.subtract(b1));//减法<br>            System.out.println(b.multipy(b1));//乘法<br>            System.out.println(b.multipy(b1).setScale(1,BigDecimal.ROUND_up));//乘法,但是以进一的形式来输出值<br>            System.out.println(b.divide(b1,BigDecimal.ROUND_DOWN));//除法<br>            BigDecimal b2[]=b.divideAndRemainder(b1);//除法，并把值放在数组里面<br>            System.out.println(“商”+b2[0]+”余”+b2[1]);<br>    }<br>}</p>
+<p><code>`</code></p>
+<p>上面的程序主要是应对于大的数字，在int和long都无法容纳的时候就使用BigDecimal类型来进行操作，(结果自己动手)</p>
+<p><strong>当需要在ArrayList和HashMap中放东西的时候,你在这个时候使用基本数据类型是不能放进去的，因为容器里面都是放</strong> &lt;++&gt;</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/09/10/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/09/22/i3/" rel="next" title="i3.md">
+      i3.md <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前面二者的区别是：JDK包含着JRE。如果仅仅是运行java程序的话就需要JRE。如果是要自己动手写java程序就要部署JDK环境。"><span class="nav-number">1.</span> <span class="nav-text">前面二者的区别是：JDK包含着JRE。如果仅仅是运行java程序的话就需要JRE。如果是要自己动手写java程序就要部署JDK环境。 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java系统可分为：javaEE-标准版-，javaSE-企业版-，javaME-微型版-，javaCARD-智能卡版"><span class="nav-number">2.</span> <span class="nav-text">java系统可分为：javaEE(标准版)，javaSE(企业版)，javaME(微型版)，javaCARD(智能卡版) </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number"></span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象"><span class="nav-number"></span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码块"><span class="nav-number"></span> <span class="nav-text">代码块</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EvanShady</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EvanShady</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

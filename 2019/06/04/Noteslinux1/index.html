@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://evanshady.github.io').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="注释">
+<meta name="keywords" content="Test">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Noteslinux1">
+<meta property="og:url" content="https://evanshady.github.io/2019/06/04/Noteslinux1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="注释">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://evanshady.github.io/2019/06/04/Noteslinux1/chattr.png">
+<meta property="og:updated_time" content="2019-09-18T11:16:35.347Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Noteslinux1">
+<meta name="twitter:description" content="注释">
+<meta name="twitter:image" content="https://evanshady.github.io/2019/06/04/Noteslinux1/chattr.png">
+
+<link rel="canonical" href="https://evanshady.github.io/2019/06/04/Noteslinux1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Noteslinux1 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="default">
+    <link itemprop="mainEntityOfPage" href="https://evanshady.github.io/2019/06/04/Noteslinux1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="EvanShady">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Noteslinux1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-06-04 13:57:38" itemprop="dateCreated datePublished" datetime="2019-06-04T13:57:38+08:00">2019-06-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-18 19:16:35" itemprop="dateModified" datetime="2019-09-18T19:16:35+08:00">2019-09-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>注释 <a id="more"></a> # linux操作系统 &gt; 操作系统:是一种软件，用来帮助其它的程序控制计算机硬件并和用户进行交互。 1. 应用程序也是一种软件，用来向计算机的用户提供某种服务，而不仅仅是控制计算机的硬件。 2. 操作系统的共同之处: <em> 引导计算机硬件，以便操作系统和其它软件程序可以正常工作。 </em> 为使用操作系统的程序分配系统资源，如内存处理时间。 <em> 跟踪同时运行的多个程序。 </em> 为所有使用系统设备的程序提供规范的访问借口。 3. 操作系统中主要的部分: <em> 内核:操作系统的核心，用来在多个应用程序之间分配计算机资源。 </em> 设备的驱动程序:是一个允许内核访问硬件设备(如键盘，鼠标，硬盘，扫描器或显卡)的软件 <em> shell:是一个可以通过用户输入的命令计算机进行处理的软件。 </em> 工具软件:管理软件和操作系统特性的软件。 <em> 图形用户界面:是一种软件，它是基于在鼠标这个接口之上的，用户可以通过这个接口在图形化应用程序可以使用菜单，</em> 按钮以及层叠窗口来进行操作。 * 完整的linux的系统: 1. 允许linux和外设一起工作的硬件驱动程序。 2. 图形化桌面坏境和管理操作系统的图形界面工具 3. 应用程序 4. 方便用户在计算机上安装所有linux文件的程序 5. 用于监视和配置系统功能的网络和系统管理工具。 —- # 常用的linux命令 <strong>因为我用的是manjaro-linux，不同的发行版所用到的命令是不一样的。这些在这里也没什么好说的，因为我也是一个小白。</strong> <strong>我觉得每个人的私密工作一定要做好，不然谁都可以顺起你的电脑造起来，这就不太好了。</strong> </p>
+<ul>
+<li>passwd (更换用户的密码)</li>
+<li>su + 用户名 (切换用户)</li>
+<li>passwd -l + 用户名  (锁定用户)</li>
+<li>passwd -S + 用户名  (解锁)</li>
+<li>sl–小骚(小火车)</li>
+<li>cmatrix(代码)</li>
+<li>ls–是查看当前目录的所有文件</li>
+<li>df–查看硬盘的空间 参数(-k -m -g)</li>
+<li>du -sh +目录 (查看目录的大小)</li>
+<li>swapon (查看分区的大小)<br><strong>在Linux里一却都是文件，我想这句话对我们来说都不陌生了。</strong></li>
+<li>touch + 文件名 (创建文件)</li>
+<li>rm + 文件名 (删除文件)</li>
+<li>grep (在文件中查找你想查找的内容)-n +(文件名)</li>
+<li>grep -vn + 文件名 (显示在文件里没要查找的内容) </li>
+<li>-i(忽略大小写)</li>
+<li>-n(输出匹配的行号)</li>
+<li>-V(显示版本)</li>
+<li>-v(显示没匹配的内容)</li>
+<li>-o(只显示匹配的部分，不显示行号)</li>
+<li>-c(显示匹配的行的个数)</li>
+<li>-L(查询多文件时，只显示文件名)</li>
+</ul>
+<ol>
+<li>^(一行开始的标志)^big{匹配以big开头的行}</li>
+<li>$(一行结束的标志)$big{匹配以big结束的行}</li>
+<li>?(匹配任意一个字符)big?yet{在两个字符中间匹配任意一个字符}</li>
+<li>x{m}(重复x字符m次)x{5}匹配重复x字符5次的行</li>
+<li>x{m,}(至少m次x字符)x{5,}匹配5次以上x字符的行</li>
+<li>x{m,n}(m到n次的x字符)x{1,10}匹配1～10次x字符的行</li>
+<li>[a-g] (查找a~g的字符)</li>
+</ol>
+<ul>
+<li>格式   —    grep “^abc” 文件名</li>
+</ul>
+<hr>
+<h1 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h1><blockquote>
+<p>echo</p>
+<ol>
+<li>echo “你好帅啊“ &gt; a   //把输出的文字写进a文件里</li>
+<li>man ls &gt;&gt;a          //把ls的手册以追加的形式写进a文件里</li>
+<li>假如在主目录里没有b文件</li>
+<li>ls -l b 2&gt; a         //把错误信息写进a文件里</li>
+</ol>
+</blockquote>
+<ol start="5">
+<li>ls -l b 2&gt;&gt; a        //和上面的意思一样</li>
+</ol>
+<hr>
+<h1 id="比较文件"><a href="#比较文件" class="headerlink" title="比较文件"></a>比较文件</h1><blockquote>
+<p>diff</p>
+<ul>
+<li>-a (以文本的形式比较两个文件)</li>
+<li>-q (只输出两个文件是否有差异，不输出其它)</li>
+<li>-s (比较两个文件是否相同)</li>
+<li>diff -u (可以把两个文件的比较内容)</li>
+<li>test(123)        test1(123456)<br>//只是把test和test1文件的内容显示出来</li>
+<li>diff -u test test1 &gt; file<br>//把前面两个文件比较的内容写进file文件里</li>
+<li>patch -b test file<br>//把以补丁的形式把原先缺少内容的test文件补回到我们想看的样子<blockquote>
+<p>cmp</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h2 id="比较文件的命令，但一般用来比较文本文件，判断两个文件的不同之处，以及查看不同之处的位置"><a href="#比较文件的命令，但一般用来比较文本文件，判断两个文件的不同之处，以及查看不同之处的位置" class="headerlink" title="比较文件的命令，但一般用来比较文本文件，判断两个文件的不同之处，以及查看不同之处的位置"></a><strong>比较文件的命令，但一般用来比较文本文件，判断两个文件的不同之处，以及查看不同之处的位置</strong></h2><ul>
+<li>-l(显示两个比较文件每个不同点的字节号和字节数，前者十进制显示，后者八进制显示)</li>
+<li>-s(不显示错误信息退出)</li>
+<li>-v(显示版本信息)<blockquote>
+<blockquote>
+<blockquote>
+<p>comm</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>-1(显示文件1没有的内容)</li>
+<li>-2(显示文件2没有的内容)</li>
+<li>-3(文件1和文件2同时出现的内容不显示)</li>
+<li>-12(显示两个文件有的内容)</li>
+<li>-23(显示文件1有而文件2没有的内容)</li>
+<li>-123(什么内容都不显示)<br><strong>值得注意的是，comm比较的是排序的文件，显示出来的格式是以一行一行的形式输出的。</strong></li>
+</ul>
+<hr>
+<h1 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h1><p><strong>脚本是用户成功登录系统后启动，并始终作为用户与系统内核的交互接口。</strong></p>
+<ul>
+<li>系统都有一个默认的脚本，我们也可以在终端用find /bin/sh*命令查看我们有那几种脚本。</li>
+<li>我们也可以自定义文件的权限，以便实现文件的内容，简单点说就是脚本编程，通过改变文件的权限来把文件的实现。<h1 id="基本目录的解析"><a href="#基本目录的解析" class="headerlink" title="基本目录的解析"></a>基本目录的解析</h1><strong>基本上每台linux电脑都会有一个名为家的目录，在linux下的一切都是以文件的形式存放在目录下的，我们还可以通过更改文件的权限来把文件里的内容效果实现出来，这说的就有点远了，让我们回到刚刚的目录，我们都知道文件是存放在目录下面的，所以想想都知道目录的重要性了。</strong></li>
+<li>/ —         根目录</li>
+<li>bin/ —   存放必要的命令</li>
+<li>dev/ —   存放设备文件</li>
+<li>etc/ —   存放配置文件</li>
+<li>home/ —   主目录(存放用户的数据)</li>
+<li>lib/ —    存放必要的库</li>
+<li>mnt/ —    存放挂载的目录(一般为空)</li>
+<li>root/ —   超级用户的主目录</li>
+<li>proc/ —   虚拟目录(内存的映射)</li>
+<li>sbin/ —   存放用户经常使用的命令</li>
+<li>usr/ —    存放应用程序和文件(内存最大的目录) </li>
+</ul>
+<hr>
+<h1 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h1><p><strong>权限分为数字权限和隐藏权限</strong></p>
+<ol>
+<li>数字权限 —- 关键字— chmod</li>
+</ol>
+<ul>
+<li>权限分为可读，可写，可执行。数字表示分为4,2,1</li>
+<li>chmod 777  +文件名   更改文件的权限</li>
+</ul>
+<ol start="2">
+<li>隐藏文件</li>
+</ol>
+<ul>
+<li>关键字 — chattr<br><img src="/2019/06/04/Noteslinux1/chattr.png" alt="参数解析"></li>
+<li>chattr +i 文件名</li>
+<li>查看的命令 —-   lsattr +文件名</li>
+</ul>
+<hr>
+<h1 id="查找文件的命令"><a href="#查找文件的命令" class="headerlink" title="查找文件的命令"></a>查找文件的命令</h1><blockquote>
+<p>find<br><strong>最大范围的查找文件，你也可以用这个命令来查找任何你想找的文件</strong></p>
+<ul>
+<li>分为时间查找和文件大小查找和名字查找</li>
+</ul>
+<ol>
+<li>比如自己建立一个测试目录并名为Test/</li>
+<li>里面都是以t开头的文件名</li>
+<li>我们就是在这个目录下查找这些子文件</li>
+</ol>
+<ul>
+<li>find ./ -name t* -ls</li>
+<li>-cmin -10(十分钟更改过的文件)</li>
+<li>-ctime -10(十小时更改过的文件)</li>
+<li>-amin -10(十分钟存取的文件)</li>
+<li>-atime -10(十小时存取的文件)</li>
+<li>-size +10k(查找大小为10k的文件)</li>
+</ul>
+</blockquote>
+<h2 id="这里的用到了转义字符，不然系统会给我们报错的信息"><a href="#这里的用到了转义字符，不然系统会给我们报错的信息" class="headerlink" title="这里的用到了转义字符，不然系统会给我们报错的信息"></a><strong>这里的用到了转义字符，不然系统会给我们报错的信息</strong></h2><blockquote>
+<blockquote>
+<p>whereis<br><strong>用来看查找可执行程序和应用程序和手册</strong></p>
+<ul>
+<li>-b(只查找二进制文件)</li>
+<li>-B(在指定的目录下查找二进制文件)</li>
+<li>-f(使用-B参数，用来终止最后的目录)</li>
+<li>-u(查找不包含指定类型的文件)</li>
+</ul>
+</blockquote>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Test/" rel="tag"># Test</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/06/03/tar/" rel="prev" title="tar">
+      <i class="fa fa-chevron-left"></i> tar
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/06/05/Code/" rel="next" title="Code">
+      Code <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#管道符"><span class="nav-number">1.</span> <span class="nav-text">管道符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较文件"><span class="nav-number">2.</span> <span class="nav-text">比较文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#比较文件的命令，但一般用来比较文本文件，判断两个文件的不同之处，以及查看不同之处的位置"><span class="nav-number">2.1.</span> <span class="nav-text">比较文件的命令，但一般用来比较文本文件，判断两个文件的不同之处，以及查看不同之处的位置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SHELL"><span class="nav-number">3.</span> <span class="nav-text">SHELL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本目录的解析"><span class="nav-number">4.</span> <span class="nav-text">基本目录的解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件权限"><span class="nav-number">5.</span> <span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找文件的命令"><span class="nav-number">6.</span> <span class="nav-text">查找文件的命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这里的用到了转义字符，不然系统会给我们报错的信息"><span class="nav-number">6.1.</span> <span class="nav-text">这里的用到了转义字符，不然系统会给我们报错的信息</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">EvanShady</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EvanShady</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
