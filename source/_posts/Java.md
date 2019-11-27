@@ -1280,7 +1280,7 @@ class F{
 static
 - [ ] 由static定义的类方法，可以直接由类名直接调用，另外的就是static属性是一个共享的属性
 
-# java常用的类
+# 包装类
 `API(应用程序编程接口)`
 
 基本类型的包装类
@@ -1525,4 +1525,401 @@ public class Test{
 
 上面的程序主要是应对于大的数字，在int和long都无法容纳的时候就使用BigDecimal类型来进行操作，(结果自己动手)
 
-**当需要在ArrayList和HashMap中放东西的时候,你在这个时候使用基本数据类型是不能放进去的，因为容器里面都是放** <++>
+**当需要在ArrayList和HashMap中放东西的时候,你在这个时候使用基本数据类型是不能放进去的，因为容器里面都是放object的。** 
+
+```
+public class Test{
+    public static void main(String args[]){
+            Integer i=100;
+            Integer i1=new Integer(100);
+            Integer i2=Integer.valueof(1000);
+            System.out.println(i+","+i1+","+i2);
+    }
+}
+```
+
+
+```
+运行结果:
+100,100,1000
+```
+
+上面只是简单的用Integer类型来定义了三个不同方式Interger类型
+
+|方法名称|返回类型|功能说明|
+|--------|--------|--------|
+|byteValue|byte|返回Byte类的一个byte类型值|
+|compareTo(Byte test)|int|在数值上比较两个对象，如果相等返回0,如果调用的对象小于test,则返回一个小于零的值，否则大于零|
+|doubleValue|double|返回一个Byte类double值|
+|intValue|int|返回Byte类的一个int值|
+|parseByte(String str)|byte|将string类型转换成一个byte类型|
+|toString()|String|返回Byte类型的String值|
+|equalse(Byte test)||调用的对象值等于test对象返回true，否则返回false|
+|valueof(String str|byte x)|Byte对象|返回值为str或者x的Byte对象|
+
+```
+pubic class Test{
+    public static void main(String args[]){
+            Byte b=10;
+            Byte b1=100;
+            Byte b2=new Byte(b);
+            System.out.println(b.compareTo(b1));//两个对象比较,当参数对象小于当前对象时，返回的是大于0的数值，相反则小于0,相等则是返回0
+            System.out.println(b.compareTo(b2));//同上
+            String s="19";//将String转换成Byte类型
+            Byte byte=Byte.parseByte(s);
+            System.out.println(byte);
+            byte a=b.byteValue();//转换成基本数据类型byte
+            System.out.println(a);
+            int i=b.intValue();//同上
+            Double d=b.doubleValue();
+            String str=b.toString();
+            System.out.println(str);
+            System.out.println(b.equalse(b1));//这里比较的是对象的数值，而不是所谓的引用地址
+            Byte b3=Byte.valueof("127");
+            System.out.println(b3);
+
+    }
+}
+```
+
+```
+运行结果:
+-90
+0
+19
+10
+10.0
+10
+false
+127
+```
+
+在上面的程序中只是调用了一些java里面的方法来实现的，这些方法都是Byte类的基本使用方法，供我们在不同的需求下完成一些操作,对于equalse(两个对象值进行比较)
+
+
+```
+public class Test{
+    public static void main(String args[]){
+            String s="hello";//直接将字符串赋值
+            String s1="hello";
+            String s2=new String ("hello");//通过new关键来实例化对象,在堆内存中存放的内容
+            System.out.println("字符串s和s2的比较");
+            System.out.println("字符串的内容:"+s.equals(s2));
+            System.out.println("字符串的地址:"+s==s2);
+            System.out.println("s和s1的比较");
+            System.out.println(s==s1);
+    }
+}
+```
+
+```
+运行结果:
+字符串s和s2的比较
+字符串的内容:true
+字符串的地址:false
+s和s1的比较
+true
+```
+
+**对于地址我们可以这样来理解，先把String当作是一个类来看待，类的对象是引用传递的,引用传递的最后结果是，不同的栈内存存放的是同一个堆内存的地址值** 
+
+在java中，string是一个类来的，类的名称是在栈内存里面的，但字符串的内容是在堆内存里的。上面的程序是利用String类的方法来进行将字符串里的内容进行比较的，上面的==则是利用String类对象的引用传递来进行比较的,在java中，要是字符串是采取直接赋值的方式来完成的，如s,那么在首一次定义字符串的时候，会自动在堆内存之中定义一个新的字符串常量"hello",如果在后面还跟着其它字符串对象(s1)，采取的还是直接赋值的方式而且内容还是一样的话，那么就不会开辟新的字符串变量，而是指向已有的字符串内容(s),所以最后面输出的是true,这种设计被称为共享设计模式。
+
+手工入池
+```
+public class Test{
+    public static void main(String args[]){
+            String s="hello";
+            String s1=new String ("hello").intern();//添加了手动入池的方法
+            System.out.println("添加了手动入池的方法:");
+            System.out.println(s==s1);
+            String s2=new String ("hello");
+            System.out.println("没有添加手动入池的方法");
+            System.out.println(s==s2);
+
+    }
+}
+```
+
+```
+运行结果:
+添加了手动入池的方法:
+true
+没有添加手动入池的方法
+false
+
+```
+手工入池的作用是，供其他内容相同的字符串对象使用
+---
+
+
+> 字符串和字符数组的转换
+
+```
+public class Test{
+    public static void main(String args[]){
+        String s="hello";
+        System.out.println("按照指定的下标输出字符串的内容:");
+        System.out.println(s.charAt(0));String类里面的方法
+        char []chars=s.toCharArray();//把字符串转换成char类型的数组
+        for(int i=0;i<c.length;i++){
+            System.out.print(c[i]);
+            c[i]-=32;
+        }
+        System.out.println();
+        for(char c:chars){
+        System.out.print(c);
+        }
+        System.out.println();
+        System.out.println("将部分数组的内容生成为字符串:"+new String(chars,2,3));//这个方法你也可以不给指定的位置，那样输出的就是整个字符串的内容
+
+    }
+}
+```
+
+```
+运行结果:
+按照指定的下标输出字符串的内容:
+h
+hello
+HELLO
+将部分数组的内容生成为字符串:LLO
+```
+
+上面的程序是先定义一个String类的并直接赋值，然后在声明一个char类型的数组，并把刚刚定义的字符串拆成char数组，然后进行打印和换成字符串内容都换成大写的，然后在把数组转换成字符串
+|方法|类型|描述|
+|----|----|----|
+|public String(char [] value)|构造|将收到的字符数组变为字符串|
+|pubilc String (char [] value,int a,int b)|构造|将部分字符数组变为字符串|
+|public char charAt(int index)|普通|返回指定的索引位置上的字符内容|
+|public char [] toCharArray|普通|将字符串变为字符数组|
+
+> 字符串和字节的转换
+```
+public class Test{
+    public static void main(String args[]){
+            String s="hello";
+            byte []bytes=s.getbytes();
+            for(int i=o;i<bytes.length;i++){
+            bytes[i]-=32;
+            }
+            System.out.println(new String (bytes));
+            System.out.println(new String (bytes,2,3))
+    }
+}
+
+```
+
+```
+运行结果:
+HELLO
+LLO
+```
+
+
+|方法|类型|描述|
+|----|----|----|
+|public String (byte [] bytes)|构造|将全部字节数组变为字符串|
+|public String (byte [] bytes,int a,int b)|构造|将部分字节数组变为字符串|
+|public byte [] getBytes()|普通|将字符串变为字节数组|
+|public byte [] getBytes(String charseName)throws|普通|将字符串转码|
+
+> 字符串查找
+
+|方法|类型|描述|
+|----|----|----|
+|public boolean contains(String s)|普通|判断一个字符是不是在字符串里|
+|public int indexof(String s)|普通|由前向后查找字符，找不到就返回-1|
+|public int lastIndexof(String s)|普通|从最后面查找字符，找不到就返回-1|
+|public boolean startswith(String s)|普通|判断是不是以指定的字符开头|
+|public boolean endswith|普通|判断是不是以指定的字符结尾|
+|public String replaceAll(String s,String a)|普通|把指定的字符全部换成指定的字符|
+|public String replzceFirst(String s,String a)|普通|把指定的第一个字符换成指定的字符|
+
+```
+public class Test{
+    public static void main(String [] args){
+            String s="hello";
+            if(s.contains("o")){
+            System.out.println("查找成功");
+            }
+            if(s.indexof("l")!=-1){
+            System.out.println("字符l的下标为:"+s.indexof("l"));
+            }
+            if(s.indexof("l",3)){
+            System.out.println("字符l的下标为:"s.index("l",3));
+            }
+            if(s.laseIndexof("o",4)!=-1){
+            System.out.println("字符o的下标为:"s.laseIndexof("o"));
+            }
+            System.out.println(s.startswith("h"));
+            System.out.println(s.endswith("o",4));
+            System.out.println(s.repalceAll("l","-"));
+            System.out.println(s.repalceFirst("o","!"));
+    }
+}
+```
+
+```
+运行结果:
+查找成功
+字符l的下标为:2
+字符l的下标为:3
+字符o的下标为:4
+true
+true
+he--o
+hell!
+```
+
+> 截取字符串的内容
+
+```
+public class Test{
+    public static void main(String args[]){
+            String str="hello";
+            System.out.println(str.substring(2));//从下标2的位置开始直到末尾打印
+            System.out.println(str.sunstring(2,4));
+
+    }
+}
+```
+
+```
+运行结果为:
+llo
+ll
+
+```
+
+上面的程序是，通过方法来获得字符串的部分内容，如果这个方法里只有一个参数的时候，下标的位置是你给的参数的位置，两个参数的时候，下标的位置会被默认为0,而不是你给出的那个参数作为下标
+
+> 字符串拆分
+
+|方法|类型|描述|
+|----|----|----|
+|public String [] spilt(String test)|普通|按照指定的字符来拆分|
+|public String [] spilt(String test,int a)|普通|将字符串拆分为指定元素个数的字符数组|
+
+```
+public class Test{
+    public static void main(String [] args){
+            String str="hel lo, world!";
+            String []str1=str.spilt(" ");
+            for(String s1:str1){
+            System.out.println(s1);
+            }
+            String [] str2=str.spilt(" ",3);
+            for(String s2:str2){
+            System.out.println(s2);
+            }
+    }
+}
+```
+
+```
+运行结果:
+hel
+lo, world!
+hel
+lo,
+world!
+```
+
+> 其它方法
+
+```
+public class Test{
+    public static void main(String [] args){
+        String str="hello, world!";
+        System.out.println(str.length());
+        if(!str.isEmpty){
+        System.out.println(str.toUpperCase());//把字符串的内容换成大写，相反的小写是toLowCase()
+        }
+    }
+}
+```
+
+```
+12
+HELLO,WORLD
+
+```
+
+
+
+上面的程序是实现拆分字符串的,这个方法的返回值是一个String类的数组，你要先定义数组来接住这个方法的返回值，前一个方法是按照给的字符来直接拆分的，而第二个刚开始也是按照给的字符来拆分，但第二个参数的意义则是让拆分的字符串以n个字符串来输出
+
+# 引用传递
+- [ ] 堆内存是栈内存的一个子集
+- [ ] 栈内存是仅次与寄存器，栈内存里面的数据是共享的，但是其中数据的大小和生存期必须在运行前确定
+- [ ] 堆内存是运行时动态的分配的数据区，从速度看小于栈内存，堆内存里面的数据是不共享的，但数据的大小和数据里面的内容可以在运行时给予
+- [ ] new关键字是在运行时在堆内存中创建一个对象，每new一次都一定会创建一个对象，因为堆数据是不共享的
+
+**栈内存的数据共享,比如，int i=1;这时i和1都放在栈内存中，然后在int j=1;此时的j是在栈内存，然后计算机会在栈内存中查找有没有1这个数字，如果有就把j指向1，如果把j赋值为2,此时的j一样是在栈内存中，只不过是在栈内存中查找有没有2，如果没有则生成一个栈内存给2,然后再把j指向2。** 
+
+```
+public class Test{
+    public static void main(String [] args){
+        int i=1;
+        int j=1;
+        System.out.println(i==j);
+    }
+}
+```
+
+```
+true
+```
+
+上面的程序都在栈内存中定义一个变量i和j，一样的都指向了1,此时用==来判断地址是不是一样的，给的是true，如果把j赋值为2，然后在==，此时的答案是false，因为此时的栈内存是没有2这个数字的，只能在栈内存中重新再分配一个2,然后再把j指向2。
+
+
+```
+public class Test{
+        String name;
+        int age;
+        public void show(){
+        System.out.println(this->name+","+this->age);
+        }
+    public static void main(String [] args){
+        Test t1=new Test();
+        t1.name="小艾";
+        t1.age=10;
+        t1.show();
+    }
+}
+```
+
+```
+运行结果:
+小艾
+10
+```
+
+上面的类对象其实就是一个引用对象来的，new代表的是在堆内存中分配空间，在java中是没有指针的，但代替的就是引用数据类型，引用数据类型就类的引用，代表的是类的地址值，
+
+
+```
+public class Test{
+    String name;
+    int age;
+    public static void main(String [] args){
+    Test t1=new Test();
+    t1.name="小艾";
+    t1.age=18;
+    Test t2=t1;//引用传递
+    System.out.println("姓名:"+t2.name+",年龄:"+t2.age);
+        
+    }
+}
+```
+
+```
+运行结果:
+姓名:小艾,年龄:18
+```
+
+上面的程序先声明一个Test类对象并指向了Test，给Test类中的属性赋值，然后再声明一个t2并指向了t1(引用传递),然后再打印t2中的属性值。
+
+**所谓的引用传递说的是，一块堆内存空间，同时被多个栈内存所指向，引用传递的核心认识:不同的栈内存如果同时指向同一块堆内存之中，所做的修改将影响所有的栈内存** 
