@@ -3,7 +3,6 @@ title: Java
 date: 2019-09-19 10:37:00
 ---
 
-![终端运行的结果](Java/java0.png) 
 
 Write Once,Run Everywhere
  <!--more-->
@@ -261,7 +260,8 @@ public class test{
 public class test{
     public static void main(String args){
             int []numb=new int[]{10,23,41,6,11};//声明一个数组，并赋初值
-            int a=Randow rand=new Randow(3)+1;//生成随机数字，范围是1～4
+            Randow rand=new Randow();  
+            int a=rand.nextInt(4);//生成随机数字，范围是1～4
             for(int i=0;i<a;i++){//把随机数字的大小作为条件,并从一开始交换位置
                 int temp=numb[i];
                 numb[i]=numb[i+1];
@@ -1746,8 +1746,8 @@ public class Test{
             if(s.indexof("l")!=-1){
             System.out.println("字符l的下标为:"+s.indexof("l"));
             }
-            if(s.indexof("l",3)){
-            System.out.println("字符l的下标为:"s.index("l",3));
+            if(s.indexof("l",3)!=-1){
+            System.out.println("字符l的下标为:"s.index("l"));
             }
             if(s.laseIndexof("o",4)!=-1){
             System.out.println("字符o的下标为:"s.laseIndexof("o"));
@@ -1922,4 +1922,701 @@ public class Test{
 
 上面的程序先声明一个Test类对象并指向了Test，给Test类中的属性赋值，然后再声明一个t2并指向了t1(引用传递),然后再打印t2中的属性值。
 
-**所谓的引用传递说的是，一块堆内存空间，同时被多个栈内存所指向，引用传递的核心认识:不同的栈内存如果同时指向同一块堆内存之中，所做的修改将影响所有的栈内存** 
+**所谓的引用传递说的是，一块堆内存空间，同时被多个栈内存所指向，引用传递的核心认识:不同的栈内存如果同时指向同一块堆内存之中，所做的修改将影响所有的栈内存。** 
+
+```
+public class Test{
+    public static void main(String [] args){
+    Apple a=new Apple("小艾",18);
+    Apple a1=new Apple("小艾",18);
+    if(a.equalse(a1)){
+    System.out.println("true");
+    }else{
+    System.out.println("false");
+    }
+    if(a==a1){
+    System.out.println("true");
+    }else{
+    System.out.println("false");
+    }
+
+    }
+}
+class Apple{
+        String name;
+        int age;
+        Apple(String _name,int _age){
+        name=_name;
+        age=_age;
+        }
+        public Boolean equalse(Object o){
+        Apple a=this;
+        if(o instanceof){
+        Apple a1=(Apple)o;
+        if(a.name==a1.name&&a.age==a1.age){
+        return true;
+        }else{
+        return false;
+            }
+        }
+        return null;
+    }
+}
+```
+
+```
+运行结果:
+true
+false
+```
+上面的程序是利用方法来比较类的地址和中的属性是不是相等，第一个比较的是类的属性值是否相等，在这里我重写了类中的equsle方法来比较类的属性值，接着用==来比较类的地址值，在这里我声明类的对象的时候用的是关键字(new)所以类对象的地址值在这里是不相等的
+
+
+```
+public class Test{
+    public static void main(String [] args){
+        System.out.println("A.getA(0)");//调用的是你在类中重写的toString方法，而不是简单的打印方法，
+    }
+}
+class A{
+        String name;
+        private A(String _name){
+        this->name=_name;
+        }
+        private final A MAX =new A("男");//定义的类的常量来决定类的实例化对象
+        private final A MIN=new A("女")//同上
+        public static A getA(int i){
+                switch(i){
+                case 0:
+                return MAX;
+                case 1:
+                return MIN;
+                default :
+                return null;
+                }
+                public String tostring (){//在main方法中调用的是这个方法
+                return this->name;
+                }
+            }
+}
+```
+
+```
+运行结果:
+男
+```
+
+上面的程序是把类的构造方法的标识符设置为private，这就让我们没办法在类的外面进行实例化对象，只能在类的内部实现类的实例化，在这里只能通过静态来调用类的私有构造方法进行实例化，先在类里面定义两个不变的常量，然后再定义一个静态方法来确定调用的是常量是哪一个，然后再重写打印的方法来打印出类中的属性值,由于你在类中通过static和final定义了两个不同的类对象的实例化常量，也就是说static是全局的，不管你类外面定义了多少个类的对象，而你实例化的对象只有两个，这也是所谓的单设计模式
+
+# 包(package)
+```
+package demo.a;//包名
+class Apple{
+    String name;
+    Apple(String _name){
+    this->name=_name;
+    }
+    public void show(){
+    System.out.println("name");
+    }
+}
+package demo.b;//包名
+import demo.a.Apple;//导包
+public class Test{
+    public static void main(String [] args){
+        Apple a=new Apple("xiaoai");
+        a.show();
+    }
+}
+
+
+```
+
+```
+运行结果:
+xiaoai
+```
+
+上面程序只是简单的演示了怎样调用不同包中的类，在java，由于是面向对象的程序，特别是在后期维护的时候，我们都知道是很难的，我们不但可以通过调用不同的包来区分类名，更是可以为了让代码看起来美观一点，更重要的是它让你区分了
+
+# 异常处理
+
+```
+public class Test{
+    public static void main(String [] args){
+        try{
+        int []numb = new int[4];
+        numb[0]=1;
+        numb[1]=0;
+        int a=numb[0]/numb[1];
+        }catch(ArithmetiException e){
+        System.out.println("算法错误");
+        }finally{
+        System.out.println("此处一定会实现的");
+        }
+    }
+}
+```
+
+```
+运行结果:
+算法错误
+此处一定会实现的
+```
+
+
+**异常处理机制，有一定的格式(try--catch--finally)，try是用来异常的抛出，catch是用来捕获发生异常的对象，finally在程序是否会发生异常都会执行的语句段** 
+
+当异常发生时，通常可用两种方法来处理，一种是交给java默认的异常处理机制做处理，但这种处理方式，java通常只能输出异常信息，接着便是终止程序的运行(上面的就是java提供的异常处理机制)，另外一种是自行编写异常处理机制来处理异常的发生。
+
+> throws && throw
+
+```
+public class Test{
+    public static void main(String [] args){
+        try{
+        int [] numb =new int[3];
+        }catch(ArrayIndexOutOfBoundsExcepion ex){
+        System.out.println("下标错误");
+        ex.printStackTrace;//只是打印错误的信息，这里我就不写出来了，计算机里都有的
+        }
+    }
+    private static Add (int [] num,int b)throws ArrayIndexOutOfBoundsExcepion{//把抛出的对象返回给上一级
+        System.out.println("方法开始");
+        try{
+            num[b]=0;
+        }catch(ArrayIndexOutOfBoundsExcepion e){
+        throw e;
+        }finally{
+        System.out.println("方法结束");
+        }
+    }
+}
+```
+
+```
+运行结果:
+方法开始
+方法结束
+下标错误
+这里才打印错误的信息
+```
+
+>> 自定义异常类
+
+```
+public class Test{
+    public static void main(String [] args){
+        try{
+        throw new Add("自定义异常类");
+        }catch(Add a){
+        System.out.println(a);
+        }
+    }
+}
+class Add extends Exception(String name){
+        super(name);//调用Exception类的构造方法，存入异常信息
+}
+```
+
+```
+运行结果:
+自定义异常类
+```
+
+# java类集框架
+
+**java类集框架就是java对数据结构的一个大体上的封装** 
+
+泛型的本质就是将变量的类型参数化，也就是说所操作的数据类型被指定为一个参数。这种参数类型可以在类，接口和方法创建中，分别被称为泛型类，泛型接口，泛型方法。
+
+
+
+|接口|描述|
+|----|----|
+|Collection|能操作一组对象，它位于类集层次结构的顶层|
+|List|扩展Collection支持处理序列|
+|Set|扩展Collection支持处理集合，集合元素必须唯一|
+|SortecSet|扩展Set支持处理排序集合|
+
+> ArrayList
+
+```
+public class Test{
+    public static void main(String [] args){
+        ArrayList<String> ai=new ArrayList<>();
+        ai.add("a");
+        ai.add(1,"b");//指定下标的位置来进行赋值
+        ai.add("c");
+        ai.add("d");
+        System.out.println(ai);
+        ai.remove("a");
+        ai.remove(1);
+        System.out.println(ai);
+    }
+}
+```
+
+```
+运行结果:
+[a,b,c,d]
+[c,d]
+```
+
+上面的程序是利用泛型的机制来定义一个动态的数组，利用ArrayList里面的方法来实现一些操作
+
+```
+public class Test{
+    public static void main(String [] args){
+        ArrayList<Integer> ai=new ArrayList<>();
+        ai.add(10);
+        ai.add(1,20);//指定下标的位置来进行赋值
+        Object o=ai.toArray();
+        int sum=0;
+        for(int i=0;i<o.length;i++){
+            sum+=(Integer)o[i];
+        }
+        System.out.println(sum)
+    }
+}
+```
+
+```
+运行结果:
+30
+```
+
+上面的程序和在上一个程序的基础上多做了一个和的操作，先是声明一个类集然后在利用类里面的方法来进行赋值，值得注意的是这个类集的类型是Object类型，所以要声明一个Object类型的数组来转换成普通数组，然后再做和的操作。
+
+>> LinkedList
+
+```
+public class Test{
+    public static void main(String [] args){
+        LinkedList<String>ai=new LinkedList<>();
+        ai.add("a");
+        ai.add(1,"b");
+        ai.add("c");
+        ai.add("d");
+        ai.addFirst("A");
+        ai.addLast("Z");
+        System.out.println(ai);
+        ai.remove("a");
+        ai.remove(1);
+        ai.removeFirst();
+        ai.removeLast();
+        ai.set(0,AB);
+        System.out.println(ai);
+        Object o=ai.get(0);
+        ai.set(0,(String)o+"CD");
+        System.out.println(ai)
+    }
+}
+```
+
+```
+运行结果:
+[A,a,b,c,d,Z]
+[c,d,]
+[AB,d]
+[ABCD,d]
+```
+
+上面的程序声明了一个不同于上一个类集名字的类集，看的出来这个类集添加了更多方法来供我们使用，值得注意的是最后Set方法，这个方法可以重新设置指定的下标位置的参数，也可以给指定的下标的基础上设置元素的值
+
+>>> 矢量
+
+```
+public class Test{
+    public static void main(String [] args){
+        Vector<String>ai=new Vector<>();//声明一个矢量String类型的变量。
+        ai.add("a");//往矢量里添加元素
+        ai.add(1,"b");
+        ai.add("c");
+        ai.add("d");
+        Enumeration <String> rn =ai.elements();//声明一个枚举String类型的变量并指向刚刚的矢量对象
+        while(rn.hasMoreElement()){//判断枚举对象是否有元素
+        System.out.println(rn.nextElements());//输出枚举对象里面的元素
+        }
+    }
+}
+```
+
+```
+运行结果:
+a
+b
+c
+d
+```
+上面的程序是利用矢量的方法和枚举的方法来实现对对象中的元素的遍历
+
+
+```
+public class Test{
+    public static void main(String [] args){
+            Vector<String> ai=new Vector<>();//声明一个矢量String类型的变量。
+            ai.add("a");
+            ai.add("b");
+            ai.add("c");
+            ai.add("d");
+            Iterator<String> iterator=ai.iterator();//声明一个迭代器的对象，并指向矢量的对象
+            while(iterator.hasNext){//判断迭代器里是否有元素
+                System.out.println(iterator.next);//输出迭代器里面的元素
+            }
+    }
+}
+
+```
+
+上面的程序是利用矢量的方法来创建一个矢量和迭代器方法的使用来对矢量里面的元素遍历
+
+
+>>>> Arrays
+
+```
+public class Test{
+    public static void main(String [] args){
+        int []numbs={1,21,20,10,5};
+        Arrays.sort(numbs);
+        for(int i:numbs){
+        System.out.print(i+",");
+    }
+        System.out.println("请输入你要查询的数字");
+        Scanner scanner=new Scanner(System.in);
+        int a=scanner.nextint();
+        int b=Arrays.binarySearch(numbs,a);//二分查找数字，返回的是数字在数组中的下标的位置
+        if(b>=0){
+        System.out.println(a+"在数组中第"+(b+1)+"个元素");
+        }else{
+        System.out.println("-1");
+        }
+    }
+}
+```
+
+```
+运行结果:
+1,5,10,20,21,
+请输入你要查询的数字
+10在数组中第3个元素
+```
+
+|方法|类型|描述|
+|----|----|----|
+|static int binarysearch(int []a ,int b)|静态|使用二分搜索法，来查询在指定的数组里面查找给出的数字，要是数组中有这个数字，返回的是这个数字的下标，没有就返回负数，前提是数组要先进行排序|
+|static int[] copyOf(int [] a,int length)|静态|复制指定的数组，给出的变量是要赋值数组的长度，默认的是整个数组|
+|static boolean equalse(int[]a,int [] b)|静态|比较指定的两个数组里面的内容|
+|static fill(int []a ,int b)|静态|将指定的b变量分配给指定的数组的每个元素|
+|static void sort(int []a)|静态|将指定的数组进行升序|
+|static String toString(int [] a)|静态|将指定的数组转换成字符串数组|
+
+
+>>>>> 比较器
+
+**如果要实现在类里的属性进行排序的话，就要使用Comparable接口，并覆写里面的compareTo方法。此方法返回的是int类型的(大于:1,小于:-1,相等:0)** 
+
+```
+public class Test{
+    public static void main(String [] args){
+        List<Book> ai=new ArrayList<>();//声明一个List对象
+        ai.add(new Book("java",20));//往List里面添加类的对象作为元素
+        ai.add(new Book("java1",15));
+        ai.add(new Book("java2",30));
+        ai.add(new Book("java3",8));
+        Object ob=ai.toArray();//利用toArray方法将List中元素转换成一个数组
+        Arrays.sort(ob);//对数组进行排序
+        System.out.println(Array.toString(ob));//将数组中的元素转换成字符串来输出
+    }
+}
+class Book implements Comparable <Book>{
+        private String name;
+        private int val;
+        public Book(String _name,int _val){
+        this->name=_name;
+        this->val=_val;
+        }
+    public String toString(){
+            return this.name+this->val;
+    }
+    public int compareTo(Book book){
+        if(this->val>book.val){
+        return 1;
+        }else if(this->val<book.val){
+        return -1;
+        }else{
+        return 0;
+        }
+    }
+
+}
+
+```
+
+上面的程序是利用接口Comparable中的comparableTo方法来实现对对象中的属性值的比较，然后在利用Object类型的数组将声明的列表类型的ai通过自身的toArray()转换成数组,然后在调用重写的排序方法，最后在利用重写的toString方法来打印出对象里面的属性值。
+
+> HaseSet类(散列)&&TreeSet类
+
+这两个接口都并不像List接口对Collection接口进行了大量的扩充，而是完整的继承下了Collection接口。
+
+```
+public class Test{
+    public static void main(String [] args){
+        HaseSet <String> ai=new HaseSet<>();
+        ai.add("z");
+        ai.add("b");
+        ai.add("v");
+        ai.add("i");
+        System.out.println(ai);
+        TreeSet<String> al=new TreeSet<>();
+        al.add("z");
+        al.add("b");
+        al.add("v");
+        al.add("i");
+        System.out.println(al);
+
+    }
+}
+```
+
+```
+运行结果:
+[b,v,i,z]
+[b,i,v,z]
+```
+
+上面的程序是声明一个散列集合和树集合来调用其中的add方法来在类中放入元素，然后在打印元素，重要的是三列集合的存入元素的顺序是不一样的，而树集合的顺序是以升序的结果来存入的
+
+# 迭代器(Iterator)
+- [ ] 通过调用类集的iterator()方法来获得类集的迭代方法
+- [ ] 建立一个调用hasNext()方法的循环，只要hasNext返回的是true就可以进行迭代
+- [ ] 在循环中通过调用next()方法来遍历
+
+> 双向迭代器
+
+```
+public class Test{
+    public static void main(String [] args){
+        ArrayList<String> ai=new ArrayList<>();
+        ai.add("hello");
+        ai.add("world");
+        Iterator iterator=ai.iterator;
+        while(iterator.hasNext()){
+        System.out.print(iterator.next());
+        }
+        ListIterator list=ai.listiterator();//反向输出数组
+        while(list.hasNext()){
+            Object ob=list.next();
+            list.set(ob+"+");
+        }
+        System.out.println("将列表反向输出");
+        while(list.hasPrevious()){
+                Object ob=list.previous();
+                System.out.print(ob);
+        }
+    }
+}
+```
+
+```
+运行结果:
+[hello,world]
+world+hello+
+```
+
+上面的程序是利用迭代器来实现的一些操作，第一个，先是声明一个类集，然后再放进迭代器中，然后在利用迭代器中的方法来实现遍历，第二个，在声明一个Listiterator类型的对象来让类集的对象中的元素放在迭代器中，然后再利用循环和方法来确定迭代器中是否为空，在循环中定义一个Object类型的对象来存放迭代器中的元素，然后再利用set方法来设置迭代器中的元素，关于反向输出，也是利用迭代器中的方法来实现的。通过hasPrevious方法来确定迭代器的元素是否存在，最后在声明一个Object类型的变量来接住迭代器中的previous方法中的反向元素，然后就是输出。
+
+|方法|描述|
+|----|----|
+|hasNext()|判断迭代器中是否有元素|
+|next|输出迭代器中的元素|
+|hasprevious|判断是否有存在前一个元素，判断是否在最后一个元素|
+|previous|以反向的形式输出迭代器中的元素|
+
+
+# 映射
+
+```
+public class Test{
+    public static void main(String [] args){
+        ArrayList<Book> array=new ArrayList<>();
+        array.add(new Book("java",10));
+        array.add(new Book("java2",1));
+        array.add(new Book("java3",5));
+        array.add(new Book("java4",20));
+        Object [] object=array.toArray();
+        Arrays.sort(object);//数组的排序
+        System.out.println(Arrays.toString(object));//重写的打印
+    }
+}
+class Book implements Comparable<Book>{
+    private int val;
+    private String name;
+    public Book(String _name,int _val){
+        this->name=_name;
+        this->val=_val;
+    }
+    public int compareTo(Book book){
+        if(this->val>book.val){
+        return 1;
+        }else if(this->val<book.val){
+        return -1;
+        }else{
+        return 0;
+        }
+    }
+    public String tostring(){
+    return this->name+this->val;
+    }
+}
+```
+
+```
+运行结果:
+java2 1
+java3 5
+java 10
+java4 20
+```
+
+上面的程序是利用Compareable类中的compareTo经刚刚定义的过重写来实现对类中的属性来做比较，然后再重写一下toString方法来进行打印类中的属性，先在主方法里面定义一个ArrayList类型的数组，然后再利用刚刚重写额compareTo方法来实现对类中的属性做比较，然后再定义一个Object类型的数组来接住ArrayLIst类型的数组利用(toArray)方法来实现，然后就是利用Arrays类中的排序方法，最后就是调用你重写的toString方法来打印就行了。
+
+```
+pubic class Test{
+    public static void main(String [] args){
+            TreeSet <String> ts=new TreeSet<>(new Book());
+            ts.add("F");
+            ts.add("Z");
+            ts.add("Y");
+            ts.add("A");
+            Iterator<String> it=ts.iterator();
+            while(it.hasNext()){
+            System.out.println(iter.Next());
+            }
+    }
+}
+class Book implements Comparator<Object>{
+    public int compareTo(Object a,Object b){
+        String astr,bstr;
+        astr=(String)a;
+        bstr=(String)b;
+        return bstr.comparTo(astr);
+    }
+    public Book(){}
+}
+```
+
+```
+运行结果:
+Z
+Y
+F
+A
+```
+
+上面的程序是利用Comparator类中的comparator方法来对字符串的比较的实现，字符串的反向输出
+
+```
+public clss Test{
+    public static void main(String [] args){
+        TreeMap<String ,Integer> tm=new TreeMap<>(new Book());//直接把你自己重写的compare类的方法来放在映射里
+        tm.put("z 张三",new Integer(100));
+        tm.put("y 张三",new Integer(100));
+        tm.put("d 张三",new Integer(100));
+        tm.put("a 张三",new Integer(100));
+        Set<Map.Entry<String,Integer>>set=tm.entrySet();//得到映射的视图
+        Iterator <Map.Entry<String,Integer>>iterator=set.iterator();//通过迭代器来对映射里的元素放在迭代器里面
+        while(iterator.hasNext){//判断迭代器里是否有元素
+            Map.Entry<String,Integer>me=iterator.next();//通过方法得到映射元素
+            System.out.println(me.getKey()+":"me.getValue)//映射的主键和值
+        }
+        Integer val=tm.get("z 张三").intValue();//通过主键来修改主键的值
+        System.out.println("z 张三的最新工资:"+(val+2000));
+
+    }
+}
+class Book implements Comparator<Object>{
+        public Book(){}
+        public int compare(Object a,Object b){
+            int k;
+            String astr=(String)a;
+            String bstr=(String)b;
+            // return astr.compateTo(bstr);//这句语句的结果跟下面返回的语句是一样的
+            k=astr.compateTo(bstr);
+            if(k==0){
+            return astr.compateTo(bstr);
+            }else{
+            return k;
+            }
+        }
+}
+```
+
+```
+运行结果:
+a 张三 100
+d 张三 100
+y 张三 100
+z 张三 100
+z 张三的最新工资: 2100
+
+
+```
+
+上面的程序是利用键的映射在利用Compareator类里的方法(compare)来实现对类的属性做比较的，重要的是在能在映射中做比较
+
+```
+public class Test{
+    public static void main(String []args){
+        Hashtable<String,Integer> tm=new Hashtable<>();
+        tm.put("one",1);
+        tm.put("two",2);
+        tm.put("three",3);
+        Integer i=tm.get("three").intValue();
+        if(i!=null){
+        System.out.println("three:"+i)
+        }
+    }
+}
+```
+
+```
+运行结果:
+three:3
+```
+
+只是简单的定义了一个哈希映射，通过方法来设置主键和值，然后载通过方法来得到对应主键的值
+
+```
+public class Test{
+    public static void main(String [] args){
+            List<Integer>tm=new ArrayList<>();
+            int []a={10,5,8,11};
+            for(int i=0;i<a.length;i++){
+            tm.add(a[i]);
+            }
+            Collections.sort(tm);
+            for(int i=0;i<a.length;i++){
+            System.out.print(tm.get(i)+",");
+            }
+            System.out.println("倒序");
+            System.out.println();
+            Collections.reverse(tm);
+            System.out.println(tm);
+    }
+}
+```
+
+```
+运行结果:
+5,8,10,11
+[11,10,8,5]
+```
+
+
+**collection是一个集合的通用接口。而collections是一个类，这个类不能被实例化，它里面的方法是static类型的，也就是说只能通过类名来调用里面的方法。** 
+
+- [ ] List接口扩展了Coolection接口，里面的内容是允许重复的，List接口常用的子类是ArrayList和Vection，在开发中ArrayList性能比较高，属于异步处理，而Vection性能较低，属于同步处理
+- [ ] Collection和Collections:Collection是集合操作的接口，而Collections是一个类，专门提供了各个集合接口的操作方法
+- [ ] Collection和Mao的区别:1.Coolection之中保存数据的目的是输出2.Map之中保存数据的目的是为了查找
+
