@@ -170,61 +170,121 @@ password:
 // 接下来我们就可以直接使用命令来做我们想做的一些基本操作了
 // 显示数据库
 show databases;
-
 ![数据库显示](mysql/mysql0.png) 
 
 // 创建你自己的数据库
-
 create database xiaogu(数据库名);
 
 // 显示一下数据库
-
 show databases;
-
 ![创建数据库的显示](mysql/mysql1.png) 
 
 // 删除自己创建的数据库
-
 drop database xiaogu;(数据库名)
 
 show databases;
-
 ![删除自己创建的数据库](mysql/mysql2.png) 
 
 use xiaogu(更换数据库)
-
 ![更换数据库](mysql/mysql3.png) 
 
 // 接下来是对表进行操作了
-
 create table xsb(id int(11)not null,name varchar(3),qq int(11));
 
 desc xsb;
 
 insert into xsb values(214242,'小灰',24441444);
 
-select * from xsb;
+select * from xsb;// 将列出表里的所有属性的参数
+select * from xsb limit 1;// 将表里的所有属性的参数值限制只输出一行
+select distinct name from tablename; //将列出表里的属性名的不同参数
 
 ![表的操作](mysql/mysql4.png) 
 
 //更改表名
-
 rename table xsb to 学生表;
 
 ![更改表名](mysql/mysql5.png) 
 
 // 在表里添加参数
-
 alter table xsb add phone int(11);
 
 // 在表里修改参数
-
 alter table xsb change id _id int(11);
 
 // 在表里删除参数
 
 alter table xsb drop id;
 
-qeqee|eqeqeq|
-|------|------|
-|<++>|<++>|
+// 删除表里的主键
+alter table (tablename) drop primary key;
+
+// 恢复表里的主键;
+alter table (tablename) add primary key (表里的主键属性名)
+
+// 先创建表格
+create table test(name char not null,id int not null auto _ increment,
+primary key (id);
+
+// 删除表里的主键,先删除表里的自动增长列
+alter table test modify id int;
+
+// 现在才能删除表里的主键
+alter table test drop primary key;
+
+// 恢复表里的主键;
+alter table (tablename) add primary key (表里的主键属性名)
+
+**创建一个表来进行演示** 
+
+create table test (name char not null,id int not null primary key,phone int not null);
+
+insert into table test values ('笑话',1,110);
+
+
+# select 
+
+// 查看表里全部属性值(test/表)
+select * from test;
+
+// 查看表里指定的属性值(id)
+select id from test;
+
+// 以排序的方式来输出全部属性值(order by(默认的排序方式是自动排序))
+select * from test order by id;
+
+// 以逆序的方式输出全部属性值
+select * from test order by id desc;
+
+// 以排序的方式限制的输出结果(where(限制))
+select * from test where id!=0 order by id;
+
+// 以排序的方式输出id不为1,5的表里所有的属性值
+select * from test where id not in (1,5) order by id;
+
+## 通配符(% _ )
+* 前面的介绍都是在已知值进行搜索的,在很多情况下我们都是在不知道属性值的情况下来寻找相应的字段
+* 通配符是用来匹配值的一部分的特殊字符
+* 是由字面值和通配符或两者组合构成的搜索条件
+
+// (%)它将匹配数字前面或后面的多个字符
+select (属性值) from (表名) where (属性) like '%';
+
+// ( _ )它只匹配属性值的一个元素
+select (属性值) from (表名) where (h属性值) like ' _ ';
+
+- [ ] 不要过度使用通配符，如果其他操作符能达到相同的目的，应该使用其他操作符
+
+- [ ] 在确实需要通配符时，除非绝对有必要，否则不要把它们用在搜索模式的开始处，搜索起来是最慢的
+
+- [ ] 仔细注意通配符的位置，如果放错了地方可能返回的不是想要的结果
+
+**总之，通配符是一种及其重要和有用的搜索工具，以后我们会经常用到**
+
+### 正则表达式
+
+// 找到phone属性值为1在最前面的id和name
+
+select id ,name from test where phone regexp '1.';
+
+* 上面的句子和like '1%'的输出格式是一样的
